@@ -21,7 +21,7 @@ CREATE TABLE posts (
     posts_image VARCHAR,
     posts_text VARCHAR,
     comments VARCHAR,
-    hashtags VARCHAR,
+    hashtags Int REFERENCES hashtags(id),
     posts_at TIMESTAMP,
     likes Int REFERENCES followers(id)
    
@@ -56,8 +56,8 @@ DROP TABLE IF EXISTS hashtags;
 
 CREATE TABLE hashtags (
     id SERIAL PRIMARY KEY,
-    posts Int REFERENCES posts(id),
-    hashtags_timestap TIMESTAMP
+    post_hashtags Int REFERENCES posts(id)
+    
 );
 
 INSERT INTO users(fullname, username, email, profile_pic) VALUES
@@ -66,7 +66,7 @@ INSERT INTO users(fullname, username, email, profile_pic) VALUES
    ('Ashya Manning','ashyam', 'ashyamanning@pursuit.org', 'https://qph.fs.quoracdn.net/main-qimg-217015358349186e0e382cb15c5d7c63'),
    ('Shawn Quran','shawnq', 'shawnq@pursuit.org', 'https://s3.amazonaws.com/images.seroundtable.com/google-social-knowledge-1561549945.jpg');
 
-INSERT INTO hashtags (id, posts)
+INSERT INTO hashtags (id, post_hashtags)
    VALUES 
    (1, 'whatchaulooking@'),
    (1, 'possessdog'),
