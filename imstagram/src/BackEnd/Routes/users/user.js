@@ -1,6 +1,10 @@
-const users = require('express').Router();
-const {createUser} = require('../../QueriesAll/users')
+const user = require('express').Router();
+const {createUser, allUsers, deleteUser, getUser} = require("../../QueriesAll/users")
 
-users.post('/', createUser)
+user.post("/", createUser)
+user.get("/", allUsers)
+user.delete("/:id", deleteUser)
+user.get("/:id", getUser)
 
-module.exports = users;
+
+module.exports = user;
