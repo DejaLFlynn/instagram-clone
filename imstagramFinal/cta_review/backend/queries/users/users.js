@@ -1,8 +1,10 @@
-const db = require("../DB/db");
+const db = require("../../db/index");
 
 const createUser = async (req, res, next) => {
+  
+  req.body.id = req.user.id ;
     try {
-        const users = await db.one(
+        await db.one(
           "INSERT INTO users (id, fullname, username, profile_pic, email) VALUES(${id}, ${fullname}, ${username}, ${username}, ${profile_pic}, ${email}) RETURNING *",
           req.body
           
@@ -51,4 +53,5 @@ const deleteUser = async (req, res, next) => {
         next(err);
     }
   };
-module.exports = { createUser, allUsers, deleteUser , getUser};
+module.exports = { createUser, allUsers, deleteUser , getUser
+};
