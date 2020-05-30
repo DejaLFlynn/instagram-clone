@@ -4,6 +4,11 @@ CREATE DATABASE imstagram_db;
 \c imstagram_db;
 
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS  posts;
+DROP TABLE IF EXISTS likes;
+DROP TABLE IF EXISTS followers;
+DROP TABLE IF EXISTS follows;
+DROP TABLE IF EXISTS hashtags;
 
 CREATE TABLE users (
     id serial PRIMARY KEY,
@@ -13,50 +18,47 @@ CREATE TABLE users (
     email VARCHAR UNIQUE
 );
 
-DROP TABLE IF EXISTS  posts;
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
-    user_id Int REFERENCES users(id) ON DELETE CASCADE,
+    user_id Int REFERENCES users(id),
     posts_image VARCHAR,
     posts_text VARCHAR,
     comments VARCHAR,
-    hashtags Int REFERENCES hashtags(id),
-    posts_at TIMESTAMP,
-    likes Int REFERENCES followers(id)
+    posts_at TIMESTAMPTZ DEFAULT Now(), 
+    posts_hashtag TEXT
+    
    
 );
 
-DROP TABLE IF EXISTS likes;
 
 CREATE TABLE likes (
     id SERIAL PRIMARY KEY,
     posts_id Int REFERENCES posts(id) ON DELETE CASCADE,
-    likes_timestap TIMESTAMP,
+    likes_timestap TIMESTAMPTZ DEFAULT Now(), 
     followers_likes Int REFERENCES followers(id)
 );
 
-DROP TABLE IF EXISTS followers;
 
 CREATE TABLE followers (
     id SERIAL PRIMARY KEY,
-    user_id Int REFERENCES users(id) ON DELETE CASCADE,
-    followers_timestap TIMESTAMP
+    users_id Int REFERENCES users(id) ON DELETE CASCADE,
+    followers_timestap TIMESTAMPTZ DEFAULT Now() 
+
 );
 
-DROP TABLE IF EXISTS follows;
 
 CREATE TABLE follows (
     id SERIAL PRIMARY KEY,
-    user_id Int REFERENCES users(id) ON DELETE CASCADE,
-    following_timestap TIMESTAMP
+    users_id Int REFERENCES users(id) ON DELETE CASCADE,
+    following_timestap TIMESTAMPTZ DEFAULT Now() 
 );
 
-DROP TABLE IF EXISTS hashtags;
 
 CREATE TABLE hashtags (
     id SERIAL PRIMARY KEY,
-    post_hashtags Int REFERENCES posts(id)
+    posts_id Int REFERENCES posts(id),
+    hashtags_name TEXT
     
 );
 
@@ -65,8 +67,13 @@ INSERT INTO users(fullname, username, email, profile_pic) VALUES
    ('Nílber Remón', 'nilberr', 'nilberremon@pursuit.org', 'https://i1.sndcdn.com/artworks-000200690435-zz758s-t500x500.jpg'),
    ('Ashya Manning','ashyam', 'ashyamanning@pursuit.org', 'https://qph.fs.quoracdn.net/main-qimg-217015358349186e0e382cb15c5d7c63'),
    ('Shawn Quran','shawnq', 'shawnq@pursuit.org', 'https://s3.amazonaws.com/images.seroundtable.com/google-social-knowledge-1561549945.jpg');
+INSERT INTO posts(user_id, posts_image, posts_text, comments) VALUES
+(1, 'cat', 'https://static.boredpanda.com/blog/wp-content/uploads/2019/11/cat-fluffy-squirrel-tail-bell-fb.png', 'omg hes so fluffy'),
+(2, 'fruit', 'https://cdn2.bigcommerce.com/n-dvzvde/ea1i3p/products/232/images/424/Pineapple_Google_Search__15964.1397342899.386.513.png?c=2', 'cant wait to devour'),
+(3, 'burger', 'https://i.ytimg.com/vi/dKjtVqLLLR0/hqdefault.jpg', 'not sharing'),
+(4, 'gremlins', 'https://news.toyark.com/wp-content/uploads/sites/4/2018/11/Ultimate-NECA-Gremlin-Figure-020.jpg', 'my favorites');
 
-INSERT INTO hashtags (id, post_hashtags)
+INSERT INTO hashtags (posts_id, hashtags_name)
    VALUES 
    (1, 'whatchaulooking@'),
    (1, 'possessdog'),
@@ -76,66 +83,42 @@ INSERT INTO hashtags (id, post_hashtags)
    (3, 'OMG'),
    (4, 'funny'),
    (4, 'cute'),
-   (5, 'wtf'),
-   (5, 'mymomdeadlystare'),
-   (6, 'asktodoovertime'),
-   (7, 'wtf'),
-   (7, 'whereshisneck'),
-   (8, 'whenfridayishere'),
-   (9, 'election'),
-   (9, 'biden'),
-   (9, 'fail'),
-   (10, 'itshandled'),
-   (11, 'whogotthebestshimmy?'),
-   (12, 'meafterthesocialmediaproject?'),
-   (13, 'itsmybirthday'),
-   (13, 'vacayfromthekids'),
-   (12, 'afterfixedabug'),
-   (14, 'touchmymoneyagain'),
-   (14, 'staywoke...dontplaywitmymoney'),
-   (15, 'jumponit'),
-   (15, 'tiktok'),
-   (16, 'meeverymorningforwork'),
-   (17, 'onlyglutenfree'),
-   (17, 'NOCHOCOLATE!'),
-   (18, 'crazydog'),
-   (18, 'justleaveIT'),
-   (19, 'twerking'),
-   (19, 'ImSoHappy!'),
-   (19, 'onpayday'),
-   (20, 'so...naughty'),
-   (20, 'lick....c..clickME'),
-   (20, 'definitionoftheapp'),
-   (21, 'soexcited'),
-   (22, 'whoMe'),
-   (23, 'notinthemood'),
-   (23, 'angrybaby'),
-   (24, 'FAB-U-LOUS'),
-   (25, 'weLIT'),
-   (25, 'groupcelebrationoncesocialmediaprojectisdone'),
-   (26, 'whenacodebreaks'),
-   (26, 'no..hellNO'),
-   (27, 'whiteboarding'),
-   (27, 'reactHooks'),
-   (28, 'why?'),
-   (28, 'cloutchasingatitsbest'),
-   (28, 'PSA...DONTDODRUGS'),
-   (29, 'whosleepsthathard'),
-   (30, 'nycrushhouratitsfinest'),
-   (31, 'machineiscuter'),
-   (31, 'nowletsgetmachinetocookandclean'),
-   (31, 'notimpressed'),
-   (32, 'planmynextmove'),
-   (32, 'thisischessnotcheckers'),
-   (33, 'freaky'),
-   (34, 'OMG'),
-   (34, 'whensomeonepassgas'),
-   (35, 'noexcuses'),
-   (36, 'girlbye'),
-   (36, 'toallmyhaters'),
-   (37, 'hewillalwaysgettheclick'),
-   (38, 'clapyourhandsifyouhearmyvoice'),
-   (39, 'nocomment'),
-   (40, 'mewaitingfordinnertobeserve'),
-   (40, 'starving'),
-   (41, 'whenImhappyorsad');
+   (1, 'wtf'),
+   (1, 'mymomdeadlystare'),
+   (2, 'asktodoovertime'),
+   (3, 'wtf'),
+   (3, 'whereshisneck'),
+   (4, 'whenfridayishere'),
+   (1, 'election'),
+   (1, 'biden'),
+   (1, 'fail'),
+   (2, 'itshandled'),
+   (3, 'whogotthebestshimmy?'),
+   (4, 'meafterthesocialmediaproject?'),
+   (1, 'itsmybirthday'),
+   (1, 'vacayfromthekids'),
+   (4, 'afterfixedabug'),
+   (2, 'touchmymoneyagain'),
+   (2, 'staywoke...dontplaywitmymoney'),
+   (3, 'jumponit'),
+   (3, 'tiktok'),
+   (4, 'meeverymorningforwork'),
+   (1, 'onlyglutenfree'),
+   (1, 'NOCHOCOLATE!'),
+   (2, 'crazydog'),
+   (2, 'justleaveIT'),
+   (3, 'twerking'),
+   (3, 'ImSoHappy!'),
+   (3, 'onpayday'),
+   (4, 'so...naughty'),
+   (4, 'lick....c..clickME'),
+   (4, 'definitionoftheapp'),
+   (1, 'soexcited'),
+   (2, 'whoMe'),
+   (3, 'notinthemood'),
+   (3, 'angrybaby'),
+   (4, 'FAB-U-LOUS'),
+   (1, 'weLIT'),
+   (1, 'groupcelebrationoncesocialmediaprojectisdone'),
+   (2, 'whenacodebreaks'),
+   (2, 'no..hellNO');
