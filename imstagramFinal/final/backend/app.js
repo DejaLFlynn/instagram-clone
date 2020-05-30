@@ -6,13 +6,14 @@ const app = express();
 const PORT = process.env.PORT;
 const usersRouter = require("./routes/users/users");
 const postsRouter = require('./routes/posts/posts')
-
+// const hashtagRouter = require("./routes/hashtags/hashtags")
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use("/users", usersRouter)
 app.use('/posts', postsRouter)
+// app.use('/hashtags', hashtagRouter)
 app.use((err, req, res, next) => {
     console.log(err);
     if(err.status) {
