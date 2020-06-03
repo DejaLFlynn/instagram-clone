@@ -1,13 +1,12 @@
 const db = require("../../../db/index");
 
 const createPost = async (req, res, next) => {
-  
-
-    try {
+  req.users.id = req.users.id;
+  try {
         await db.one(
           'INSERT INTO posts (id, username_id, posts_image, posts_text, comments, hashtags, posts_at, likes) VALUES(${id}, ${user_id}, ${posts_image}, ${posts_text}, ${comments}, ${hashtags}, ${posts_at}, ${likes}) RETURNING *',
           req.body
-          
+        
         );
         res.json({
           message: "NEW Post CREATED",
@@ -53,5 +52,18 @@ const deletePost = async (req, res, next) => {
         next(err);
     }
   };
+  const fetchAllforOne = async(req, res, next)=>{
+    try {
+      let posts = await db.any(
+        "SELECT * FROM posts WHERE username =$1", req.params.username
+      )
+      res.json({
+        posts,
+        message: "All posts for username"
+      })
+    } catch (error) {
+      next(err)
+    }
+  }
 module.exports = { createPost, allPosts, deletePost , getPost
 };
