@@ -6,11 +6,11 @@
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
-    id serial PRIMARY KEY,
-    users_fullname VARCHAR,
-    username VARCHAR NOT NULL unique,
-    profile_pic VARCHAR,
-    email VARCHAR UNIQUE
+   id serial Primary Key,
+   fullname VARCHAR,
+   username text Not Null unique,
+   email text NOT NULL UNIQUE,
+   profile_pic varchar
 );
 
 DROP TABLE IF EXISTS  posts;
@@ -61,11 +61,13 @@ CREATE TABLE hashtags (
     
 );
 
-INSERT INTO users(users_fullname, username, email, profile_pic) VALUES
-('Deja Flynn','dejaf', 'dejaflynn@pursuit.org', 'https://img.gadgethacks.com/img/68/44/63703994759508/0/change-your-profile-picture-display-name-for-imessage-ios-13.w1456.jpg'),  
+INSERT INTO users(fullname, username, email, profile_pic)
+   VALUES 
+   ('Deja Flynn','dejaf', 'dejaflynn@pursuit.org', 'https://img.gadgethacks.com/img/68/44/63703994759508/0/change-your-profile-picture-display-name-for-imessage-ios-13.w1456.jpg'),  
    ('Nílber Remón', 'nilberr', 'nilberremon@pursuit.org', 'https://i1.sndcdn.com/artworks-000200690435-zz758s-t500x500.jpg'),
    ('Ashya Manning','ashyam', 'ashyamanning@pursuit.org', 'https://qph.fs.quoracdn.net/main-qimg-217015358349186e0e382cb15c5d7c63'),
-   ('Shawn Quran','shawnq', 'shawnq@pursuit.org', 'https://s3.amazonaws.com/images.seroundtable.com/google-social-knowledge-1561549945.jpg');
+   ('Shawn Cooks','Shawnc', 'Shawnc@pursuit.org',  'https://s3.amazonaws.com/images.seroundtable.com/google-social-knowledge-1561549945.jpg');
+
 INSERT INTO posts( posts_image, posts_text, comments, posts_hashtag) VALUES
 (1, 'cat', 'https://static.boredpanda.com/blog/wp-content/uploads/2019/11/cat-fluffy-squirrel-tail-bell-fb.png', 'omg hes so fluffy'),
 (2, 'fruit', 'https://cdn2.bigcommerce.com/n-dvzvde/ea1i3p/products/232/images/424/Pineapple_Google_Search__15964.1397342899.386.513.png?c=2', 'cant wait to devour'),
