@@ -46,7 +46,26 @@ fieldset {
   margin: 0;
 }
 /* CSS Reset code provided by Elad Shechter */
-.App {
-  text-align: center;
+.landingPage{
+    height: 100vh;
+    width: 100%;
+    font-family: potra;
+    background-color: white;
+    display: grid;
 }
 
+.iphone1{
+    height: 454px;
+    width: 618px;
+}
+.iphone2{
+    height: 454px;
+    width: 618px;
+}
+.phonesContainer{
+  display: flex;
+  align-items: left;
+  justify-content: space-evenly;
+  flex-direction: column;
+  color: white;
+}

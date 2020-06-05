@@ -6,7 +6,7 @@ const NavBar = () => {
     <>
       <div className="NavBar">
         <nav>
-          <NavLink exact to={"/"}></NavLink>
+          <NavLink exact to={"/"}>Landing</NavLink>
           <NavLink to={"/posts"}> Explore</NavLink>
           <NavLink to={"/users/:id"}>User</NavLink>
         </nav>

@@ -45,8 +45,17 @@ fieldset {
   padding: 0;
   margin: 0;
 }
-/* CSS Reset code provided by Elad Shechter */
-.App {
-  text-align: center;
-}
-
+/* CSS Reset code provided by Elad Shechter */.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+    background-color: black;
+    color: white;
+    
+  }
+  .footer a{
+    text-align: center;
+    color: aquamarine;
+    padding-left: 50px;
+  }
