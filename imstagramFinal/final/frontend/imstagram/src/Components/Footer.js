@@ -29,7 +29,7 @@ const Footer = () => {
       <a target="_blank" href="https://www.instagram.com/directory/profiles/">
         TOP ACCOUNTS
       </a>
-      <a target="_blank" href="https://www.instagram.com/directory/hashtags/">
+      <a target="_blank" listStyle="none" href="https://www.instagram.com/directory/hashtags/">
         HASHTAGS
       </a>
       <a target="_blank">LANGUAGE li</a>

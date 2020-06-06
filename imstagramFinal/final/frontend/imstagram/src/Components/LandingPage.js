@@ -24,6 +24,7 @@ const LandingPage=()=>{
         <div className="rightSide">
 
         <div className="signIn">
+        <h1 className="Imstagram">Imstagram</h1>
         <input placeholder="Phone number or Email"></input>
         <input placeholder="Password"></input>
         Log In with Facebook
