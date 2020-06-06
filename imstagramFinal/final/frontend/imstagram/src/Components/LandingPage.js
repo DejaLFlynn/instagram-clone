@@ -19,10 +19,13 @@ const LandingPage=()=>{
         <img class="iphone1Image" src="/static/images/homepage/screenshot5.jpg/0a2d3016f375.jpg" alt=""></img>
         <img className="iphone1" src="https://www.pikpng.com/pngl/m/61-610243_download-iphone-png-green-screen-clipart.png"></img>
         </div>
-        {/* <input>Phone number, username or email</input>
-        <input>Password</input>
-        <button>Log In</button>
-        <a href="https://www.instagram.com/accounts/emailsignup/">Sign Up</a> */}
+        <div className="signIn">
+{/* 
+        <input>Phone number, username or email</input> */}
+        {/* <input>Password</input>
+        <button>Log In</button> */}
+    {/* <a href="https://www.instagram.com/accounts/emailsignup/">Sign Up</a> */}
+    </div>
     </div>
     
 

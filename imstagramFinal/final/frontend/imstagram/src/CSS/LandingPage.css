@@ -57,10 +57,15 @@ fieldset {
 .iphone1{
     height: 454px;
     width: 618px;
+    /* position: absolute; */
+    top: 80px;
+    right: 0;
+    z-index: 4;
 }
 .iphone2{
     height: 454px;
     width: 618px;
+    /* position: relative; */
 }
 .phonesContainer{
   display: flex;
