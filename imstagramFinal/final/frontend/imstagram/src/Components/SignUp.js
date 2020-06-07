@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Error from "./Error";
-import { useInput } from "../Utilities/CustomHooks";
+import { useInput } from "../Util/Hooks";
 import axios from "axios";
 import "../CSS/SignUpPage.css";
 import Input from "./Input";
 
-const SignUp = ({onLogin, modalClose }) => {
+const SignUp = ({ onLogin }) => {
   const username = useInput("");
   const email = useInput("");
   const full_name = useInput("");
@@ -16,20 +16,19 @@ const SignUp = ({onLogin, modalClose }) => {
 
   const [error, setError] = useState("");
 
-
-  const handleUpload = event => {
+  const handleUpload = (event) => {
     setImage(event.target.files[0]);
   };
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const formData = new FormData();
       formData.append("image", image);
       const config = {
         headers: {
-          "content-type": "multipart/form-data"
-        }
+          "content-type": "multipart/form-data",
+        },
       };
       let res = await axios.post(
         "http://localhost:3001/upload",
@@ -42,13 +41,13 @@ const SignUp = ({onLogin, modalClose }) => {
         full_name: full_name.value,
         username: username.value,
         age: age.value,
-        profile_pic: imageUrl
+        profile_pic: imageUrl,
       });
 
       if (newUser) {
         sessionStorage.setItem("username", username.value);
         sessionStorage.setItem("id", newUser.data.payload.id);
-        modalClose()
+
         onLogin();
       }
     } catch (error) {
@@ -108,7 +107,7 @@ const SignUp = ({onLogin, modalClose }) => {
                 className="uploadImage"
                 type={"file"}
                 name={"profilePic"}
-                onChange={event => handleUpload(event)}
+                onChange={(event) => handleUpload(event)}
               />
             </label>
           </div>
@@ -118,7 +117,7 @@ const SignUp = ({onLogin, modalClose }) => {
           </button>
         </form>
 
-        <div>{ !error ? <Error message={error} /> : null}</div>
+        <div>{!error ? <Error message={error} /> : null}</div>
       </div>
     </>
   );

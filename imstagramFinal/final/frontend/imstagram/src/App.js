@@ -6,7 +6,10 @@ import Footer from "./Components/Footer";
 import Error from "./Components/Error";
 import LandingPage from './Components/LandingPage';
 import Posts from './Components/Posts'
+import SignUp from './Components/SignUp'
 // import Authorization from './Components/Authorization'
+
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +21,10 @@ function App() {
           landing
           <LandingPage/>
         </Route>
+        <Route exact path={"/signUp"}>
+                    <SignUp/>
+                    SignUp
+                </Route>
         <Route exact path={"/posts"}>
           Explore Posts
           <Posts/>
