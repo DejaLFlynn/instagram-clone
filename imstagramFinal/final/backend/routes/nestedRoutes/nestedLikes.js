@@ -1,9 +1,9 @@
 const postsLikes = require('express').Router({mergeParams: true});
-const { addLike, topPostsLikes } = require("../../queries/users/");
+const { addLike, explorerLikes } = require("../../queries/users/");
 
 postsLikes.post("/", addLike);
 
-postsLikes.get("/", topPostsLikes)
+postsLikes.get("/", explorerLikes)
 
 
 

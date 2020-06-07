@@ -5,11 +5,11 @@ const {
   deleteUser,
   getUser,
 } = require("../../queries/users/users");
-// const getUsersPosts = require('./nestedUsers')
+// const usersPosts = require('../nestedRoutes/nestedUsers')
 users.post("/", createUser);
 users.get("/", allUsers);
 users.delete("/:id", deleteUser);
 users.get("/:id", getUser);
-// users.use('/', getUsersPosts)
+// users.use('/', usersPosts)
 
 module.exports = users;
