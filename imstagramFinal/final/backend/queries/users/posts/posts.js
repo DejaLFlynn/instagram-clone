@@ -4,7 +4,7 @@ const createPost = async (req, res, next) => {
   req.users.id = req.users.id;
   try {
         await db.one(
-          'INSERT INTO posts (id, username_id, posts_image, posts_text, comments, hashtags, posts_at, likes) VALUES(${id}, ${user_id}, ${posts_image}, ${posts_text}, ${comments}, ${hashtags}, ${posts_at}, ${likes}) RETURNING *',
+          'INSERT INTO posts (id, users_id, posts_image, posts_image, posts_text, posts_at ) VALUES(${id}, ${user_id}, ${posts_image}, ${posts_text}, ${posts_at}) RETURNING *',
           req.body
         
         );
@@ -41,8 +41,8 @@ const deletePost = async (req, res, next) => {
   const getPost = async (req, res, next) => {
     try {
       let post = await db.one(
-        'SELECT * FROM posts WHERE username = $1',
-        req.params.id
+        'SELECT * FROM posts WHERE users_id = $1',
+        req.params.users_id
       );
       res.status(200).json({
         message: "retrieved single post",
@@ -52,10 +52,10 @@ const deletePost = async (req, res, next) => {
         next(err);
     }
   };
-  const fetchAllforOne = async(req, res, next)=>{
+  const fetchAllForOne = async(req, res, next)=>{
     try {
       let posts = await db.any(
-        "SELECT * FROM posts WHERE username =$1", req.params.username
+        "SELECT * FROM posts WHERE users_id=$1", req.params.users_id
       )
       res.json({
         posts,
@@ -65,5 +65,5 @@ const deletePost = async (req, res, next) => {
       next(err)
     }
   }
-module.exports = { createPost, allPosts, deletePost , getPost, fetchAllforOne
+module.exports = { createPost, allPosts, deletePost , getPost, fetchAllForOne
 };

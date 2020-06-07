@@ -10,7 +10,6 @@ CREATE TABLE Users (
    full_name TEXT,
    username VARCHAR Not Null unique,
    email TEXT NOT NULL UNIQUE,
-   age INT,
    profile_pic VARCHAR
 );
 

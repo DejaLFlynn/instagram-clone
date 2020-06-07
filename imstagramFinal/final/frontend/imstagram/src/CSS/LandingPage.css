@@ -69,9 +69,7 @@ fieldset {
 }
 .rightSide {
   background-color: white;
-  display: grid;
-  justify-content: center;
-  height: 200%;
+  justify-content: right;
   display: inline-block;
   overflow: hidden;
 }
@@ -79,9 +77,7 @@ fieldset {
 .iphone1 {
   height: 550px;
   width: 500px;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   z-index: 2;
 }
 .iphone2 {
@@ -90,8 +86,8 @@ fieldset {
   display: flex;
   z-index: 4;
   position: absolute;
-  top: 0;
   left: 200px;
+ 
 }
 .phonesContainer {
   position: relative;
@@ -100,14 +96,7 @@ fieldset {
 .signIn {
   display: inline-block;
   display: flex;
- 
+  right: 100px;
   width: 100px;
-  padding: 12px 24px;
-  box-sizing: border-box;
-  margin: 8px 0;
-  margin-right: 5px;
-  margin-left: 5px;
-  border-radius: 5px;
-  border-spacing: 15px;
   justify-content: center;
 }
