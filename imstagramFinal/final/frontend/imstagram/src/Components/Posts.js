@@ -5,7 +5,7 @@ const Posts =()=>{
 const [explorePics, setExplorePics] = useState([]);
 
 const getUserPics = async ()=>{
-const userPics = `http://localhost:3000/posts`;
+const userPics = `http://localhost:3001/`;
 try {
     let response = await axios.get(userPics)
     setExplorePics(response.data.payload)
@@ -20,7 +20,7 @@ useEffect(() => {
 
   const handleLikes = async (id) => {
     try {
-      await axios.post(`http://localhost:3000/posts/likes`, {
+      await axios.post(`http://localhost:3001/`, {
         users_id: sessionStorage.getItem('id'),
         posts_id: id
       })

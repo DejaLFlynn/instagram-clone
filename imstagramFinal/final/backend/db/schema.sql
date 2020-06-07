@@ -3,25 +3,25 @@
 
 -- \c imstagram_db;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS Users;
 
-CREATE TABLE users (
-   id serial Primary Key,
-   fullname text,
-   username text Not Null unique,
-   email text NOT NULL UNIQUE,
-   age Int,
-   profile_pic varchar
+CREATE TABLE Users (
+   id SERIAL PRIMARY KEY,
+   full_name TEXT,
+   username VARCHAR Not Null unique,
+   email TEXT NOT NULL UNIQUE,
+   age INT,
+   profile_pic VARCHAR
 );
 
 DROP TABLE IF EXISTS  posts;
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
-    users_id INT REFERENCES users(id),
+    users_id INT REFERENCES Users(id),
     posts_image VARCHAR,
-    posts_text VARCHAR,
-    posts_at TIMESTAMPTZ DEFAULT Now()   
+    posts_text TEXT,
+    posts_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
    
 );
 
@@ -29,16 +29,16 @@ DROP TABLE IF EXISTS likes;
 
 CREATE TABLE likes (
     id SERIAL PRIMARY KEY,
-    users_id INT REFERENCES users(id),
+    users_id INT REFERENCES Users(id),
     posts_id INT REFERENCES posts(id), 
-    likes_timestap TIMESTAMPTZ DEFAULT Now()
+    likes_timestap TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
 DROP TABLE IF EXISTS followers;
 CREATE TABLE followers (
     id SERIAL PRIMARY KEY,
-    users_id INT REFERENCES users(id) ON DELETE CASCADE,
+    users_id INT REFERENCES Users(id) ON DELETE CASCADE,
     followers_timestap TIMESTAMPTZ DEFAULT Now() 
 
 );
@@ -47,7 +47,7 @@ CREATE TABLE followers (
 DROP TABLE IF EXISTS follows;
 CREATE TABLE follows (
     id SERIAL PRIMARY KEY,
-    users_id INT REFERENCES users(id) ON DELETE CASCADE,
+    users_id INT REFERENCES Users(id) ON DELETE CASCADE,
     following_timestap TIMESTAMPTZ DEFAULT Now() 
 );
 
@@ -60,7 +60,7 @@ CREATE TABLE hashtags (
     
 );
 
-INSERT INTO users (fullname, username, email, age, profile_pic)
+INSERT INTO users (full_name, username, email, age, profile_pic)
    VALUES 
    ('Deja Flynn','dejaf', 'dejaflynn@pursuit.org', 30, 'https://img.gadgethacks.com/img/68/44/63703994759508/0/change-your-profile-picture-display-name-for-imessage-ios-13.w1456.jpg'),  
    ('Nílber Remón', 'nilberr', 'nilberremon@pursuit.org', 125, 'https://i1.sndcdn.com/artworks-000200690435-zz758s-t500x500.jpg'),
