@@ -48,12 +48,12 @@ fieldset {
 /* CSS Reset code provided by Elad Shechter */
 .footer{
   background-color: white;
-  color: blue;
+  color: midnightblue;
   border-top: 0.5px solid grey;
-  display: grid;
-  grid-row:25;
-  grid-column: 1/6;
-  text-align: center;
+  /* display: grid;
+  grid-row:25; */
+
+  text-align: left;
   text-decoration: none;
 
 
@@ -61,7 +61,7 @@ fieldset {
   }
    a{
     display: inline-block;
-    color: blue;
+    color: midnightblue;
     padding: 0 10px 0 10px;
     font-size: 12px;
     color: grey;
