@@ -5,7 +5,7 @@ const createUser = async (req, res, next) => {
   req.body.id = req.user.id ;
     try {
         await db.one(
-          "INSERT INTO Users (id, full_name, username, profile_pic, email) VALUES(${id}, ${full_name}, ${username}, ${profile_pic}, ${email}) RETURNING *",
+          "INSERT INTO Users (full_name, username, profile_pic, email) VALUES(${full_name}, ${username}, ${profile_pic}, ${email}) RETURNING *",
           req.body
           
         );

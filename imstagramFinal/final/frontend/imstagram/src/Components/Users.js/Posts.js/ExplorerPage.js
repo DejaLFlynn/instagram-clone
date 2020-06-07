@@ -35,6 +35,10 @@ const ExplorerPage = () => {
 
   return (
     <div className="ExplorerPage">
+      <div className="SearchInput">
+      <input placeholder="search"></input>
+
+      </div>
       <div className="TopImages">{displayPosts}</div>
     </div>
   );

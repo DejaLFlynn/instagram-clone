@@ -122,3 +122,7 @@ fieldset {
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
     1px -1px 0 black;
 }
+.search{
+  width: 150px;
+  height: 150px;
+}

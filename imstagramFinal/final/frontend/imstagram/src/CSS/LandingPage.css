@@ -84,9 +84,10 @@ fieldset {
   height: 520px;
   width: 300px;
   display: flex;
-  z-index: 4;
-  position: absolute;
-  left: 200px;
+  
+  z-index: 4; 
+  /* position: absolute;*/
+  left: 200px; 
  
 }
 .phonesContainer {
@@ -103,4 +104,7 @@ fieldset {
 }
 .iphone1Image{
 
+}
+input{
+  
 }

@@ -15,12 +15,12 @@ CREATE TABLE Users (
 
 DROP TABLE IF EXISTS  posts;
 
-CREATE TABLE posts (
-    id SERIAL PRIMARY KEY,
-    users_id INT REFERENCES Users(id),
-    posts_image VARCHAR,
-    posts_text TEXT,
-    posts_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+CREATE TABLE posts(
+id SERIAL PRIMARY KEY,
+user_id VARCHAR REFERENCES users(id),
+pictures VARCHAR,
+content VARCHAR,
+posts_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
    
 );
 
@@ -59,12 +59,12 @@ CREATE TABLE hashtags (
     
 );
 
-INSERT INTO users (full_name, username, email, age, profile_pic)
+INSERT INTO users (full_name, username, email, profile_pic)
    VALUES 
-   ('Deja Flynn','dejaf', 'dejaflynn@pursuit.org', 30, 'https://img.gadgethacks.com/img/68/44/63703994759508/0/change-your-profile-picture-display-name-for-imessage-ios-13.w1456.jpg'),  
-   ('Nílber Remón', 'nilberr', 'nilberremon@pursuit.org', 125, 'https://i1.sndcdn.com/artworks-000200690435-zz758s-t500x500.jpg'),
-   ('Ashya Manning','ashyam', 'ashyamanning@pursuit.org', 27, 'https://qph.fs.quoracdn.net/main-qimg-217015358349186e0e382cb15c5d7c63'),
-   ('Shawn Cooks','Shawnc', 'Shawnc@pursuit.org', 5, 'https://s3.amazonaws.com/images.seroundtable.com/google-social-knowledge-1561549945.jpg');
+   ('Deja Flynn','dejaf', 'dejaflynn@pursuit.org', 'https://img.gadgethacks.com/img/68/44/63703994759508/0/change-your-profile-picture-display-name-for-imessage-ios-13.w1456.jpg'),  
+   ('Nílber Remón', 'nilberr', 'nilberremon@pursuit.org', 'https://i1.sndcdn.com/artworks-000200690435-zz758s-t500x500.jpg'),
+   ('Ashya Manning','ashyam', 'ashyamanning@pursuit.org', 'https://qph.fs.quoracdn.net/main-qimg-217015358349186e0e382cb15c5d7c63'),
+   ('Shawn Cooks','Shawnc', 'Shawnc@pursuit.org', 'https://s3.amazonaws.com/images.seroundtable.com/google-social-knowledge-1561549945.jpg');
 
 INSERT INTO posts(users_id, posts_image, posts_text, comments, posts_hashtag) VALUES
 (1, 1, 'cat', 'https://static.boredpanda.com/blog/wp-content/uploads/2019/11/cat-fluffy-squirrel-tail-bell-fb.png', 'omg hes so fluffy'),

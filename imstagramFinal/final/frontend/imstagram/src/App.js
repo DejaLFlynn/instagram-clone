@@ -24,7 +24,7 @@ function App() {
           <SignUp />
           SignUp
         </Route>
-        <Route exact path={"/posts"}>
+        <Route path={"/posts"}>
           Explore Posts
           <Posts />
         </Route>

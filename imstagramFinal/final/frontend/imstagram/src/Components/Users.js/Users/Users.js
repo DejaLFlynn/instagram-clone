@@ -5,14 +5,14 @@ import "../../../CSS/User.css";
 
 const Profile = () => {
   const [images, setImages] = useState([]);
-  // const [totalVotes, setTotalVotes]=useState([]);
   const [username, setUsername] = useState("");
   const [users, setUsers] = useState("");
 
   const getUserProfile = async () => {
-    const userProfile = `http://localhost:3001/users/${sessionStorage.username}`;
+    const userProfile = `http://localhost:3001/users/:id`;
     try {
       let res = await axios.get(userProfile);
+  
       setUsername(res.data.payload.username);
       setUsers(res.data.payload.profile_pic);
     } catch (error) {
@@ -21,7 +21,7 @@ const Profile = () => {
   };
 
   const getImages = async () => {
-    const userImages = `http://localhost:3001/users/${sessionStorage.id}/profile_pic`;
+    const userImages = `http://localhost:3001/users`;
     try {
       let res = await axios.get(userImages);
       setImages(res.data.payload);

@@ -6,10 +6,10 @@ const {
     getPost,
   } = require("../../queries/users/posts/posts");
   
-  posts.post("/", createPost);
-  posts.get("/", allPosts);
+  posts.post("/:id", createPost);
+  posts.get("/:id", allPosts);
   posts.delete("/:id", deletePost);
-  // posts.get("/:id", getPost);
+  posts.get("/", getPost);
 
 
 module.exports = posts;
