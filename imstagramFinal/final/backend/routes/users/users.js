@@ -8,8 +8,8 @@ const {
 // const usersPosts = require('../nestedRoutes/nestedUsers')
 users.post("/", createUser);
 users.get("/", allUsers);
-users.delete("/:id", deleteUser);
 users.get("/:id", getUser);
+users.delete("/:id", deleteUser);
 // users.use('/', usersPosts)
 
 module.exports = users;

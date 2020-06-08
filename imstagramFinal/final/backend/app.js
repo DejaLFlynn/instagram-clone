@@ -46,7 +46,7 @@ const storage = multer.diskStorage({
   app.post("/upload", upload.single("image"), (req, res, next) => {
     try {
       console.log(req.file);
-      let url = "http://localhost:3001/Uploads/" + req.file.filename;
+      let url = "http://localhost:4001/Uploads/" + req.file.filename;
       res.json({
         imageUrl: url,
         message: "File Uploaded"

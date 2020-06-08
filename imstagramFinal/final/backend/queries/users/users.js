@@ -2,16 +2,16 @@ const db = require("../../db/index");
 
 const createUser = async (req, res, next) => {
   
-  req.body.id = req.user.id ;
+
     try {
-        await db.one(
-          "INSERT INTO Users (full_name, username, profile_pic, email) VALUES(${full_name}, ${username}, ${profile_pic}, ${email}) RETURNING *",
-          req.body
-          
+        let {users_name, email} =req.body
+        let user = await db.one(
+          "INSERT INTO users (users_name, email) VALUES($1, $2) RETURNING *",
+          [users_name, email]
         );
         res.json({
           message: "NEW USER CREATED",
-          users,
+          user,
         });
       } catch (err) {
         next(err);
@@ -19,9 +19,10 @@ const createUser = async (req, res, next) => {
 };
 const allUsers = async (req, res, next) => {
     try {
-        const users = await db.any("SELECT * FROM Users");
+        let users = await db.any("SELECT * FROM users");
         res.json({
-            users,
+            status: "Success",
+            body: {users},
             message: "All USERS"
         })
     } catch (err) {
@@ -30,9 +31,12 @@ const allUsers = async (req, res, next) => {
 }
 const deleteUser = async (req, res, next) => {
     try {
-      await db.none("DELETE FROM Users WHERE id = $1", req.params.id);
+      let {id} = req.params
+      let user = await db.one("DELETE FROM users WHERE id = $1 RETURNING * ",
+      [id] );
       res.status(200).json({
         status: "success",
+        body: {user},
         message: "The user is deleted"
       });
     } catch (err) {
@@ -42,12 +46,12 @@ const deleteUser = async (req, res, next) => {
   const getUser = async (req, res, next) => {
     try {
       let user = await db.one(
-        "SELECT * FROM Users WHERE username = $1",
-        req.params.username
+        "SELECT * FROM users WHERE users_name = $1",
+        req.params.users_name
       );
       res.status(200).json({
         message: "retrieved single user",
-        payload: user
+        body: user
       });
     } catch (err) {
         next(err);
