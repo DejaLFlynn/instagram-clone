@@ -14,7 +14,7 @@ const Profile = () => {
     try {
       let res = await axios.get(userImages);
       debugger
-      setImages(res.data.body);
+      setImages(res.data.body.users);
     } catch (error) {
       setImages([]);
     }
@@ -22,11 +22,11 @@ const Profile = () => {
   
   useEffect(() => {
     getImages();
-    getUserProfile();
+  
   }, []);
   
   const getUserProfile = async () => {
-    const userProfile = `http://localhost:4001/users/:id`;
+    const userProfile = `http://localhost:4001/users`;
     try {
       let res = await axios.get(userProfile);
   
@@ -38,9 +38,9 @@ const Profile = () => {
   };
 
   return (
-    <div className="Profile">
-   
-    </div>
+    <div className="Profile" key={users.users}>
+     
+      </div>
   );
 };
 

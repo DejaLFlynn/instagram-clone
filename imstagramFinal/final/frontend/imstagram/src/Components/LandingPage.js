@@ -36,7 +36,7 @@ const LandingPage=()=>{
     <div className ="SignUp">
     Don't have an account?
     <a href="https://www.instagram.com/accounts/emailsignup/">Sign Up</a>
-    
+    <button placeholder="guestLogin">Guest Login</button>
     </div>
         </div>
     </div>
