@@ -28,13 +28,13 @@ function App() {
           Explore Posts
           <Posts />
         </Route>
-        <Route path={"/users/:id"}>
+        <Route path={"/users"}>
           Users Page
           <Users />
         </Route>
         <Route path="*" component={Error} />
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
