@@ -63,48 +63,70 @@ fieldset {
 }
 .leftSide {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  flex-direction: column;
+  /* background-color: peachpuff; */
+ 
+ 
 }
 .rightSide {
-  background-color: white;
+  /* background-color:lightblue; */
   justify-content: right;
-  display: inline-block;
-  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: oldlace; */
 }
 
-.iphone1 {
+
+.instagif {
   height: 550px;
-  width: 500px;
+  width: 400px;
   position: relative;
   z-index: 2;
-}
-.iphone2 {
-  height: 520px;
-  width: 300px;
-  display: flex;
-  
-  z-index: 4; 
-  /* position: absolute;*/
-  left: 200px; 
+  left: 100px;
+  bottom: 50px;
  
 }
 .phonesContainer {
-  position: relative;
-  color: white;
+  /* position: relative; */
+  /* color: oldlace; */
 }
 .signIn {
-  display: inline-block;
+  background-color: rgb(253, 253, 230);
   display: flex;
   flex-direction: column;
-  right: 100px;
-  width: 100px;
   justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 400px;
+  width: 400px;
+  
 }
-.iphone1Image{
 
+.Imstagram{
+  font-family: "Lobster Two", cursive;
+  font-size: 46px;
+  font-weight: bolder;
+	height: 51px;
+	width: 313px;
+	color: #262626;
+}
+.footer{
+  display: inline-block;
+  color: midnightblue;
+  padding: 0 10px 0 10px;
+  font-size: 12px;
+  text-decoration: none;
 }
 input{
-  
+  height: 25px;
+  width: 300px;
+}
+button{
+  background-color: lightskyblue;
+  width: 200px;
+  height: 30px;
+  color: white;
+  border-radius: 5px;
 }

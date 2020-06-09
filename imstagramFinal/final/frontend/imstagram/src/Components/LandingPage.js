@@ -13,12 +13,9 @@ const LandingPage=()=>{
         <div className="phonesContainer">
 
         {/* <img className="iphone2" src="https://www.freepngimg.com/thumb/marketing/70806-development-instagram-mobile-marketing-app-iphone-user.png"></img> */}
-        <img className="insta gif" src="https://media.giphy.com/media/hsDY1IPzpP4DcB1Ba5/giphy.gif"></img>
+        <img className="instagif" src="https://media.giphy.com/media/hsDY1IPzpP4DcB1Ba5/giphy.gif"></img>
         {/* <img class="iphone1Image"transitionEnterTimeout={500} transitionLeaveTimeout={300} src="https://r1.ilikewallpaper.net/iphone-x-wallpapers/download/75510/My-favourite-cloudscape-of-the-year-iphone-x-wallpaper-ilikewallpaper_com.jpg" alt=""></img> */}
-        {/* <img class="iphone1Image" transitionEnterTimeout={500} transitionLeaveTimeout={300} src="https://media.idownloadblog.com/wp-content/uploads/2020/04/iPhone-SE-2020-wallpaper-AR72014-iDownloadBlog-Silk-Purple-iPhone-DARK.png" alt=""></img>
-        <img class="iphone1Image" transitionEnterTimeout={500} transitionLeaveTimeout={300} src="/static/images/homepage/screenshot2.jpg/6f03eb85463c.jpg" alt=""></img>
-        <img class="iphone1Image" transitionEnterTimeout={500} transitionLeaveTimeout={300} src="/static/images/homepage/screenshot4.jpg/842fe5699220.jpg" alt=""></img>
-        <img class="iphone1Image" transitionEnterTimeout={500} transitionLeaveTimeout={300} src="/static/images/homepage/screenshot5.jpg/0a2d3016f375.jpg" alt=""></img> */}
+        {/* <img class="iphone1Image" transitionEnterTimeout={500} transitionLeaveTimeout={300} src="https://media.idownloadblog.com/wp-content/uploads/2020/04/iPhone-SE-2020-wallpaper-AR72014-iDownloadBlog-Silk-Purple-iPhone-DARK.png" alt=""></img> */}
         {/* <img className="iphone1" src="https://pluspng.com/img-png/iphone-png-png-iphone-png-740.png"></img> */}
         </div>
         </div>
@@ -33,15 +30,17 @@ const LandingPage=()=>{
         <a href="https://www.facebook.com/"> Facebook</a>
         
        
-    </div>
     <div className ="SignUp">
     Don't have an account?
+    <br></br>
     <a href="https://www.instagram.com/accounts/emailsignup/">Sign Up</a>
+    <br></br>
     <button placeholder="guestLogin">Guest Login</button>
     </div>
         </div>
     </div>
     
+    </div>
 
     )
 }
