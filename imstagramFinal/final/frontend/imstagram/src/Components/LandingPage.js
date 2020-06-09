@@ -37,6 +37,7 @@ const LandingPage=()=>{
     <br></br>
     <button placeholder="guestLogin">Guest Login</button>
     </div>
+    <h4>Get the App</h4>
     <img className="apple"src="https://i.ya-webdesign.com/images/app-store-download-button-png.png"></img>
     <img className="google"src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1280px-Google_Play_Store_badge_EN.svg.png"></img>      </div>
     </div>
