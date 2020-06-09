@@ -1,43 +1,46 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-const Posts =()=>{
-const [explorePics, setExplorePics] = useState([]);
 
-const getUserPics = async ()=>{
-const userPics = `http://localhost:4001/posts`;
+const Posts =()=>{
+const [explorePosts, setExplorePosts] = useState([]);
+
+const getPosts = async ()=>{
+const posts = `http://localhost:4001/posts`;
 try {
-    let response = await axios.get(userPics)
-    setExplorePics(response.data.payload)
+    let response = await axios.get(posts)
+    debugger
+    setExplorePosts(response.data.payload)
 } catch (error) {
-    setExplorePics([])
+    setExplorePosts([])
 }
 
 }
 useEffect(() => {
-    getUserPics();
+    getPosts();
   }, []);
 
-  const handleLikes = async (id) => {
-    try {
-      await axios.post(`http://localhost:4001/posts`, {
-        users_id: sessionStorage.getItem('id'),
-        posts_id: id
-      })
-      explorePics();
-    } catch (err) {
-      setExplorePics([])
-    }
-  }
-  let displayExplorerPics = explorePics.map(post=>{
-return(
-    <div className="explorerPicContainer" key={post.id + post.posts_image} onClick={()=>handleLikes(post.id)}></div>
-)
 
-  })
+//   const handleLikes = async (id) => {
+//     try {
+//       await axios.post(`http://localhost:4001/posts`, {
+//         users_id: sessionStorage.getItem('id'),
+//         posts_id: id
+//       })
+//       explorePics();
+//     } catch (err) {
+//       setExplorePics([])
+//     }
+//   }
+//   let displayExplorerPics = explorePics.map(post=>{
+// return(
+//     <div className="explorerPicContainer" ></div>
+// )
+
+//   })
   return(
       <div className ="Posts">
-          <div className="explorerPics">{displayExplorerPics}</div>
+          <div className="explorerPics"></div>
       </div>
   )
 
