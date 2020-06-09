@@ -17,34 +17,34 @@ import "../../../CSS/Explore.Css";
 //         });
 //     }
 const ExplorerPage = () => {
-  const [topPosts, setTopPosts] = useState([]);
+  // const [topPosts, setTopPosts] = useState([]);
 
-  const getTopPosts = async () => {
-    const topPosts = `http://localhost:4001/posts`;
-    try {
-      let res = await axios.get(topPosts);
-      setTopPosts(res.data.payload);
-    } catch (err) {
-      setTopPosts([]);
-    }
-  };
+  // const getTopPosts = async () => {
+  //   const topPosts = `http://localhost:4001/posts`;
+  //   try {
+  //     let res = await axios.get(topPosts);
+  //     setTopPosts(res.data.payload);
+  //   } catch (err) {
+  //     setTopPosts([]);
+  //   }
+  // };
 
-  useEffect(() => {
-    getRandPics();
-  }, []);
+  // useEffect(() => {
+  //   getRandPics();
+  // }, []);
 
-  useEffect(() => {
-    getTopPosts();
-  }, []);
+  // useEffect(() => {
+  //   getTopPosts();
+  // }, []);
 
-  let displayPosts = topPosts.map((pic) => {
-    return (
-      <div className="topTenPosts" key={pic.picture + pic.total_votes}>
-        {/* <Image className="topTenPic" image={pic.picture} /> */}
-        <p>Total Clicks: {pic.total_votes}</p>
-      </div>
-    );
-  });
+  // let displayPosts = topPosts.map((pic) => {
+  //   return (
+  //     <div className="topTenPosts" key={pic.picture + pic.total_votes}>
+  //       {/* <Image className="topTenPic" image={pic.picture} /> */}
+  //       <p>Total Clicks: {pic.total_votes}</p>
+  //     </div>
+  //   );
+  // });
 
   return (
     <div className="ExplorerPage">
@@ -52,7 +52,7 @@ const ExplorerPage = () => {
       <input placeholder="search"></input>
 
       </div>
-      <div className="TopImages">{displayPosts}</div>
+      <div className="TopImages"></div>
     </div>
   );
 };
