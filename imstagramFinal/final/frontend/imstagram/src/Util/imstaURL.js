@@ -1,5 +1,5 @@
 export const imstaURL = () => {
     return window.location.hostname === "localhost"
-      ? "http://localhost:3001"
-      : "https://imstagram-final.herokuapp.com/";
+      ? "http://localhost:4001"
+      : "https://git.heroku.com/cta-final.git";
 }
