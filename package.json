@@ -1,0 +1,21 @@
+{
+  "name": "DejaF_CTA2020",
+  "version": "1.0.0",
+  "description": "Instagram users email, id, username posts id, image, text, comments from followers, hashtags, likes /and timestamps Likes id, follower id, timestamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd imstagramFinal/final/backend && npm install && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DejaLFlynn/DejaF_CTA2020.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DejaLFlynn/DejaF_CTA2020/issues"
+  },
+  "homepage": "https://github.com/DejaLFlynn/DejaF_CTA2020#readme"
+}
