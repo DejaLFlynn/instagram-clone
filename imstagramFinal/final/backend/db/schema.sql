@@ -3,25 +3,25 @@
 
 -- \c imstagram_db;
 
--- DROP TABLE IF EXISTS users;
--- DROP TABLE IF EXISTS  posts;
--- DROP TABLE IF EXISTS likes;
--- DROP TABLE IF EXISTS followers;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS  posts;
+DROP TABLE IF EXISTS likes;
+DROP TABLE IF EXISTS followers;
 
--- CREATE TABLE users (
---    id SERIAL PRIMARY KEY,
---    users_name VARCHAR,
---    email TEXT NOT NULL UNIQUE
+CREATE TABLE users (
+   id SERIAL PRIMARY KEY,
+   users_name VARCHAR,
+   email TEXT NOT NULL UNIQUE
 
--- );
+);
 
 
--- CREATE TABLE posts (
---     id SERIAL PRIMARY KEY ,
---     posts_images VARCHAR DEFAULT NULL,
---     content TEXT ,
---     post_time TIMESTAMP NOT NULL DEFAULT  CURRENT_TIMESTAMP
--- );
+CREATE TABLE posts (
+    id SERIAL PRIMARY KEY ,
+    posts_images VARCHAR DEFAULT NULL,
+    content TEXT ,
+    post_time TIMESTAMP NOT NULL DEFAULT  CURRENT_TIMESTAMP
+);
 
 
 -- CREATE TABLE likes (
@@ -57,12 +57,12 @@
     
 -- );
 
--- INSERT INTO Users (users_name,  email )
---    VALUES 
---    ('dejaf', 'dejaflynn@pursuit.org'),  
---    ('nilberr', 'nilberremon@pursuit.org'),
---    ('ashyam', 'ashyamanning@pursuit.org'),
---    ('Shawnc', 'Shawnc@pursuit.org' );
+INSERT INTO Users (users_name,  email )
+   VALUES 
+   ('dejaf', 'dejaflynn@pursuit.org'),  
+   ('nilberr', 'nilberremon@pursuit.org'),
+   ('ashyam', 'ashyamanning@pursuit.org'),
+   ('Shawnc', 'Shawnc@pursuit.org' );
 
 
 
