@@ -2,18 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "../../Image";
 import "../../../CSS/User.css";
-
+// import {imstaURL} from '../Util/imstaURL'
 const Profile = () => {
   const [images, setImages] = useState([]);
   const [username, setUsername] = useState("");
   const [users, setUsers] = useState("");
-
+// const API = imstaURL()
   
   const getImages = async () => {
     const userImages = `http://localhost:4001/users`;
     try {
       let res = await axios.get(userImages);
       debugger
+
       setImages(res.data.body.users);
     } catch (error) {
       setImages([]);
