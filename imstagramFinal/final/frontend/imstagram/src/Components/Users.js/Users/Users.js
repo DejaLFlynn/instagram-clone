@@ -13,8 +13,7 @@ const Profile = () => {
     const userImages = `http://localhost:4001/users`;
     try {
       let res = await axios.get(userImages);
-      debugger
-
+      
       setImages(res.data.body.users);
     } catch (error) {
       setImages([]);

@@ -9,7 +9,7 @@ const getPosts = async ()=>{
 const posts = `http://localhost:4001/posts`;
 try {
     let response = await axios.get(posts)
-    debugger
+  
     setExplorePosts(response.data.payload)
 } catch (error) {
     setExplorePosts([])
@@ -19,7 +19,12 @@ try {
 useEffect(() => {
     getPosts();
   }, []);
+const showPosts = explorePosts.map((post)=>{
+    return(
 
+       <img src= {post.posts_images}></img>
+    )
+})
 
 //   const handleLikes = async (id) => {
 //     try {
@@ -40,7 +45,9 @@ useEffect(() => {
 //   })
   return(
       <div className ="Posts">
-          <div className="explorerPics"></div>
+          <div className="explorerPics">
+              {showPosts}
+          </div>
       </div>
   )
 

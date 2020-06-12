@@ -1,11 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 import '../CSS/LandingPage.css'
 
 
 const LandingPage=()=>{
-
+const [email, setEmail] = useState("")
+const [users_name, setUsers_name] = useState("")
+const history =useHistory()
+const handleSubmit = async (e)=>{
+    e.preventDefault()
+    try{
+        await (email, users_name)
+        history.push("/")
+    }catch(err){
+        console.log(err)
+    }
+}
 
     return(
+        <>
     <div className ="landingPage">
 
         <div className="leftSide">
@@ -20,12 +33,15 @@ const LandingPage=()=>{
         </div>
         </div>
         <div className="rightSide">
+        <h1 className="Imstagram">Imstagram</h1>
 
         <div className="signIn">
-        <h1 className="Imstagram">Imstagram</h1>
-        <input placeholder="Phone number or Email"></input>
-        <input placeholder="Password"></input>
-        <button >Log In</button>
+        <form onSubmit={handleSubmit}>
+        <input placeholder="Phone number or Email" onChange={(e)=>setEmail(e.currentTarget.value)}></input>
+        <input placeholder="Password" onChange={(e)=>{setUsers_name(e.currentTarget.value)}}></input>
+
+        <button type="submit">Log In</button>
+        </form>
         Log In with Facebook
         <a href="https://www.facebook.com/"> Facebook</a>
         
@@ -43,7 +59,7 @@ const LandingPage=()=>{
     </div>
     
     </div>
-
+</>
     )
 }
 
