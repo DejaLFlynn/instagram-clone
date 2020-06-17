@@ -1,19 +1,29 @@
-import React, {useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import {useHistory, Link} from 'react-router-dom'
 import '../CSS/LandingPage.css'
+import {useInput} from '../Util/Input';
+import axios from 'axios';
 
 
-const LandingPage=()=>{
-const [email, setEmail] = useState("")
+const LandingPage=({onLogin})=>{
+const email = useState("")
 const [users_name, setUsers_name] = useState("")
+const [passwords, setPasswords] = useState("")
+const [error, setError] = useState("");
 const history =useHistory()
 const handleSubmit = async (e)=>{
     e.preventDefault()
     try{
-        await (email, users_name)
-        history.push("/")
+       let res = await axios.get(`http://localhost:4001/${users_name.value}`)
+        if(res){
+            sessionStorage.setItem("users_name", users_name.value)
+            sessionStorage.setItem("id", id.value)
+            onLogin()
+        }
     }catch(err){
         console.log(err)
+        setError('error enter valid input')
+        
     }
 }
 
@@ -36,12 +46,24 @@ const handleSubmit = async (e)=>{
         <h1 className="Imstagram">Imstagram</h1>
 
         <div className="signIn">
-        <form onSubmit={handleSubmit}>
-        <input placeholder="Phone number or Email" onChange={(e)=>setEmail(e.currentTarget.value)}></input>
-        <input placeholder="Password" onChange={(e)=>{setUsers_name(e.currentTarget.value)}}></input>
+            <div className ="signInForm">
+                <form className="form" onSubmit={handleSubmit}>
+                    <Input        className={"userInputs"}
+                  placeholder={"Enter Username"}
+                  input={username}
+                />
+        <Input
+                  className={"userInputs"}
+                  placeholder={"Enter Password"}
+                  input={email}
+                />                      
+                    <button type="submit">Log In</button> 
+                </form>
 
-        <button type="submit">Log In</button>
-        </form>
+                </div>
+        </div>
+
+
         Log In with Facebook
         <a href="https://www.facebook.com/"> Facebook</a>
         
@@ -56,8 +78,7 @@ const handleSubmit = async (e)=>{
     <h4>Get the App</h4>
     <img className="apple"src="https://i.ya-webdesign.com/images/app-store-download-button-png.png"></img>
     <img className="google"src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1280px-Google_Play_Store_badge_EN.svg.png"></img>      </div>
-    </div>
-    
+  
     </div>
 </>
     )
