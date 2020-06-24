@@ -4,41 +4,41 @@ import {Route, Switch, Redirect} from 'react-router-dom'
 
 import NavBar from './NavBar'
 import LandingPage from './LandingPage'
-import ExplorePage from './ExplorePage'
-import User from './User'
-// import SignUp from './SignUpModal'
+import Home from './Home'
+import Profile from './ProfilePage'
+import SignIn from './SignIn'
 
 const Authentication = () => {
     
-    const [authorization, setAuthorization]  = useState(false) 
+    const [authentication, setAuthentication]  = useState(false) 
 
-    const handleAuthorization = () => {
-        setAuthorization(true)
-        console.log(authorization)
+    const handleAuthentication = () => {
+        setAuthentication(true)
+        
     }
 
     return (
         <>
-            {!authorization ?
+            {!Authentication ?
                 <Switch>
                 <Route exact path={"/"}>
-                    <LandingPage onLogin={handleAuthorization}/>
+                    <LandingPage onLogin={handleAuthentication}/>
                 </Route>
-                <Route exact path={"/SignUp"}>
-                    <SignUp onLogin={handleAuthorization}/>
+                <Route exact path={"/signIn"}>
+                    <SignIn onLogin={handleAuthentication}/>
                 </Route>
                 </Switch>
-                : <Redirect to={"/ExplorePage"}/> }
+                : <Redirect to={"/home"}/> }
 
-            {authorization ?
+            {Authentication ?
                 <>
                 <NavBar />
                 <Switch>
-                <Route exact path={"/ExplorePage"} >
-                    <ExplorePage/>
+                <Route exact path={"/Home"} >
+                    <Home/>
                 </Route>
-                <Route exact path={"/User"}>
-                    <User />
+                <Route exact path={"/Profile"}>
+                    <Profile />
                 </Route>
 
                 </Switch>
