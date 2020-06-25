@@ -15,8 +15,11 @@ const NavBar =()=>{
         <>
         <div>
             <nav>
+            <NavLink exact to={"/"}>Home</NavLink>
+            { NavButton ?
+             <NavLink to={"/explore"}><button className="navButton toggleButton" onClick={handleNavButton}>Explore</button></NavLink> :
 
-            { NavButton ? <NavLink to={"/"}><button className="navButton toggleButton" onClick={handleNavButton}>HOME</button></NavLink> : <NavLink to={"/users/:id"}><button className="navButton toggleButton"  onClick={handleNavButton}>PROFILE</button></NavLink> }
+             <NavLink to={"/users/:id"}><button className="navButton toggleButton"  onClick={handleNavButton}>PROFILE</button></NavLink> }
             </nav>
         </div>
         </>

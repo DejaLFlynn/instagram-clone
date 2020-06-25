@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import NavBar from './NavBar'
+import LandingPage from './LandingPage'
 
 
 const Authentication = () => {
@@ -16,7 +17,7 @@ const Authentication = () => {
         
         <>
         <div>
-
+<LandingPage/>
         <NavBar/>    
         </div>
             
