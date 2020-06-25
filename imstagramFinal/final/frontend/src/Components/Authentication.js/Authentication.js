@@ -1,12 +1,7 @@
 import React, {useState} from 'react';
-import {Route, Switch, Redirect} from 'react-router-dom'
-
-
+import {Route, Switch} from 'react-router-dom';
 import NavBar from './NavBar'
-import LandingPage from './LandingPage'
-import Home from './Home'
-import Profile from './ProfilePage'
-import SignIn from './SignIn'
+
 
 const Authentication = () => {
     
@@ -18,32 +13,13 @@ const Authentication = () => {
     }
 
     return (
+        
         <>
-            {!Authentication ?
-                <Switch>
-                <Route exact path={"/"}>
-                    <LandingPage onLogin={handleAuthentication}/>
-                </Route>
-                <Route exact path={"/signIn"}>
-                    <SignIn onLogin={handleAuthentication}/>
-                </Route>
-                </Switch>
-                : <Redirect to={"/home"}/> }
+        <div>
 
-            {Authentication ?
-                <>
-                <NavBar />
-                <Switch>
-                <Route exact path={"/Home"} >
-                    <Home/>
-                </Route>
-                <Route exact path={"/Profile"}>
-                    <Profile />
-                </Route>
-
-                </Switch>
-                </>
-            : <Redirect to={"/"}/>  }
+        <NavBar/>    
+        </div>
+            
         </>
     )
   }

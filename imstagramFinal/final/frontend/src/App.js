@@ -1,12 +1,12 @@
 import React from 'react';
-// import Authentication from './Components/Authentication.js'
+import Authentication from './Components/Authentication.js/Authentication'
 
-import NavBar from './Components/Authentication.js/NavBar'
+
 function App() {
   return (
     <div className="App">
-      {/* <Authentication/> */}
-      <NavBar/>
+      <Authentication/>
+    
     </div>
   );
 }
