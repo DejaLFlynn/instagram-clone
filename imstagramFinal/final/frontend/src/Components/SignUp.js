@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import { useInput } from "../Utils/Input";
 import axios from "axios";
 import Input from "./Authentication.js/Input";
-
+import {useHistory} from 'react-router-dom'
+import {apiURL} from '../Utils/apiURL'
 const SignUpPage = ({onLogin, modalClose }) => {
   const username = useInput("");
   const email = useInput("");
   const fullname = useInput("");
   const age = useInput("");
   const profile_pic = useState("");
-
+  const history = useHistory()
   const [image, setImage] = useState(null);
-
+  const API = apiURL()
   const [error, setError] = useState("");
 
 
@@ -65,6 +66,7 @@ const SignUpPage = ({onLogin, modalClose }) => {
               name={"username"}
               placeholder={"Pick a Username"}
               input={username}
+              
             />
           </div>
 
