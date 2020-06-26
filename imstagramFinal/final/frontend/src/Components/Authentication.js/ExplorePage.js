@@ -13,7 +13,7 @@ const ExplorePage =()=>{
                 url: `${API}/posts`
             })
             debugger
-            setPosts(res.data.posts);
+            setPosts(res.data.posts_images);
         }
         fetchPosts()
     }, []);

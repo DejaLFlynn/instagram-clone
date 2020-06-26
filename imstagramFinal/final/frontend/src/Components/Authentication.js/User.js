@@ -12,7 +12,7 @@ const User =()=>{
                 method: 'get',
                 url: `${API}/users`
             })
-            setUsers(res.data.users);
+            setUsers(res.data.users_name);
         }
         fetchUsers()
     }, []);
