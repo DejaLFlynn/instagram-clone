@@ -3,16 +3,16 @@
 
 -- \c imstagram_db;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS  posts;
 DROP TABLE IF EXISTS likes;
 DROP TABLE IF EXISTS followers;
 
-CREATE TABLE users (
-   id SERIAL PRIMARY KEY,
-   users_name VARCHAR,
-   email TEXT NOT NULL UNIQUE
-
+CREATE TABLE Users
+(
+    id VARCHAR PRIMARY KEY,
+    email VARCHAR,
+    users_name VARCHAR
 );
 
 
@@ -57,12 +57,12 @@ CREATE TABLE posts (
     
 -- );
 
-INSERT INTO Users (users_name,  email )
-   VALUES 
-   ('dejaf', 'dejaflynn@pursuit.org'),  
-   ('nilberr', 'nilberremon@pursuit.org'),
-   ('ashyam', 'ashyamanning@pursuit.org'),
-   ('Shawnc', 'Shawnc@pursuit.org' );
+-- INSERT INTO Users (id, users_name,  email )
+--    VALUES 
+--    ('1', 'dejaf', 'dejaflynn@pursuit.org'),  
+--    ('2', 'nilberr', 'nilberremon@pursuit.org'),
+--    ('3', 'ashyam', 'ashyamanning@pursuit.org'),
+--    ('4', 'Shawnc', 'Shawnc@pursuit.org' );
 
 
 

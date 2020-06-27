@@ -21,6 +21,7 @@ const ExplorePage =()=>{
     return (
         <div className="User">
             <h1>All Posts </h1>
+            {/* <img src={}></img> */}
             <ul>
                 {posts.map(post=>{
                     return<li key={post.id} >{post.content}</li>

@@ -4,14 +4,15 @@ const createUser = async (req, res, next) => {
   
 
     try {
-        let {users_name, email} =req.body
+        let {id, users_name, email} =req.body
         let user = await db.one(
-          "INSERT INTO users (users_name, email) VALUES(${users_name}, ${email}) RETURNING *",
-          [users_name, email]
+          "INSERT INTO users (id, users_name, email) VALUES($1, $2, $3) RETURNING *",
+          [id, users_name, email]
         );
         res.json({
+          status: "Success",
           message: "NEW USER CREATED",
-          user,
+          body: user,
         });
       } catch (err) {
         next(err);
