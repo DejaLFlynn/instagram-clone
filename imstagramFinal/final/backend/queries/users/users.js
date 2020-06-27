@@ -6,7 +6,7 @@ const createUser = async (req, res, next) => {
     try {
         let {users_name, email} =req.body
         let user = await db.one(
-          "INSERT INTO users (users_name, email) VALUES($1, $2) RETURNING *",
+          "INSERT INTO users (users_name, email) VALUES(${users_name}, ${email}) RETURNING *",
           [users_name, email]
         );
         res.json({

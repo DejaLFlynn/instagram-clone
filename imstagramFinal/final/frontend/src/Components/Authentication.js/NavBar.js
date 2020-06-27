@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import {NavLink} from 'react-router-dom'
 
 import User from './User'
-// import Uploader from ''
 
 import { getDefaultNormalizer } from '@testing-library/react'
 const NavBar =()=>{

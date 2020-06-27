@@ -10,7 +10,7 @@ const ExplorePage =()=>{
         const fetchPosts = async()=>{
             let res = await axios({
                 method: 'get',
-                url: `${API}/posts`
+                url: `http://localhost:4001/posts`
             })
             debugger
             setPosts(res.data.posts_images);

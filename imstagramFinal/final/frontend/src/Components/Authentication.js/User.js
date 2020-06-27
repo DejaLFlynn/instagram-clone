@@ -10,7 +10,7 @@ const User =()=>{
         const fetchUsers = async()=>{
             let res = await axios({
                 method: 'get',
-                url: `${API}/users`
+                url: `http://localhost:4001/users`
             })
             setUsers(res.data.users_name);
         }

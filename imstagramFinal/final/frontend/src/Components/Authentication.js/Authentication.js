@@ -23,11 +23,11 @@ const Authentication = () => {
                 <Route exact path={"/"}>
                     <LandingPage onLogin={handleAuthentication}/>
                 </Route>
-                <Route exact path={"/signUp"}>
+                <Route exact path={"/signup"}>
                     <SignUp onLogin={handleAuthentication}/>
                 </Route>
                 </Switch>
-                : <Redirect to={"/explore"}/> }
+                : <Redirect to={"/"}/> }
 
             {authentication ?
                 <>
@@ -36,7 +36,7 @@ const Authentication = () => {
                 <Route exact path={"/explore"} >
                     <Explore/>
                 </Route>
-                <Route exact path={"/user"}>
+                <Route exact path={"/user/:id"}>
                     <User />
                 </Route>
 
