@@ -18,6 +18,7 @@ const SignIn = () => {
 
   }
   const handleEmail=(e)=>{
+    e.preventDefault()
     try {
       
       setEmail(e.target.value)

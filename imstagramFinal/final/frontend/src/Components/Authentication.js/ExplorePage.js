@@ -4,7 +4,7 @@ import {apiURL} from '../../Utils/apiURL'
 
 const ExplorePage =()=>{
     const [posts, setPosts]=useState([])
-    const API = apiURL()
+    // const API = apiURL()
     
     useEffect(() => {
         const fetchPosts = async()=>{

@@ -1,14 +1,13 @@
 import React from 'react'
-import NavBar from './NavBar'
 import SignIn from './SignIn'
 
 
 
 const LandingPage =()=>{
     return (
-        <div className="LandingPage">
+        <div className="landingPage">
             <SignIn/>
-            <NavBar/>
+          
         </div>
     )
 

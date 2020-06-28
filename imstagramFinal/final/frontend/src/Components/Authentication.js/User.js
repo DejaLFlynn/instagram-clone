@@ -4,7 +4,7 @@ import {apiURL} from '../../Utils/apiURL'
 
 const User =()=>{
     const [users, setUsers]=useState([])
-    const API = apiURL()
+    // const API = apiURL()
     
     useEffect(() => {
         const fetchUsers = async()=>{
@@ -25,7 +25,7 @@ const User =()=>{
                     return<li key={user.id} >{user.email}</li>
                 })}
             </ul>
-User
+
         </div>
     )
 
