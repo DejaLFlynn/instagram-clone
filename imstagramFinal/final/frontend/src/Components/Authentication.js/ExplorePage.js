@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {apiURL} from '../../Utils/apiURL'
-
+import '../../CSS/Explore.CSS'
 const ExplorePage =()=>{
     const [posts, setPosts]=useState([])
     // const API = apiURL()
