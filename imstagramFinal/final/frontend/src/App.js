@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="App">
       {/* <Provider> */}
+      Home 
 
       <nav className="navbar">
       <NavBar/>
@@ -17,11 +18,12 @@ function App() {
 
       <div className="main">
         <div className="left-side">
-        <img className="instagif" src="https://media.giphy.com/media/hsDY1IPzpP4DcB1Ba5/giphy.gif"></img>
+       
         </div>
         <div className='right-side'>
           
         <h1>Imstagram</h1>
+    
       <Authentication/>
 
         </div>

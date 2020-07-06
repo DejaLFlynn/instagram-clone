@@ -7,6 +7,8 @@ const SignUpPage = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [error, setError] = useState(null);
+
   const history = useHistory();
 
   const handleUsernameChange = (e) => {
@@ -17,15 +19,20 @@ const SignUpPage = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let newUser = await axios({
-      method: "post",
-      url: "http://localhost:4001/users",
-      data: {
-        users_name: username,
-        password: password,
-      },
-    });
-    console.log(newUser);
+    try {
+      history.push("/")
+    } catch (error) {
+      setError(error.message)
+    }
+  //   let newUser = await axios({
+  //     method: "post",
+  //     url: "http://localhost:4001/users",
+  //     data: {
+  //       users_name: username,
+  //       password: password,
+  //     },
+  //   });
+  //   console.log(newUser);
   };
 
   return (
@@ -33,6 +40,7 @@ const SignUpPage = () => {
       <div className="signup">
         {" "}
         SignUpPage
+        {error ? <div>{error}</div>: null}
         <form onSubmit={handleSubmit}>
           <input
             // onChange={handleUsernameChange}
@@ -48,6 +56,7 @@ const SignUpPage = () => {
             value={password}
             type="password"
             placeholder="password"
+            autoComplete="on"
           />
           <button type="submit">submit</button>
         </form>
