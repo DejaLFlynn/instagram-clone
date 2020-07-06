@@ -4,15 +4,15 @@ import {apiURL} from '../../Utils/apiURL'
 
 const User =()=>{
     const [users, setUsers]=useState([])
-    // const API = apiURL()
+    const API = apiURL()
     
     useEffect(() => {
         const fetchUsers = async()=>{
             let res = await axios({
                 method: 'get',
-                url: `http://localhost:4001/users`
+                url: `${API}/users`
             })
-            setUsers(res.data.users_name);
+            setUsers(res.data.users);
         }
         fetchUsers()
     }, []);

@@ -33,10 +33,10 @@ const Authentication = () => {
                 <>
                 <NavBar />
                 <Switch>
-                <Route exact path={"/explore"} >
+                <Route path={"/explore"} >
                     <Explore/>
                 </Route>
-                <Route exact path={"/user/:id"}>
+                <Route path={"/users"}>
                     <User />
                 </Route>
 
