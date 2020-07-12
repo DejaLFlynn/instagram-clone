@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {apiURL} from '../../Utils/apiURL'
+import Upload from '../Upload'
 import '../../CSS/Explore.CSS'
 const ExplorePage =()=>{
     const [posts, setPosts]=useState([])
@@ -19,8 +20,10 @@ const ExplorePage =()=>{
     }, []);
 
     return (
-        <div className="User">
+        <div className="explore">
             <h1>All Posts </h1>
+            <Upload/>
+           
             {/* <img src={}></img> */}
             <ul>
                 {posts.map(post=>{

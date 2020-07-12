@@ -46,3 +46,7 @@ fieldset {
   margin: 0;
 }
 /* CSS Reset code provided by Elad Shechter */
+.explore{
+height: 100vw;
+display: flex;
+}

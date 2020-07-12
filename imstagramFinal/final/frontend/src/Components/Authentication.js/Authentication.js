@@ -36,7 +36,7 @@ const Authentication = () => {
                 <Route path={"/explore"} >
                     <Explore/>
                 </Route>
-                <Route path={"/users"}>
+                <Route path={"/users/:id"}>
                     <User />
                 </Route>
 
