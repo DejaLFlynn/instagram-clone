@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import Authentication from './Components/Authentication.js/Authentication'
+// import Authentication from './Components/Authentication.js/Authentication'
 import Footer from './Components/Footer'
 import NavBar from './Components/Authentication.js/NavBar'
 import Home from './Components/Home'
+import User from './Components/Authentication.js/User'
 import SignIn from './Components/Authentication.js/SignIn'
 import Register from './Components/Register'
 import Dashboard from './Components/Dashboard'
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/login" component={SignIn} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/user" component={User} />
       </Switch>
     </Router>
     <Footer/>
