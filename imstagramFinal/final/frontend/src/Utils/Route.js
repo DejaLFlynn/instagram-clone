@@ -13,4 +13,15 @@ export const AuthRoute = ({ children, ...rest }) => {
     />
   );
 };
+export const SignedRoute = ({children, ...rest})=>{
+  const {user}= useContext(Context) ;
+  return(
+    <Route
+    {...rest}
+    render={({location})=>{
+      return user ? children : <Redirect to="/login"/>
+    }}
+    />
+  )
+}
 
