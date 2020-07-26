@@ -27,10 +27,10 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={SignIn} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/user" component={User} />
+        <Route path="/login" component={SignIn} />
+        <Route path="/register" component={Register} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/user" component={User} />
       </Switch>
     </Router>
     <Footer/>
