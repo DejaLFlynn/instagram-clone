@@ -3,12 +3,13 @@ import 'firebase/auth'
 import 'firebase/firebase-firestore'
 
 const config = {
-	apiKey: "AIzaSyCvjxM7NCh880Xprd2AWB0aTholZ0nzt4s",
-	authDomain: "imstagram-cta.firebaseapp.com",
-	databaseURL: "https://imstagram-cta.firebaseio.com/",
-	projectId: "imstagram-cta",
-	storageBucket: "gs://imstagram-cta.appspot.com",
-	messagingSenderId: "902733136206"
+	apiKey: "AIzaSyCqylzSe-5nCTmjL_LoF1pCGElnJftdVLU",
+    authDomain: "df-imsta-demo.firebaseapp.com",
+    databaseURL: "https://df-imsta-demo.firebaseio.com",
+    projectId: "df-imsta-demo",
+    storageBucket: "df-imsta-demo.appspot.com",
+    messagingSenderId: "460669665927",
+    appId: "1:460669665927:web:7cc086bfef5101d8f36e22"
 }
 
 class Firebase {
