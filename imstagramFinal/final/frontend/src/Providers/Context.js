@@ -1,5 +1,5 @@
 import React, {createContext, useState, useEffect} from 'react'
-import Firebase from '../Firebase'
+import firebase from '../Firebase'
 import {firebaseIdToken} from '../Utils/Firebase'
 export const AContext = createContext();
 const Context =({children})=>{
@@ -21,7 +21,7 @@ const updater = user =>{
     }
 }
 useEffect(()=>{
-    const unsubscribe = firebaseIdToken.auth().onAuthStateChanged(updater)
+    const unsubscribe = firebase.auth().onAuthStateChanged(updater)
     return unsubscribe
 }, [])
 if(loading) return <div>Loading</div>
