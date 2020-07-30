@@ -5,7 +5,7 @@ const {
   deleteUser,
   getUser,
 } = require("../../queries/users/users");
-// const usersPosts = require('../nestedRoutes/nestedUsers')
+
 users.post("/", createUser);
 users.get("/", allUsers);
 users.get("/:id", getUser);

@@ -6,7 +6,7 @@ const {
     getPost,
   } = require("../../queries/users/posts/posts");
   
-  posts.post("/:id", createPost);
+  posts.post("/", createPost);
   posts.get("/", allPosts);
   posts.delete("/:id", deletePost);
   posts.get("/:id", getPost);
