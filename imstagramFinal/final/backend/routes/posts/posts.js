@@ -10,6 +10,7 @@ const {
   posts.get("/", allPosts);
   posts.delete("/:id", deletePost);
   posts.get("/:id", getPost);
+  
 
 
 module.exports = posts;

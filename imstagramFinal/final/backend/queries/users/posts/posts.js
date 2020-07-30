@@ -3,9 +3,7 @@ const db = require("../../../db/index");
 const createPost = async (req, res, next) => {
   try {
       console.log(req.body)
-       let newPost =  await db.one(
-         'INSERT INTO posts(id, user_id, posts_images, content) VALUES(${id}, ${user_id}, ${posts_images}, ${content}) RETURNING *', req.body
-         );
+       let newPost =  await db.one('INSERT INTO posts(id, user_id, posts_images, content) VALUES(${id}, ${user_id}, ${posts_images}, ${content}) RETURNING *', req.body);
         res.status(200).json({
           status: 'success',
           message: 'a new post was created',
