@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-// import {apiUrl} from '../Utils/apiURL'
+import {apiUrl} from '../Utils/apiURL'
 
 const SignUpPage = () => {
   const [users_name, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
-
+  const API = apiUrl()
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     let newUser = await axios({
       method: "post",
-      url: "http://localhost:4001/users",
+      url: `${API}/users`,
       data: {
-        users_name: users_name,
+        id: res.user.uuid,
         email: email,
         password: password,
       },

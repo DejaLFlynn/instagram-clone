@@ -1,21 +1,25 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import {apiURL} from '../../Utils/apiURL'
+import {context} from '../../Providers/Context'
 import Upload from '../Upload'
 const User =()=>{
     const [users, setUsers]=useState([])
     const API = apiURL()
-    
-    useEffect(() => {
-        const fetchUsers = async()=>{
-            let res = await axios({
-                method: 'get',
-                url: `${API}/users`
-            })
-            setUsers(res.data.users);
-        }
+    const {token} =useContext(context)
+    const fetchUsers = async()=>{
+        let res = await axios({
+            method: 'get',
+            url: `${API}/users`,
+            headers:{
+                'userToken': token,
+            },
+        })
+        setUsers(res.data.users);
+    }
+     useEffect(() => {
         fetchUsers()
-    }, []);
+    }, [API]);
 
     return (
         <div className="User">
