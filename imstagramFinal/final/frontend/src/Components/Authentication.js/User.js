@@ -1,36 +1,34 @@
 import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import {apiURL} from '../../Utils/apiURL'
-import {context} from '../../Providers/Context'
+
 import Upload from '../Upload'
 const User =()=>{
-    const [users, setUsers]=useState([])
-    const API = apiURL()
-    const {token} =useContext(context)
-    const fetchUsers = async()=>{
-        let res = await axios({
-            method: 'get',
-            url: `${API}/users`,
-            headers:{
-                'userToken': token,
-            },
-        })
-        setUsers(res.data.users);
-    }
-     useEffect(() => {
-        fetchUsers()
-    }, [API]);
+const [name, setName] = useState("")
+const [bio, setBio] = useState("")
+const [pic, setPic] = useState("")
+const API = apiURL()
 
+const fetchUser = async()=>{
+    try {
+        let res = await axios.get(`${API}/users`);
+        debugger
+        setName(res.data.body.users[0].name)
+        setBio(res.data.body.users[0].bio)
+        setPic(res.data.body.users[0].user_pic)
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+        useEffect(()=>{
+            fetchUser()
+        },[])
     return (
         <div className="User">
-            <h1>All Users </h1>
-            <Upload/>
-            
-            <ul>
-                {users.map(user=>{
-                    return<li key={user.id} >{user.email}</li>
-                })}
-            </ul>
+           <h1>{name}</h1> 
+    <h2>{bio}</h2>
+    <img src={pic}></img>
 
         </div>
     )
