@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useInput } from '../Utils/Input'
-// import apiURL from '../Utils/apiURL'
+import apiURL from '../Utils/apiURL'
 const Posts = ()=>{
     const body = useInput("");
     const posts_images = useInput("");
@@ -20,7 +20,7 @@ const Posts = ()=>{
     let display = contents.map((info, index)=>{
         return(
             <div key={index} className="contentDisplay">
-                <h3>{info.body}</h3>
+             
         <p>{info.body}</p>
 
             </div>

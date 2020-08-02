@@ -1,4 +1,4 @@
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -61,7 +61,7 @@ fieldset {
 	justify-content: center;
   align-items: center;
   background-color: black;
-}
+} */
 
 .footer{
   display: inline-block;
@@ -71,5 +71,28 @@ fieldset {
   text-decoration: none;
 
 
+    
+  }
+  .App{
+    background-color: white;
+  }
+  .left-side{
+    position: absolute;
+    left: 0px;
+    width: 50%;
+    
+  }
+  .right-side{
+    position: absolute;
+    right: 0px;
+    width: 50%;
+  }
+  .footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-weight: 500;
+    text-decoration: none;
     
   }
