@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
+import {signIn} from '../Utils/Firebase'
 import { Typography, Paper, Button } from '@material-ui/core'
-import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Link } from 'react-router-dom'
-
+import '../CSS/LandingPage.CSS'
 const styles = theme => ({
 	main: {
 		width: 'auto',
@@ -34,10 +35,12 @@ function Home(props) {
 
 	return (
 		<main className={classes.main}>
-            <div className="iphone">
+            <div className="left-side">
         <img src ="https://media.giphy.com/media/hsDY1IPzpP4DcB1Ba5/giphy.gif">
         </img>
             </div>
+			<div className='right-side'>
+
 			<Paper className={classes.paper}>
 				<Typography component="h1" variant="h5">
 					Imstagram
@@ -73,6 +76,7 @@ function Home(props) {
 					Dashboard
           		</Button>
 			</Paper>
+					</div>
 		</main>
 	)
 }

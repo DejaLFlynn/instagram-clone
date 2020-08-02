@@ -1,63 +1,33 @@
-import app from 'firebase/app'
-import 'firebase/auth'
-import 'firebase/firebase-firestore'
+// import firebase from 'firebase/app'
+// import 'firebase/auth'
+// import 'firebase/firebase-firestore'
+// const {
+//     REACT_APP_APIKEY,
+//     REACT_APP_AUTHDOMAIN,
+//     REACT_APP_DATABASEURL,
+//     REACT_APP_PROJECTID,
+//     REACT_APP_STORAGEBUCKET,
+//     REACT_APP_MESSAGINGSENDERID,
+//     REACT_APP_APPID,
+//     REACT_APP_MEASUREMENTID,
+// } = process.env;
 
-const config = {
-	apiKey: "AIzaSyCqylzSe-5nCTmjL_LoF1pCGElnJftdVLU",
-    authDomain: "df-imsta-demo.firebaseapp.com",
-    databaseURL: "https://df-imsta-demo.firebaseio.com",
-    projectId: "df-imsta-demo",
-    storageBucket: "df-imsta-demo.appspot.com",
-    messagingSenderId: "460669665927",
-    appId: "1:460669665927:web:7cc086bfef5101d8f36e22"
-}
 
-class Firebase {
-	constructor() {
-		app.initializeApp(config)
-		this.auth = app.auth()
-		this.db = app.firestore()
-	}
+// const config = { 
+//     apiKey: REACT_APP_APIKEY,
+//     authDomain: REACT_APP_AUTHDOMAIN,
+//     databaseURL: REACT_APP_DATABASEURL,
+//     projectId: REACT_APP_PROJECTID,
+//     storageBucket: REACT_APP_STORAGEBUCKET,
+//     messagingSenderId: REACT_APP_MESSAGINGSENDERID,
+//     appId: REACT_APP_APPID,
+//     measurementId: REACT_APP_MEASUREMENTID 
+// }
 
-	login(email, password) {
-		return this.auth.signInWithEmailAndPassword(email, password)
-	}
+// firebase.initializeApp(config);
 
-	logout() {
-		return this.auth.signOut()
-	}
+// const storage = firebase.storage();
 
-	async register(name, email, password) {
-		await this.auth.createUserWithEmailAndPassword(email, password)
-		return this.auth.currentUser.updateProfile({
-			displayName: name
-		})
-	}
-
-	addQuote(quote) {
-		if(!this.auth.currentUser) {
-			return alert('Not authorized')
-		}
-
-		return this.db.doc(`users_codedamn_video/${this.auth.currentUser.uid}`).set({
-			quote
-		})
-	}
-
-	isInitialized() {
-		return new Promise(resolve => {
-			this.auth.onAuthStateChanged(resolve)
-		})
-	}
-
-	getCurrentUsername() {
-		return this.auth.currentUser && this.auth.currentUser.displayName
-	}
-
-	async getCurrentUserQuote() {
-		const quote = await this.db.doc(`users_codedamn_video/${this.auth.currentUser.uid}`).get()
-		return quote.get('quote')
-	}
-}
-
-export default new Firebase()
+// export {
+//     storage, firebase as default
+// }

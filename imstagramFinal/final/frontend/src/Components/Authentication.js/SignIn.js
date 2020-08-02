@@ -3,6 +3,8 @@ import { Typography, Paper, Avatar, Button, FormControl, Input, InputLabel } fro
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Link, withRouter } from 'react-router-dom'
+import { useHistory} from 'react-router-dom'
+import {login} from './../../Utils/Firebase'
 import firebase from '../../Firebase'
 
 const styles = theme => ({
@@ -37,12 +39,22 @@ const styles = theme => ({
 	},
 });
 
-function SignIn(props) {
+const SignIn =(props)=> {
 	const { classes } = props
 
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+	const history = useHistory()
 
+	const handleSubmit = async (e) =>{
+		e.preventDefault()
+		try {
+			await login(users_name.value, email.value)
+			history.push('/users')
+		} catch (error) {
+			console.log(error)
+		}
+	}
 	return (
 		<main className={classes.main}>
 			<Paper className={classes.paper}>
@@ -52,14 +64,14 @@ function SignIn(props) {
 				<Typography component="h1" variant="h5">
 					Sign in
        			</Typography>
-				<form className={classes.form} onSubmit={e => e.preventDefault() && false}>
+				<form className={classes.form} onSubmit={handleSubmit}>
 					<FormControl margin="normal" required fullWidth>
-						<InputLabel htmlFor="email">Email Address</InputLabel>
-						<Input id="email" name="email" autoComplete="off" autoFocus value={email} onChange={e => setEmail(e.target.value)} />
+						<InputLabel htmlFor="name">User's Name</InputLabel>
+						<Input id="name" name="name" autoComplete="off" autoFocus value={name} onChange={e => setEmail(e.target.value)} />
 					</FormControl>
 					<FormControl margin="normal" required fullWidth>
-						<InputLabel htmlFor="password">Password</InputLabel>
-						<Input name="password" type="password" id="password" autoComplete="off" value={password} onChange={e => setPassword(e.target.value)} />
+						<InputLabel htmlFor="email">Email</InputLabel>
+						<Input name="email" type="email" id="email" autoComplete="off" value={password} onChange={e => setPassword(e.target.value)} />
 					</FormControl>
 					<Button
 						type="submit"

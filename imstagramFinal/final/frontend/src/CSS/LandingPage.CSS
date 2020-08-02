@@ -46,11 +46,19 @@ fieldset {
   margin: 0;
 }
 /* CSS Reset code provided by Elad Shechter */
-.instagif{
+/* .instagif{
   height: 580px;
   width: 400px;
   position: relative;
   z-index: 2;
   left: 100px;
   bottom: 50px;
+} */
+main{
+  height: 100vh;
+  background-color: black;
+}
+
+.right-side{
+
 }
