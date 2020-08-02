@@ -3,13 +3,17 @@ import { useInput } from '../Utils/Input'
 // import apiURL from '../Utils/apiURL'
 const Posts = ()=>{
     const body = useInput("");
-    const content = useInput("");
+    const posts_images = useInput("");
     const [contents, setContents] = useState([]);
+    const [images, setImages] = useState('')
     // const API = apiURL()
     const newContent = (e)=>{
         e.preventDefault();
         setContents([{body: `${body.value}`,
-        content: `${content.value}`
+    //     setImages([{posts_images: `${posts_images.value}`
+    
+    // }, ...images])
+        // content: `${content.value}`
     
     }, ...contents])
     }
