@@ -50,3 +50,11 @@ fieldset {
 height: 100vw;
 display: flex;
 }
+img{
+  width: 200px;
+  height: 200px;
+}
+.pictureContainer{
+  width: 600px;
+  height: 400px;
+}
