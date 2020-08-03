@@ -1,12 +1,14 @@
 const express = require('express');
-require('dotenv').config();
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const app = express();
+const bodyParser = require('body-parser');
+require('dotenv').config();
 const PORT = process.env.PORT;
+const app = express();
 app.use(cors());
-app.use(bodyParser.urlencoded({extended: false}))
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}))
+
 const users = require("./routes/users/users");
 const posts = require('./routes/posts/posts');
 const followers = require('./routes/followers/followers')

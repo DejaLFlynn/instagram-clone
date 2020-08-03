@@ -9,6 +9,7 @@ const Explorer = () => {
   const fetchPosts = async () => {
     try {
       let res = await axios.get(`${API}/posts`);
+   
       setPosts(res.data.posts);
     } catch (error) {
       console.log(error);
@@ -17,11 +18,10 @@ const Explorer = () => {
   useEffect(() => {
     fetchPosts();
   }, []);
-  
+
   let displayPics = posts.map((post) => {
     return (
       <div className="allPics" key={post.id + post.posts_images + post.content}>
-    
         <img src={post.posts_images}></img>
         <p value={post.content}></p>
       </div>
