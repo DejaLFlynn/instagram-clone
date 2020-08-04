@@ -5,10 +5,10 @@ const {
   deleteUser,
   getUser,
 } = require("../../queries/users/users");
-// const {checkFirebaseToken} = require('../../middleware/Auth')
+ const {checkFirebaseToken} = require('../../middleware/Auth')
 users.post("/", createUser);
 users.get("/", 
-// checkFirebaseToken, 
+checkFirebaseToken, 
 allUsers);
 users.get("/:id", getUser);
 users.delete("/:id", deleteUser);

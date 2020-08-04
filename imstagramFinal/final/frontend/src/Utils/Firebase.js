@@ -12,6 +12,7 @@
 
 
 import firebase from './firebase'
+import 'firebase/firestore';
 
 export const signOut = () =>  firebase.auth().signOut()
 

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useInput } from '../Utils/Input'
 import apiURL from '../Utils/apiURL'
+import Drop from '../Utils/Drop'
 const Posts = ()=>{
     const body = useInput("");
     const posts_images = useInput("");
@@ -32,11 +33,14 @@ const Posts = ()=>{
     return(
 <>
 <div className="Posts"
+
 //  onClick={pushPosts}
  >
 
 <form onSubmit={newContent}>
     <label>Post Body</label>
+    <Drop/>
+
     <input type="text" placeholder="add caption" name="body" {...body}/>
     <button type="submit" className="captionButton">Post</button>
 
