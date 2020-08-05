@@ -7,17 +7,16 @@ const Posts = ()=>{
     const posts_images = useInput("");
     const [contents, setContents] = useState([]);
     const [images, setImages] = useState('')
-    // const API = apiURL()
+    const API = apiURL()
     const newContent = (e)=>{
         e.preventDefault();
         setContents([{body: `${body.value}`,
-
+    //     setImages([{posts_images: `${posts_images.value}`
+    
+    // }, ...images])
+        // content: `${content.value}`
     
     }, ...contents])
-        setImages([{posts_images: `${posts_images.value}`,
-    
-     }, ...images])
-       
     }
     let display = contents.map((info, index)=>{
         return(

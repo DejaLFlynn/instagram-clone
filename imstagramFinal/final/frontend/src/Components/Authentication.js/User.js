@@ -45,7 +45,7 @@ const User = () => {
       <h1>{name}</h1>
       <h2>{bio}</h2>
       <img src={pic}></img>
-      <Posts/>
+      {/* <Posts/> */}
     </div>
   );
 };
