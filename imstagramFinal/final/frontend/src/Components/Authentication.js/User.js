@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import {AuthContext} from '../Authentication.js/AuthContext'
-import axios from "axios";
-import { apiURL } from "../../Utils/apiURL";
-import Posts from '../Posts'
+import {AContext} from '../../Providers/Context'
 import {useHistory, Link} from 'react-router-dom'
+import { apiURL } from "../../Utils/apiURL";
+import axios from "axios";
+import Posts from '../Posts'
 import Upload from "../Upload";
 const User = () => {
   const [name, setName] = useState("");
@@ -25,6 +25,19 @@ const User = () => {
   useEffect(() => {
     fetchUser();
   }, []);
+  // const fetchPosts = async () => {
+  //   let res = await axios({
+  //     method: "GET",
+  //     url: `${API}/posts`,
+  //   });
+  //   setBio(res.data);
+  //   setPic(res.data)
+  // };
+
+  // useEffect(() => {
+  //   // fetchUsers();
+  //   fetchPosts();
+  // }, [API]);
 
 
   return (

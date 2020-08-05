@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import {apiUrl} from '../Utils/apiURL'
-import { useInput } from "../Utils/Input";
-import Upload from "./Upload";
+import {signUp} from '../Utils/Firebase'
 import Dropzone from '../Components/Dropzone'
 const SignUpPage = () => {
-  const name = useInput('')
-  const email = useInput("")
+  const[email, setEmail] = useState("")
+  const [password, setPassword] =useState('')
   const [pic, setPic] = useState("https://www.dts.edu/wp-content/uploads/sites/6/2018/04/Blank-Profile-Picture.jpg")
   const [error, setError] = useState(null);
   const API = apiUrl()
@@ -17,13 +16,9 @@ const SignUpPage = () => {
  const handleSubmit = async(e)=>{
    e.preventDefault()
    try {
-     let newSignUp = await signUp(users_name.value, email.value);
-     let response = await axios.post(`${API}/users`,{
-       id: newSignUp.users_name.uid,
-       users_name: name.value,
-       email: email,
-       user_pic: pic
-     })
+     let res = await signUp(email, password);
+     await axios.post(`${API}/users`,{
+       id:res.users.uid, email})
    } catch (error) {
      console.lot(error)
 

@@ -49,8 +49,8 @@ const SignIn =(props)=> {
 	const handleSubmit = async (e) =>{
 		e.preventDefault()
 		try {
-			await login(users_name.value, email.value)
-			history.push('/users')
+			await login(email, password)
+			history.push('/')
 		} catch (error) {
 			console.log(error)
 		}

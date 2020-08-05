@@ -16,7 +16,7 @@ const serviceAccount = {
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://df-imsta-demo.firebaseio.com"
+  databaseURL: "https://df-imsta-demo.firebaseio.com",
 });
 
 

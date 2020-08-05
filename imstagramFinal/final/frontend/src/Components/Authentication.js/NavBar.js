@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {NavLink} from 'react-router-dom'
-
+import {logout} from '../../Utils/Firebase'
 
 import '../../CSS/NavBar.CSS'
 const NavBar =()=>{
@@ -19,6 +19,7 @@ const NavBar =()=>{
              <NavLink to={"/users"}>User<button className="navButton toggleButton"  onClick={handleNavButton}>PROFILE</button></NavLink> }
              <NavLink to={"/login"}>Login</NavLink>
              <NavLink to = {"/signup"}>All users</NavLink>
+             <button onclick={logout}></button>
             </nav>
         </div>
         </>

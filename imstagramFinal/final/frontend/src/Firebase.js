@@ -24,11 +24,12 @@ const config = {
     measurementId: REACT_APP_MEASUREMENTID 
 }
 
-firebase.initializeApp(config);
+app.initializeApp(config);
+export default app;
 
-const storage = firebase.storage();
+// const storage = app.storage();
 
-export {
-    storage, 
-    // firebase as default
-}
+// export {
+//     storage, 
+//     app as default
+// }

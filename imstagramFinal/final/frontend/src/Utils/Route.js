@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
-import { Context } from "../Providers/Context";
+import { AContext } from "../Providers/Context";
 
 export const AuthRoute = ({ children, ...rest }) => {
-  const { currentUser } = useContext(Context);
+  const { currentUser } = useContext(AContext);
   return (
     <Route
       {...rest}
@@ -13,15 +13,16 @@ export const AuthRoute = ({ children, ...rest }) => {
     />
   );
 };
-export const SignedRoute = ({children, ...rest})=>{
-  const {user}= useContext(Context) ;
-  return(
-    <Route
-    {...rest}
-    render={({location})=>{
-      return user ? children : <Redirect to="/login"/>
-    }}
-    />
-  )
-}
 
+
+export const ProtectedRoute = ({ children, ...rest }) => {
+  const { currentUser } = useContext(AContext);
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => {
+        return currentUser ? children : <Redirect to="/login" />;
+      }}
+    />
+  );
+};

@@ -4,19 +4,19 @@ import {getFirebaseIdToken} from '../Utils/Firebase'
 export const AContext = createContext();
 const Context =({children})=>{
 const [token, setToken] = useState(null);
-const [user, setUser] = useState(null);
+const [users, setUsers] = useState(null);
 const [loading, setLoading] = useState(true);
 const updater = user =>{
     if(user){
         const {email, uid} = user;
-        const prior = user.metadata.prior;
-        setUser({email, prior, id:uid})
+        const prior = users.metadata.prior;
+        setUsers({email, prior, id:uid})
         getFirebaseIdToken().then((token)=>{
             setToken(token)
             setLoading(false)
         })
     }else {
-        setUser(null)
+        setUsers(null)
         setLoading(false)
     }
 }
@@ -27,7 +27,7 @@ useEffect(()=>{
 if(loading) return <div>Loading</div>
 return(
 
-    <AContext.Provider value={(user, token)}>
+    <AContext.Provider value={(users, token)}>
         {children}
     </AContext.Provider>
 )

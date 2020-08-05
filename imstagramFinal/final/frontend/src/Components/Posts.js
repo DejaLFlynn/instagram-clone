@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useInput } from '../Utils/Input'
-import apiURL from '../Utils/apiURL'
+import {apiURL} from '../Utils/apiURL'
 import Drop from '../Utils/Drop'
 const Posts = ()=>{
     const body = useInput("");
@@ -11,12 +11,13 @@ const Posts = ()=>{
     const newContent = (e)=>{
         e.preventDefault();
         setContents([{body: `${body.value}`,
-    //     setImages([{posts_images: `${posts_images.value}`
-    
-    // }, ...images])
-        // content: `${content.value}`
+
     
     }, ...contents])
+        setImages([{posts_images: `${posts_images.value}`,
+    
+     }, ...images])
+       
     }
     let display = contents.map((info, index)=>{
         return(
@@ -42,7 +43,11 @@ const Posts = ()=>{
     <Drop/>
 
     <input type="text" placeholder="add caption" name="body" {...body}/>
-    <button type="submit" className="captionButton">Post</button>
+    <button type="submit" className="captionButton"
+    //  onClick={() => {
+    //                   history.push(`${API}/users/${posts.uid}`);
+    //                 }}
+                    >Post</button>
 
 </form>
 <ul>
