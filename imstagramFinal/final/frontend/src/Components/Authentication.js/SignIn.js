@@ -6,7 +6,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { useHistory} from 'react-router-dom'
 import {login} from './../../Utils/Firebase'
 import firebase from '../../Firebase'
-
+import {useInput} from '../../Utils/Input'
 const styles = theme => ({
 	main: {
 		width: 'auto',
@@ -100,7 +100,7 @@ const SignIn =(props)=> {
 	async function login() {
 		try {
 			await firebase.login(email, password)
-			props.history.replace('/posts')
+			props.history.replace('/users')
 		} catch(error) {
 			alert(error.message)
 		}
