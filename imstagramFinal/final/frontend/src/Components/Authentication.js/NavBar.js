@@ -19,7 +19,7 @@ const NavBar =()=>{
              <NavLink to={"/users"}>User<button className="navButton toggleButton"  onClick={handleNavButton}>PROFILE</button></NavLink> }
              <NavLink to={"/login"}>Login</NavLink>
              <NavLink to = {"/signup"}>All users</NavLink>
-             <button onclick={logout}></button>
+             <button onClick={logout}></button>
             </nav>
         </div>
         </>

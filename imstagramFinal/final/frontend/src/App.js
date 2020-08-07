@@ -1,19 +1,19 @@
-//rebuild app component
 import React, { useEffect, useState } from 'react';
 import "./App.css";
 import Footer from "./Components/Footer";
 import firebase from './Firebase'
 import {getFirebaseIdToken} from './Utils/Firebase'
-// import React, { useState, useEffect } from "react";
 import User from "./Components/Authentication.js/User";
 import NavBar from "./Components/Authentication.js/NavBar";
+import SignIn from './Components/Authentication.js/SignIn'
+import SignUp from './Components/SignUp'
 import Explorer from "./Components/Explorer";
 import { Route, Switch } from "react-router-dom";
 import Error from "./Components/Error";
 import Home from "./Components/Home";
 import AuthProvider from "./Providers/Context";
+import {AuthRoute, ProtectedRoute} from "./Utils/Route"
 function App() {
-// const dispatch = useDispatch()
 const [currentUser, setCurrentUser] = useState("")
 const sessionUser = user =>{
   if(user){
@@ -35,22 +35,26 @@ useEffect( () => {
       <AuthProvider>
         <NavBar />
         <Switch>
-          <Route exact path={"/"}>
-            <Home />
+          <Route>
+            <Home/>
           </Route>
-          <Route exact path={"/posts"}>
-            {""}
-            <Explorer />
-          </Route>
-          <Route path={"/users"}>
+          <AuthRoute exact path={"/signup"}>
+            <SignUp />
+          </AuthRoute>
+          <AuthRoute exact path={"/login"}>
+            <SignIn />
+          </AuthRoute>
+          <ProtectedRoute path={"/users"}>
             <User />{""}
-          </Route>
-          {/* <Route path="*" component={Error} /> */}
+          </ProtectedRoute>
+         <ProtectedRoute path={'/posts'}>
+           <Explorer/>
+         </ProtectedRoute>
         </Switch>
+      </AuthProvider>
         <footer>
           <Footer />
         </footer>
-      </AuthProvider>
     </div>
   );
 }
