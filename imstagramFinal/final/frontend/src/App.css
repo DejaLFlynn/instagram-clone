@@ -76,9 +76,10 @@ fieldset {
   }
   .footer a{
     text-decoration: none;
-    padding-right: 18px;
+    padding-right: 5px;
+
     color:midnightblue;
-    font-size: 10px;
+    font-size: 13px;
   }
   .App{
     background-color: white;
