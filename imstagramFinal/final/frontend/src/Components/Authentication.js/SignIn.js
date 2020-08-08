@@ -6,6 +6,7 @@ import axios from 'axios'
 import firebase from '../../Firebase'
 import {useInput} from '../../Utils/Input'
 import {apiURL} from '../../Utils/apiURL'
+import SignUp from '../SignUp'
 const API = apiURL()
 const SignIn =()=> {
 	const [email, setEmail] = useState('')
@@ -31,7 +32,9 @@ const SignIn =()=> {
 				
 			</form>
 			<div>
-			<Link to="/signup" className="button">New? Sign Up</Link>
+			<Link to="/signup" className="button">New? Sign Up
+			
+			</Link>
 			</div>
 		</div>
 	)

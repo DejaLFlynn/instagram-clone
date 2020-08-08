@@ -5,6 +5,7 @@ import {apiURL} from '../Utils/apiURL'
 import {signUp} from '../Utils/Firebase'
 // import Dropzone from '../Components/Dropzone'
 import {Context} from '../Providers/Context'
+import { Link, withRouter } from 'react-router-dom'
 
 const SignUpPage = () => {
   const[email, setEmail] = useState("")

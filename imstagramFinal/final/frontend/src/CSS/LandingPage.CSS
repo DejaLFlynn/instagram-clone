@@ -57,8 +57,23 @@ fieldset {
 main{
   height: 100vh;
   background-color: black;
+  display: flex;
 }
 
 .right-side{
+display: grid;
+grid-template-columns: 200px;
+float: right;
 
+}
+.left-side{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: ". . . ." ". . . ." ". . . .";
+  
+}
+img{
+  align-items: center;
 }

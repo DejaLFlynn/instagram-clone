@@ -64,14 +64,21 @@ fieldset {
 } */
 
 .footer{
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: midnightblue;
   padding: 0 10px 0 10px;
   font-size: 12px;
   text-decoration: none;
-
-
+  
     
+  }
+  .footer a{
+    text-decoration: none;
+    padding-right: 18px;
+    color:midnightblue;
+    font-size: 10px;
   }
   .App{
     background-color: white;
@@ -97,5 +104,9 @@ fieldset {
     
   }
   img{
-    width: 200px;
+    width: 300px;
+    float: right;
+    
+
   }
+  

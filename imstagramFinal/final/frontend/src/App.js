@@ -52,6 +52,14 @@ useEffect( () => {
          </ProtectedRoute>
         </Switch>
       </AuthProvider>
+      <button >guest login
+        
+      </button>
+
+      <img src='apple'>
+      </img>
+      <img src="android">
+      </img>
         <footer>
           <Footer />
         </footer>
