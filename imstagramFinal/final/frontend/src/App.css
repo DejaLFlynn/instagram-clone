@@ -110,4 +110,18 @@ fieldset {
     
 
   }
-  
+  .storeHolder{
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+  }
+  .appleStore{
+    width: 100px;
+    grid-area: 4 / 4 / 5 / 5; 
+  }
+  .android{
+    width: 100px;
+    grid-area: 5 / 4 / 6 / 5;
+  }

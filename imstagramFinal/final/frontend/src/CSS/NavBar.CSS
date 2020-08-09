@@ -50,3 +50,7 @@ nav{
   
 }
 /* CSS Reset code provided by Elad Shechter */
+nav{
+  display: flex;
+  justify-content: space-around;
+}

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { useHistory} from 'react-router-dom'
 import {login} from './../../Utils/Firebase'
-import axios from 'axios'
 import firebase from '../../Firebase'
 import {useInput} from '../../Utils/Input'
 import {apiURL} from '../../Utils/apiURL'
@@ -18,7 +17,7 @@ const SignIn =()=> {
 		e.preventDefault()
 		try {
 			await login(email, password)
-			history.push(`${API}/posts`)
+			history.push(`/posts`)
 		} catch (error) {
 			console.log(" incorrect path",error)
 		}
@@ -32,9 +31,7 @@ const SignIn =()=> {
 				
 			</form>
 			<div>
-			<Link to="/signup" className="button">New? Sign Up
-			
-			</Link>
+		
 			</div>
 		</div>
 	)
@@ -43,3 +40,21 @@ const SignIn =()=> {
 }
 
 export default SignIn;
+
+// const [currentUser, setCurrentUser] = useState("")
+// const sessionUser = user =>{
+//   if(user){
+//     const {email, uid} = user
+//     getFirebaseIdToken().then(token=>{
+//       setCurrentUser({email, uid, token})
+//     })
+//   }else{
+//     setCurrentUser(null)
+//   }
+// }
+// useEffect( () => {
+//   const authStateObserver = firebase.auth().onAuthStateChanged(sessionUser)
+//   return authStateObserver
+// }, []);
+
+ 

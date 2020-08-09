@@ -22,12 +22,13 @@ const SignUpPage = () => {
      let res = await signUp(email, password);
      await axios.post(`${API}/users`,{
        id:res.users.uid, email})
+       history.push('/')
    } catch (error) {
-     console.lot(error)
+     setError(error.message)
 
      
    }
-   history.push('/users')
+ 
  }
 //  const handleImageChange = (imageFile) => {
 //   if(imageFile[0]){
@@ -59,14 +60,17 @@ const SignUpPage = () => {
 // console.log("image: ", uploadPic);
 
   return (
+    <>
     <div>
+      {error ? <div>{error}</div> : null}
       <form onSubmit={handleSubmit}>
-        <input  onChange={(e) => setEmail(e.currentTarget.value)} type="email" placeholder="email" />
-        <input  onChange={(e) => setPassword(e.currentTarget.value)} type="password" placeholder="password"/>
+        <input value={email} onChange={(e) => setEmail(e.currentTarget.value)} type="text" placeholder="email" />
+        <input value={password} onChange={(e) => setPassword(e.currentTarget.value)} autoComplete="on" type="password" placeholder="password"/>
         {/* <Dropzone handleImageChange={handleImageChange} dropzoneText={"Drop or Select Your Profile Image"}/> */}
-        <button type="submit">submit</button>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
+    </>
   );
 };
 

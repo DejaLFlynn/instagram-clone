@@ -6,6 +6,7 @@ import axios from "axios";
 import Posts from '../Posts'
 import Upload from "../Upload";
 const User = () => {
+  const [users, setUsers] = useState([])
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
   const [pic, setPic] = useState("");
