@@ -16,6 +16,7 @@ const Home = () => {
         <h1>Imstagram</h1>
         <p className="instructions">
           Sign In To See Photo And Videos From Your Friends
+          <SignIn/>
         </p>
         <p>Get the App</p>
         <img

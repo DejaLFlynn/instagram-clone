@@ -42,3 +42,20 @@ export const useFetch = (url, options) => {
         }, []);
         return { response, error, isLoading };
           };
+          export const createLikes = async (postId) => {
+            try {
+              const res = await axios.post(API + `/likes`)
+              return res
+            } catch (error) {
+              console.log(error)
+            }
+          }
+          export const createComments = async (dataObj) => {
+            try {
+              const res = await axios.post(API + `/comments`, dataObj)
+              return res
+            } catch (error) {
+              console.log(error)
+            }
+          }
+          

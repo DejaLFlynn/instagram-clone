@@ -24,7 +24,7 @@ const SignUpPage = () => {
        id:res.users.uid, email})
        history.push('/')
    } catch (error) {
-     setError(error.message)
+    //  setError(error.message)
 
      
    }
