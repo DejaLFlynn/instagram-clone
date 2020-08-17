@@ -16,7 +16,7 @@ const likes = require('./routes/likes/likes')
 
 app.use('/users', users);
 app.use('/posts', posts);
-// app.use('/likes', likes);
+app.use('/likes', likes);
 // app.use('/followers', followers);
 
 app.use((err, req, res, next)=>{

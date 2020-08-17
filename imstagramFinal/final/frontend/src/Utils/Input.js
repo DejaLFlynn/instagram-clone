@@ -1,7 +1,9 @@
 import {useState, useEffect, useRef} from 'react'
-
+import {apiURL} from './apiURL'
+import axios from 'axios'
 export const usePrevState = (prevState) => {
     const ref = useRef();
+    const API = apiURL()
     
     useEffect(() => {
         ref.current = prevState;
@@ -42,8 +44,9 @@ export const useFetch = (url, options) => {
         }, []);
         return { response, error, isLoading };
           };
-          export const createLikes = async (postId) => {
+      export const createLikes = async (postId) => {
             try {
+              const API = apiURL()
               const res = await axios.post(API + `/likes`)
               return res
             } catch (error) {
@@ -52,6 +55,7 @@ export const useFetch = (url, options) => {
           }
           export const createComments = async (dataObj) => {
             try {
+              const API = apiURL()
               const res = await axios.post(API + `/comments`, dataObj)
               return res
             } catch (error) {

@@ -4,7 +4,7 @@ const db = require("../../db/index");
 
 const addLike = async (req, res) => {
     try {
-        let addedLike = await db.one("INSERT INTO likes (like_id, picture_id) VALUES (${voter_id}, ${picture_id}) RETURNING *", req.body);
+        let addedLike = await db.one("INSERT INTO likes (like_id, picture_id, likes) VALUES (${voter_id}, ${picture_id}, ${likes}) RETURNING *", req.body);
         res.status(200).json({
             status: "Success",
             message: "New like created",

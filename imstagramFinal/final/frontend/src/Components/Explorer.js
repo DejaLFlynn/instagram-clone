@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { apiURL } from "../Utils/apiURL";
 import "../CSS/Explore.CSS";
+import Likes from "./Likes";
 const Explorer = () => {
   const [posts, setPosts] = useState([]);
   const API = apiURL();
@@ -32,6 +33,7 @@ const Explorer = () => {
       <div className="pictureContainer">
         <img src={posts}></img>
         {displayPics}
+        <Likes/>
       </div>
     </div>
   );

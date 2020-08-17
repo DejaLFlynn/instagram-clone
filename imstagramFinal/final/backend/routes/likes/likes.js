@@ -7,10 +7,12 @@ const {
 	explorerLikes
 
 	
-} = require("../../queries/Likes/Likes");
+} = require("../../queries/users/likes");
 
 
-likes.post("/",checkFirebaseToken, addLike);
+likes.post("/",
+checkFirebaseToken, 
+addLike);
 likes.get("/:post_id", explorerLikes)
 
 
