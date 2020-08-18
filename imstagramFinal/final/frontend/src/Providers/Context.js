@@ -9,7 +9,7 @@ const Context = ({ children }) => {
   const updater = (user) => {
     if (user) {
       const { email, uid } = user;
-      const prior = users.metadata.prior;
+      const prior = user;
       setUsers({ email, prior, id: uid });
       getFirebaseIdToken().then((token) => {
         setToken(token);

@@ -11,13 +11,14 @@ const SignIn =()=> {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const history = useHistory()
-	console.log(email, password)
+	// console.log(email, password)
 
 	const handleSubmit = async (e) =>{
 		e.preventDefault()
 		try {
 			await login(email, password)
 			history.push(`/posts`)
+			// console.log(res)
 		} catch (error) {
 			console.log(" incorrect path",error)
 		}
@@ -31,6 +32,11 @@ const SignIn =()=> {
 				
 			</form>
 			<div>
+			<Link to="/signup" className="signUp">
+					Don't have an account?
+					<span className="span"> Sign up </span>
+				</Link>
+
 		
 			</div>
 		</div>

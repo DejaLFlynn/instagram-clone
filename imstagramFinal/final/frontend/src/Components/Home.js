@@ -9,7 +9,8 @@ import SignUp from "./SignUp";
 const API = apiURL();
 const Home = () => {
   return (
-    <main className="main">
+    <>
+    <div className="div">
 
 <div className="storeHolder">
         <img src="https://media.giphy.com/media/hsDY1IPzpP4DcB1Ba5/giphy.gif"></img>
@@ -28,21 +29,8 @@ const Home = () => {
           src="https://www.fcsok.org/wp-content/uploads/2020/04/get-it-on-google-play-badge.png"
         ></img>
       </div>
-      {/* <div className="left-side">
-       
-      </div>
-      <div className="right-side">
-        
-        <SignIn />
-
-        <div className="signUp">
-          <Link to="/signup" className="button">
-            New? Sign Up
-            <SignUp />
-          </Link>
-        </div>
-      </div> */}
-    </main>
+    </div>
+    </>
   );
 };
 

@@ -17,9 +17,9 @@ const User = () => {
     try {
       let res = await axios.get(`${API}/users`);
       let res2 = await axios.get(`${API}/users/${users}`);
-      setName(res.data.body.users[0].name);
-      setBio(res.data.body.users[0].bio);
-      setPic(res.data.body.users[0].user_pic);
+      setName(res2.data.body.users[0].name);
+      setBio(res2.data.body.users[0].bio);
+      setPic(res2.data.body.users[0].user_pic);
     } catch (error) {
       console.log(error);
     }
