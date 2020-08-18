@@ -16,6 +16,9 @@ function App() {
   return (
     <div className="App">
       <Context>
+        
+        <Switch>
+
       <AuthRoute exact path="/">
         <Home/>
         <NavBar/>
@@ -24,7 +27,7 @@ function App() {
         <SignUp/>
         <NavBar/>
       </AuthRoute>
-      <ProtectedRoute exact path="/users/:id">
+      <ProtectedRoute path="/users/:id">
         <User/>
         <NavBar/>
       </ProtectedRoute>
@@ -32,7 +35,8 @@ function App() {
         <Explorer/>
         <NavBar/>
       </ProtectedRoute>
-
+        </Switch>
+    
       </Context>
       {/* <NavBar/>
       <Switch>

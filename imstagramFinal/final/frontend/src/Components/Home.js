@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { signIn } from "../Utils/Firebase";
+import { login } from "../Utils/Firebase";
 import { Link } from "react-router-dom";
 import { apiURL } from "../Utils/apiURL";
 import "../CSS/LandingPage.CSS";
@@ -8,6 +8,12 @@ import SignIn from "./Authentication.js/SignIn";
 import SignUp from "./SignUp";
 const API = apiURL();
 const Home = () => {
+
+  const history = useHistory()
+  const handleGuestSignIn = async () => {
+    await login("guest","account");
+    history.push("/posts")
+}
   return (
     <>
     <div className="div">
@@ -18,6 +24,7 @@ const Home = () => {
         <p className="instructions">
           Sign In To See Photo And Videos From Your Friends
           <SignIn/>
+        <button className='guest' onClick={handleGuestSignIn}>Guest</button>
         </p>
         <p>Get the App</p>
         <img

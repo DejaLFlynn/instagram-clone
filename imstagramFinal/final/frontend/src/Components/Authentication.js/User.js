@@ -23,6 +23,8 @@ const User = () => {
     } catch (error) {
       console.log(error);
     }
+    history.push("/posts")
+
   };
   useEffect(() => {
     fetchUser();

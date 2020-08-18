@@ -63,7 +63,7 @@ CREATE TABLE likes(
 INSERT INTO users
 (id, name, user_pic, bio, email )
 VALUES 
-('1', 'dejaf', 'https://i.pinimg.com/originals/22/ac/f8/22acf82cb30a3d26e813303509f79d3b.png', 'mommy pig', 'dejaflynn@pursuit.org'),  
+('zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'dejaf', 'https://i.pinimg.com/originals/22/ac/f8/22acf82cb30a3d26e813303509f79d3b.png', 'mommy pig', 'guest@gmail.com'),  
 ('2', 'sebastianfr', 'https://i.pinimg.com/originals/dc/df/b1/dcdfb182a25ad1617a47422024e16a64.jpg', 'uncle pig', 'sebastianfr@pursuit.org'),
 ('3', 'aliciaf', 'https://i.pinimg.com/236x/65/e6/26/65e626d11b9a4b1688ff73f7bf58f835.jpg', 'grandma pig', 'aliciaf@pursuit.org'),
 ('4', 'Shawnc', 'https://cdn.shopify.com/s/files/1/0899/1470/t/14/assets/george-pig-related.png?v=10021200618096522117', 'george pig', 'Shawnc@pursuit.org');
