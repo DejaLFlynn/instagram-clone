@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { apiURL } from "../Utils/apiURL";
 import "../CSS/LandingPage.CSS";
 import SignIn from "./Authentication.js/SignIn";
+
 import SignUp from "./SignUp";
 const API = apiURL();
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
         <p className="instructions">
           Sign In To See Photo And Videos From Your Friends
           <SignIn/>
+          <p> ** Please use "guest@gmail.com" and "account" for password while button is worked on!</p>
         <button className='guest' onClick={handleGuestSignIn}>Guest</button>
         </p>
         <p>Get the App</p>

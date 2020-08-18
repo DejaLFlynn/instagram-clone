@@ -4,14 +4,13 @@ import { useHistory } from "react-router-dom";
 import {apiURL} from '../Utils/apiURL'
 import {signUp} from '../Utils/Firebase'
 // import Dropzone from '../Components/Dropzone'
-import {Context} from '../Providers/Context'
-import { Link, withRouter } from 'react-router-dom'
+
 
 const SignUpPage = () => {
   const[email, setEmail] = useState("")
   const [password, setPassword] =useState('')
-  const [pic, setPic] = useState("https://www.dts.edu/wp-content/uploads/sites/6/2018/04/Blank-Profile-Picture.jpg")
-  const [error, setError] = useState(null);
+  // const [pic, setPic] = useState("https://www.dts.edu/wp-content/uploads/sites/6/2018/04/Blank-Profile-Picture.jpg")
+  // const [error, setError] = useState(null);
   const API = apiURL()
   const history = useHistory();
 
@@ -22,7 +21,7 @@ const SignUpPage = () => {
      let res = await signUp(email, password);
      await axios.post(`${API}/users`,{
        id:res.users.uid, email})
-       history.push('/')
+       history.push('/posts')
    } catch (error) {
     //  setError(error.message)
 
@@ -62,7 +61,7 @@ const SignUpPage = () => {
   return (
     <>
     <div>
-      {error ? <div>{error}</div> : null}
+      {/* {error ? <div>{error}</div> : null} */}
       <form onSubmit={handleSubmit}>
         <input value={email} onChange={(e) => setEmail(e.currentTarget.value)} type="text" placeholder="email" />
         <input value={password} onChange={(e) => setPassword(e.currentTarget.value)} autoComplete="on" type="password" placeholder="password"/>

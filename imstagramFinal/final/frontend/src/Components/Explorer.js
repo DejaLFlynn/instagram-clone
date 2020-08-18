@@ -3,6 +3,7 @@ import axios from "axios";
 import { apiURL } from "../Utils/apiURL";
 import "../CSS/Explore.CSS";
 import Likes from "./Likes";
+import NavBar from './Authentication.js/NavBar'
 const Explorer = () => {
   const [posts, setPosts] = useState([]);
   const API = apiURL();
@@ -30,10 +31,11 @@ const Explorer = () => {
   });
   return (
     <div className="Explorer">
+      <NavBar/>
       <div className="pictureContainer">
         <img src={posts}></img>
         {displayPics}
-        <Likes/>
+        {/* <Likes/> */}
       </div>
     </div>
   );

@@ -27,6 +27,13 @@ function App() {
         <SignUp/>
         <NavBar/>
       </AuthRoute>
+      <AuthRoute exact path="/posts">
+      <Explorer/>
+      </AuthRoute>
+      <AuthRoute exact path="/users">
+      <User/>
+      
+      </AuthRoute>
       <ProtectedRoute path="/users/:id">
         <User/>
         <NavBar/>
@@ -38,46 +45,7 @@ function App() {
         </Switch>
     
       </Context>
-      {/* <NavBar/>
-      <Switch>
 
-      <Route exact path="/">
-        <Home/>
-      </Route>
-      <Route path='/posts'>
-        <Explorer/>
-      </Route>
-      <Route path='/users'>
-        <User/>
-      </Route>
-      <Route path='/login'>
-        <SignIn/>
-      </Route>
-      <Route path='/signup'>
-        <SignUp/>
-      </Route>
-      </Switch> */}
-      
-      {/* <AuthProvider>
-        <NavBar />
-        <Switch>
-          <AuthRoute path={"/signup"}>
-            <SignUp />
-          </AuthRoute>
-          <AuthRoute path={"/login"}>
-            <SignIn />
-          </AuthRoute>
-          <ProtectedRoute exact path="/">
-            <Home />
-          </ProtectedRoute>
-          <ProtectedRoute path={"/users"}>
-            <User />
-          </ProtectedRoute>
-          <ProtectedRoute path={"/posts"}>
-            <Explorer />
-          </ProtectedRoute>
-        </Switch>
-      </AuthProvider> */}
 
 
       <footer>

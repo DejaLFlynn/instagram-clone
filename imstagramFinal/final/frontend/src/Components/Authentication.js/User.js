@@ -3,45 +3,34 @@ import {AContext} from '../../Providers/Context'
 import {useHistory, Link} from 'react-router-dom'
 import { apiURL } from "../../Utils/apiURL";
 import axios from "axios";
-import Posts from '../Posts'
-import Upload from "../Upload";
+
+import NavBar from './NavBar'
 const User = () => {
+  // const id = currentUser.id
   const [users, setUsers] = useState([])
+  const { currentUser } = useContext(AContext);
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
   const [pic, setPic] = useState("");
   const API = apiURL();
   const history =useHistory()
 
-  const fetchUser = async () => {
-    try {
-      let res = await axios.get(`${API}/users`);
-      let res2 = await axios.get(`${API}/users/${users}`);
-      setName(res2.data.body.users[0].name);
-      setBio(res2.data.body.users[0].bio);
-      setPic(res2.data.body.users[0].user_pic);
-    } catch (error) {
-      console.log(error);
-    }
-    history.push("/posts")
-
+  const fetchPosts = async () => {
+    let res = await axios({
+      method: "GET",
+      url: `${API}/users`,
+    });
+    
+    // setUsers(res.data.payload.users[0])
+    setName(res.data.payload.users[0].name);
+    setBio(res.data.payload.users[0].bio);
+    setPic(res.data.payload.users[0].user_pic);
   };
-  useEffect(() => {
-    fetchUser();
-  }, []);
-  // const fetchPosts = async () => {
-  //   let res = await axios({
-  //     method: "GET",
-  //     url: `${API}/posts`,
-  //   });
-  //   setBio(res.data);
-  //   setPic(res.data)
-  // };
 
-  // useEffect(() => {
-  //   // fetchUsers();
-  //   fetchPosts();
-  // }, [API]);
+  useEffect(() => {
+    // fetchUsers();
+    fetchPosts();
+  }, []);
 
 
   return (
@@ -50,6 +39,7 @@ const User = () => {
       <h2>{bio}</h2>
       <img src={pic}></img>
       {/* <Posts/> */}
+      <NavBar/>
     </div>
   );
 };
