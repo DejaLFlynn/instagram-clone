@@ -10,7 +10,7 @@ import { Link, withRouter } from 'react-router-dom'
 const SignUpPage = () => {
   const[email, setEmail] = useState("")
   const [password, setPassword] =useState('')
-  const [user_pic, setPic] = useState("https://www.dts.edu/wp-content/uploads/sites/6/2018/04/Blank-Profile-Picture.jpg")
+  const [pic, setPic] = useState("https://www.dts.edu/wp-content/uploads/sites/6/2018/04/Blank-Profile-Picture.jpg")
   const [error, setError] = useState(null);
   const API = apiURL()
   const history = useHistory();
@@ -20,14 +20,9 @@ const SignUpPage = () => {
    e.preventDefault()
    try {
      let res = await signUp(email, password);
-    
      await axios.post(`${API}/users`,{
-       id:res.users.uid, 
-       user_pic: user_pic,
-
-       
-       email})
-      //  history.push('/')
+       id:res.users.uid, email})
+       history.push('/')
    } catch (error) {
     //  setError(error.message)
 

@@ -7,18 +7,18 @@ import {useInput} from '../../Utils/Input'
 import {apiURL} from '../../Utils/apiURL'
 import SignUp from '../SignUp'
 const API = apiURL()
+
 const SignIn =()=> {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const history = useHistory()
-	// console.log(email, password)
+	console.log(email, password)
 
 	const handleSubmit = async (e) =>{
 		e.preventDefault()
 		try {
 			await login(email, password)
 			history.push(`/posts`)
-			// console.log(res)
 		} catch (error) {
 			console.log(" incorrect path",error)
 		}
@@ -36,7 +36,6 @@ const SignIn =()=> {
 					Don't have an account?
 					<span className="span"> Sign up </span>
 				</Link>
-
 		
 			</div>
 		</div>
@@ -46,21 +45,4 @@ const SignIn =()=> {
 }
 
 export default SignIn;
-
-// const [currentUser, setCurrentUser] = useState("")
-// const sessionUser = user =>{
-//   if(user){
-//     const {email, uid} = user
-//     getFirebaseIdToken().then(token=>{
-//       setCurrentUser({email, uid, token})
-//     })
-//   }else{
-//     setCurrentUser(null)
-//   }
-// }
-// useEffect( () => {
-//   const authStateObserver = firebase.auth().onAuthStateChanged(sessionUser)
-//   return authStateObserver
-// }, []);
-
  
