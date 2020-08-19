@@ -24,7 +24,7 @@ const Explorer = () => {
   let displayPics = posts.map((post) => {
     return (
       <div className="allPics" key={post.id + post.posts_images + post.content}>
-        <img src={post.posts_images}></img>
+        <img alt="allImg" src={post.posts_images}></img>
         <p value={post.content}></p>
       </div>
     );
@@ -33,7 +33,7 @@ const Explorer = () => {
     <div className="Explorer">
       <NavBar/>
       <div className="pictureContainer">
-        <img src={posts}></img>
+        <img alt="allPics" src={posts}></img>
         {displayPics}
         {/* <Likes/> */}
       </div>

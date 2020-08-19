@@ -4,7 +4,7 @@ import { getFirebaseIdToken } from "../Utils/Firebase";
 export const AContext = createContext();
 const Context = ({ children }) => {
   const [token, setToken] = useState(null);
-  const [users, setUsers] = useState(null);
+  const [currentUsers, setUsers] = useState(null);
   const [loading, setLoading] = useState(true);
   const updater = (user) => {
     if (user) {
@@ -26,7 +26,7 @@ const Context = ({ children }) => {
   }, []);
   if (loading) return <div>Loading</div>;
   return (
-    <AContext.Provider value={(users, token)}>{children}</AContext.Provider>
+    <AContext.Provider value={{currentUsers, token}}>{children}</AContext.Provider>
   );
 };
 

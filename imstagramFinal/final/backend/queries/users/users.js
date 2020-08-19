@@ -22,7 +22,7 @@ const allUsers = async (req, res, next) => {
         let users = await db.any("SELECT * FROM users");
         res.json({
             status: "Success",
-            body: {users},
+            payload: {users},
             message: "All USERS"
         })
     } catch (err) {
@@ -45,13 +45,13 @@ const deleteUser = async (req, res, next) => {
   };
   const getUser = async (req, res, next) => {
     try {
-      let user = await db.one(
-        "SELECT * FROM users WHERE users_name = $1",
-        req.params.users_name
+      let user = await db.any(
+        "SELECT * FROM users WHERE id = $1",
+        [req.params.id]
       );
       res.status(200).json({
         message: "retrieved single user",
-        body: user
+        payload: user
       });
     } catch (err) {
         next(err);

@@ -72,14 +72,14 @@ VALUES
 
 INSERT INTO posts(id, user_id, posts_images, content) 
 VALUES
-('1', '1', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg','hi'),
+('1', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg','hi'),
 ('2', '2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPds087Sz0hw4O8vMDn7L5L-TWVoM3k0_EnQSlo3ACFmzUe4fe&usqp=CAU', 'me'),
 ('3', '3', 'https://i.pinimg.com/originals/e6/c1/4d/e6c14dd228b483f710ca30296bf3d71a.jpg', 'pan the man'),
 ('4', '4', 'https://imgix.bustle.com/uploads/image/2018/5/9/fa2d3d8d-9b6c-4df4-af95-f4fa760e3c5c-2t4a9501.JPG?w=970&h=546&fit=crop&crop=faces&auto=format%2Ccompress&cs=srgb&q=70', 'DEF ');
 
 INSERT INTO followers(user_id, post_id)
 VALUES
-('1', '4'),
+('zKmFaAX9i9QIEE5iV4aIyIeeEEC3', '4'),
 ('2', '3'),
 ('3', '2'),
 ('4', '1');
@@ -87,7 +87,7 @@ VALUES
 INSERT INTO likes
 (user_id, post_id, likes) 
 VALUES
-('1', '2', '5'),
+('zKmFaAX9i9QIEE5iV4aIyIeeEEC3', '2', '5'),
 ('2', '1', '2'),
 ('3', '4', '10'),
 ('4', '3', '6');
