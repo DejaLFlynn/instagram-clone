@@ -10,7 +10,7 @@ users.post("/",
 checkFirebaseToken, 
 createUser);
 users.get("/", allUsers);
-users.get("/:id", getUser);
+users.get("/:id", checkFirebaseToken, getUser);
 users.delete("/:id", deleteUser);
 
 module.exports = users;

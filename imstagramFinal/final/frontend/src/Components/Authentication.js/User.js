@@ -1,28 +1,29 @@
 import React, { useState, useEffect, useContext } from "react";
 import {AContext} from '../../Providers/Context'
-// import {useHistory} from 'react-router-dom'
 import { apiURL } from "../../Utils/apiURL";
 import axios from "axios";
 
 import NavBar from './NavBar'
 const User = () => {
-  // // const id = currentUser.id
-  // const [users, setUsers] = useState([])
-  const { currentUser } = useContext(AContext);
+ 
+  const { currentUsers, token, loading } = useContext(AContext);
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
   const [pic, setPic] = useState("");
   const API = apiURL();
-  // const history =useHistory()
 
-  const fetchPosts = async () => {
+  const fetchPosts = async (user) => {
     let res = await axios({
       method: "GET",
-      url: `${API}/users/${currentUser}`,
+      url: `${API}/users/${currentUsers.uid}`,
+      headers:{
+        AuthToken: token,
+      }
     });
     debugger
     // setUsers(res.data.payload.users[0])
-    // setName(res.data.payload.users[0].name);
+    console.log(currentUsers)
+    setName(res.data.user);
     // setBio(res.data.payload.users[0].bio);
     // setPic(res.data.payload.users[0].user_pic);
   };
@@ -35,11 +36,14 @@ const User = () => {
 
   return (
     <div className="User" >
+      <NavBar/>
+      <div>
+        
+      </div>
       <h1>{name}</h1>
       <h2>{bio}</h2>
       <img src={pic} alt="profilePic"></img>
-      {/* <Posts/> */}
-      <NavBar/>
+     
     </div>
   );
 };

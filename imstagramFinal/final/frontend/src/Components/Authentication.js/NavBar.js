@@ -13,7 +13,7 @@ const NavBar = () => {
           <NavLink to={"/posts"}>All posts</NavLink>
           <NavLink to={"/login"}>Login</NavLink>
           <NavLink to={"/signup"}>Sign Up</NavLink>
-          <NavLink to={"/users"}>User</NavLink>
+          <NavLink to={"/users/:id"}>User</NavLink>
 
           <button onClick={logout}> Logout</button>
           

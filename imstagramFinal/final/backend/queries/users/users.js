@@ -44,11 +44,10 @@ const deleteUser = async (req, res, next) => {
     }
   };
   const getUser = async (req, res, next) => {
+    const {id} = req.params
     try {
-      let user = await db.any(
-        "SELECT * FROM users WHERE id = $1",
-        [req.params.id]
-      );
+      let user = await db.one(
+        "SELECT * FROM users WHERE id = $1", id);
       res.status(200).json({
         message: "retrieved single user",
         payload: user

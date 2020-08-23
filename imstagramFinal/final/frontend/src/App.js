@@ -27,11 +27,11 @@ function App() {
       <AuthRoute exact path="/posts">
       <Explorer/>
       </AuthRoute>
-      <AuthRoute exact path="/users">
+      <AuthRoute exact path="/users/:id">
       <User/>
       
       </AuthRoute>
-      <ProtectedRoute path="/users/:id">
+      <ProtectedRoute exact path="/users/:id">
         <User/>
         <NavBar/>
       </ProtectedRoute>

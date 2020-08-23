@@ -11,6 +11,8 @@ const Explorer = () => {
   const fetchPosts = async () => {
     try {
       let res = await axios.get(`${API}/posts`);
+      debugger
+
    
       setPosts(res.data.posts);
     } catch (error) {
@@ -33,7 +35,7 @@ const Explorer = () => {
     <div className="Explorer">
       <NavBar/>
       <div className="pictureContainer">
-        <img alt="allPics" src={posts}></img>
+        {/* <img alt="allPics" src={posts}></img> */}
         {displayPics}
         {/* <Likes/> */}
       </div>
