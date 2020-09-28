@@ -36,7 +36,7 @@ CREATE TABLE followers(
 CREATE TABLE likes(
     id SERIAL PRIMARY KEY,
     user_id VARCHAR REFERENCES users(id),
-    -- follower_id VARCHAR REFERENCES followers(id),
+    follower_id VARCHAR REFERENCES followers(id),
     post_id VARCHAR REFERENCES posts(id),
     likes VARCHAR
 );
@@ -44,24 +44,24 @@ CREATE TABLE likes(
 
 
 
--- DROP TABLE IF EXISTS follows;
--- CREATE TABLE follows (
---     id SERIAL PRIMARY KEY,
---     users_id INT REFERENCES users(id) ON DELETE CASCADE,
---     following_timestap TIMESTAMPTZ DEFAULT Now() 
--- );
+DROP TABLE IF EXISTS follows;
+CREATE TABLE follows (
+    id SERIAL PRIMARY KEY,
+    users_id INT REFERENCES users(id) ON DELETE CASCADE,
+    following_timestap TIMESTAMPTZ DEFAULT Now() 
+);
 
 
--- DROP TABLE IF EXISTS hashtags;
--- CREATE TABLE hashtags (
---     id SERIAL PRIMARY KEY,
---     posts_id INT REFERENCES pictures(id),
---     hashtags_name TEXT
+DROP TABLE IF EXISTS hashtags;
+CREATE TABLE hashtags (
+    id SERIAL PRIMARY KEY,
+    posts_id INT REFERENCES pictures(id),
+    hashtags_name TEXT
     
--- );
+);
 
 INSERT INTO users
-(id, name, user_pic, bio, email )
+(id, name, user_pic, bio, email)
 VALUES 
 ('zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'dejaf', 'https://i.pinimg.com/originals/22/ac/f8/22acf82cb30a3d26e813303509f79d3b.png', 'mommy pig', 'guest@gmail.com'),  
 ('2', 'sebastianfr', 'https://i.pinimg.com/originals/dc/df/b1/dcdfb182a25ad1617a47422024e16a64.jpg', 'uncle pig', 'sebastianfr@pursuit.org'),

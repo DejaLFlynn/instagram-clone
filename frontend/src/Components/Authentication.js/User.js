@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import {AContext} from '../../Providers/Context'
 import { apiURL } from "../../Utils/apiURL";
 import axios from "axios";
+import Upload from '../Upload'
 
 import NavBar from './NavBar'
 const User = () => {
@@ -37,6 +38,7 @@ const User = () => {
   return (
     <div className="User" >
       <NavBar/>
+      <Upload/>
       <div>
         
       </div>
