@@ -29,7 +29,7 @@ app.use((err, req, res, next)=>{
         res.status(500).json(err)
     }
 })
-app.post('/upload', (req, res)=>{
+app.post('/upload/:id', (req, res)=>{
     if(req.files === null){
        return res.status(400).json({msg:'no file uploaded'})
     }

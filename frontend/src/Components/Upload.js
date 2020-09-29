@@ -21,7 +21,7 @@ const Upload = () => {
     formData.append('file', file);
 
     try {
-      const res = await axios.post('/upload', formData, {
+      const res = await axios.post('/upload/:id', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
