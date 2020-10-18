@@ -8,7 +8,7 @@ const Posts = ()=>{
     const [contents, setContents] = useState([]);
     const [images, setImages] = useState([])
     const API = apiURL()
-
+// 
     // useEffect(() => {
     //     fetchPosts = async()=>{
     //         let res = await  axios({
