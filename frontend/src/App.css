@@ -46,7 +46,7 @@ fieldset {
   margin: 0;
 }
 /* CSS Reset code provided by Elad Shechter */
-* {
+/* * {
 	margin: 0;
 	padding: 0;
 }
@@ -62,7 +62,7 @@ fieldset {
   align-items: center;
   background-color: black;
 } */
-
+/* 
 .footer{
   display: flex;
   flex-direction: column;
@@ -78,9 +78,9 @@ fieldset {
     text-decoration: none;
     padding-right: 5px;
 
-    color:midnightblue;
-    font-size: 13px;
-  }
+    color:#191970;
+    font-size: 13px; */
+  /* }
   .App{
     background-color: white;
   }
@@ -124,4 +124,4 @@ grid-row-gap: 0px;
   .android{
     width: 100px;
     grid-area: 5 / 4 / 6 / 5;
-  }
+  } */ 

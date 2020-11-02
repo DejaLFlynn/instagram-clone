@@ -44,7 +44,7 @@ CREATE TABLE likes(
 
 CREATE TABLE follows (
     id SERIAL PRIMARY KEY,
-    users_id INT REFERENCES users(id) ON DELETE CASCADE
+    users_id VARCHAR REFERENCES users(id) ON DELETE CASCADE
     -- following_timestap TIMESTAMPTZ DEFAULT Now() 
 );
 
@@ -61,11 +61,11 @@ VALUES
 ('zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'dejaf', 'https://i.pinimg.com/originals/22/ac/f8/22acf82cb30a3d26e813303509f79d3b.png', 'mommy pig', 'guest@gmail.com'),  
 ('2', 'sebastianfr', 'https://i.pinimg.com/originals/dc/df/b1/dcdfb182a25ad1617a47422024e16a64.jpg', 'uncle pig', 'sebastianfr@pursuit.org'),
 ('3', 'aliciaf', 'https://i.pinimg.com/236x/65/e6/26/65e626d11b9a4b1688ff73f7bf58f835.jpg', 'grandma pig', 'aliciaf@pursuit.org'),
-('7TmHqX88TbhL6CQ1XtgRyks50Xl2', 'user', 'https://i.pinimg.com/originals/04/7d/fc/047dfc2552d91ae45f5c5362e71f4e43.gif', 'user account', 'guest@gmail.com'),
-('4', 'dejal', 'https://i.pinimg.com/originals/22/ac/f8/22acf82cb30a3d26e813303509f79d3b.png', 'mommy pig', 'guest@gmail.com'),  
-('0MiN674Er2ajv7czWwudVK2BmH83', 'lyndonSeb', 'https://i.pinimg.com/originals/dc/df/b1/dcdfb182a25ad1617a47422024e16a64.jpg', 'uncle pig', 'sebastianfr@pursuit.org'),
-('8Z8jBn31fIfHveQYVUb8BziZ9iE2', 'alicial', 'https://i.pinimg.com/236x/65/e6/26/65e626d11b9a4b1688ff73f7bf58f835.jpg', 'grandma pig', 'aliciaf@pursuit.org'),
-('IEFspTPeWoM03IxTTgAn6OLrhO92', 'user2', 'https://i.pinimg.com/originals/04/7d/fc/047dfc2552d91ae45f5c5362e71f4e43.gif', 'user account', 'guest@gmail.com'),
+('7TmHqX88TbhL6CQ1XtgRyks50Xl2', 'user', 'https://i.pinimg.com/originals/04/7d/fc/047dfc2552d91ae45f5c5362e71f4e43.gif', 'user account', 'guest2@gmail.com'),
+('4', 'dejal', 'https://i.pinimg.com/originals/22/ac/f8/22acf82cb30a3d26e813303509f79d3b.png', 'mommy pig', 'guest4@gmail.com'),  
+('0MiN674Er2ajv7czWwudVK2BmH83', 'lyndonSeb', 'https://i.pinimg.com/originals/dc/df/b1/dcdfb182a25ad1617a47422024e16a64.jpg', 'uncle pig', 'sebastianf@pursuit.org'),
+('8Z8jBn31fIfHveQYVUb8BziZ9iE2', 'alicial', 'https://i.pinimg.com/236x/65/e6/26/65e626d11b9a4b1688ff73f7bf58f835.jpg', 'grandma pig', 'aliciafr@pursuit.org'),
+('IEFspTPeWoM03IxTTgAn6OLrhO92', 'user2', 'https://i.pinimg.com/originals/04/7d/fc/047dfc2552d91ae45f5c5362e71f4e43.gif', 'user account', 'guest3@gmail.com'),
 ('ogP2B8DhiCgsBsTvlBVwGm5Mm6p2', 'Shawnq', 'https://cdn.shopify.com/s/files/1/0899/1470/t/14/assets/george-pig-related.png?v=10021200618096522117', 'george pig', 'Shawnc@pursuit.org');
 
 
@@ -80,11 +80,11 @@ VALUES
 ('6', '0MiN674Er2ajv7czWwudVK2BmH83', 'https://i.pinimg.com/originals/e6/c1/4d/e6c14dd228b483f710ca30296bf3d71a.jpg', 'pan the man'),
 ('7', '8Z8jBn31fIfHveQYVUb8BziZ9iE2', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg','hi'),
 ('8', 'IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPds087Sz0hw4O8vMDn7L5L-TWVoM3k0_EnQSlo3ACFmzUe4fe&usqp=CAU', 'me'),
-('9', 'ogP2B8DhiCgsBsTvlBVwGm5Mm6p2', 'https://i.pinimg.com/originals/e6/c1/4d/e6c14dd228b483f710ca30296bf3d71a.jpg', 'pan the man'),
+('9', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://i.pinimg.com/originals/e6/c1/4d/e6c14dd228b483f710ca30296bf3d71a.jpg', 'pan the man'),
 ('10', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg','hi'),
 ('11', '7TmHqX88TbhL6CQ1XtgRyks50Xl2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPds087Sz0hw4O8vMDn7L5L-TWVoM3k0_EnQSlo3ACFmzUe4fe&usqp=CAU', 'me'),
 ('12', 'IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://i.pinimg.com/originals/e6/c1/4d/e6c14dd228b483f710ca30296bf3d71a.jpg', 'pan the man'),
-('13', 'ogP2B8DhiCgsBsTvlBVwGm5Mm6p2', 'https://imgix.bustle.com/uploads/image/2018/5/9/fa2d3d8d-9b6c-4df4-af95-f4fa760e3c5c-2t4a9501.JPG?w=970&h=546&fit=crop&crop=faces&auto=format%2Ccompress&cs=srgb&q=70', 'DEF ');
+('13', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://imgix.bustle.com/uploads/image/2018/5/9/fa2d3d8d-9b6c-4df4-af95-f4fa760e3c5c-2t4a9501.JPG?w=970&h=546&fit=crop&crop=faces&auto=format%2Ccompress&cs=srgb&q=70', 'DEF ');
 
 INSERT INTO followers(user_id, post_id)
 VALUES

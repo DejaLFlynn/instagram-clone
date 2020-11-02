@@ -22,11 +22,27 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+function Copyright() {
+  
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © Deja-Flynn'}
+      <Link color="inherit" href="https://material-ui.com/">
+        
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 function App() {
+
+  
+ 
   return (
     <div className="App">
       <Context>
-        
+    
         <Switch>
 
       <AuthRoute exact path="/">
@@ -48,13 +64,14 @@ function App() {
         <User/>
         <NavBar/>
       </ProtectedRoute>
-      <ProtectedRoute path="/posts">
+      <ProtectedRoute exact path="/posts">
         <Explorer/>
         <NavBar/>
       </ProtectedRoute>
         </Switch>
      <footer>
         <Footer />
+        <Copyright />
       </footer>
       </Context>
 

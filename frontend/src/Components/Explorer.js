@@ -6,6 +6,7 @@ import Likes from "./Likes";
 import NavBar from './Authentication.js/NavBar'
 const Explorer = () => {
   const [posts, setPosts] = useState([]);
+  const [pic, setPic] = useState("");
   const API = apiURL();
 
   const fetchPosts = async () => {
@@ -25,8 +26,8 @@ const Explorer = () => {
 
   let displayPics = posts.map((post) => {
     return (
-      <div className="allPics" key={post.id + post.posts_images + post.content}>
-        <img alt="allImg" src={post.posts_images}></img>
+      <div className="allPics" key={posts.id + posts.posts_images + posts.content}>
+        <img alt="allImg" src={posts.posts_images}></img>
         <p value={post.content}></p>
       </div>
     );

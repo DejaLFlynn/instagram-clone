@@ -38,14 +38,11 @@ const deletePost = async (req, res, next) => {
   };
   const getPost = async (req, res, next) => {
     try {
-      let post = await db.any(
-        'SELECT * FROM posts WHERE id = $1',
-        req.params.id
-        
-      );
-      res.status(200).json({
-        message: "retrieved single post",
-        payload: post
+      let posts = await db.any("SELECT * FROM posts");
+      res.json({
+          status: "Success",
+          payload: {posts},
+          message: "All POSTS"
       });
     } catch (err) {
         next(err);
