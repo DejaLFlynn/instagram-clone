@@ -1,64 +1,6 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-a {
-  text-decoration: underline;
-  color: inherit;
-  cursor: pointer;
-}
-figure {
-  margin: 0;
-}
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-  margin: 0;
-}
-ul,
-ol,
-dd,
-li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  font-size: inherit;
-  font-weight: inherit;
-}
-p {
-  margin: 0;
-}
-cite {
-  font-style: normal;
-}
-fieldset {
-  border-width: 0;
-  padding: 0;
-  margin: 0;
-}
-/* CSS Reset code provided by Elad Shechter */
-.explore{
-height: 100vw;
-display: flex;
-}
-img{
-  width: 200px;
-  height: 200px;
-}
-.pictureContainer{
-  width: 200px;
-  height: 100px;
-}
-.postImages{
-  width: 200px;
-  height: 100px;
+.postImages {
+  width: "300";
+  height: "200";
+  display: "flex";
+  position: "relative";
 }
