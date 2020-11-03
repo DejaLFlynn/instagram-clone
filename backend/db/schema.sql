@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS imstagram_db;
-CREATE DATABASE imstagram_db;
+-- DROP DATABASE IF EXISTS imstagram_db;
+-- CREATE DATABASE imstagram_db;
 
-\c imstagram_db;
+-- \c imstagram_db;
 
 DROP TABLE IF EXISTS followers;
 DROP TABLE IF EXISTS likes;
@@ -75,16 +75,16 @@ VALUES
 ('1', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg','hi'),
 ('2', '2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPds087Sz0hw4O8vMDn7L5L-TWVoM3k0_EnQSlo3ACFmzUe4fe&usqp=CAU', 'me'),
 ('3', '3', 'https://i.pinimg.com/originals/e6/c1/4d/e6c14dd228b483f710ca30296bf3d71a.jpg', 'pan the man'),
-('4', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg','hi'),
-('5', '7TmHqX88TbhL6CQ1XtgRyks50Xl2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPds087Sz0hw4O8vMDn7L5L-TWVoM3k0_EnQSlo3ACFmzUe4fe&usqp=CAU', 'me'),
-('6', '0MiN674Er2ajv7czWwudVK2BmH83', 'https://i.pinimg.com/originals/e6/c1/4d/e6c14dd228b483f710ca30296bf3d71a.jpg', 'pan the man'),
-('7', '8Z8jBn31fIfHveQYVUb8BziZ9iE2', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg','hi'),
-('8', 'IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPds087Sz0hw4O8vMDn7L5L-TWVoM3k0_EnQSlo3ACFmzUe4fe&usqp=CAU', 'me'),
-('9', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://i.pinimg.com/originals/e6/c1/4d/e6c14dd228b483f710ca30296bf3d71a.jpg', 'pan the man'),
-('10', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg','hi'),
-('11', '7TmHqX88TbhL6CQ1XtgRyks50Xl2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPds087Sz0hw4O8vMDn7L5L-TWVoM3k0_EnQSlo3ACFmzUe4fe&usqp=CAU', 'me'),
-('12', 'IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://i.pinimg.com/originals/e6/c1/4d/e6c14dd228b483f710ca30296bf3d71a.jpg', 'pan the man'),
-('13', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://imgix.bustle.com/uploads/image/2018/5/9/fa2d3d8d-9b6c-4df4-af95-f4fa760e3c5c-2t4a9501.JPG?w=970&h=546&fit=crop&crop=faces&auto=format%2Ccompress&cs=srgb&q=70', 'DEF ');
+('4', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://image.shutterstock.com/image-photo/tranquil-beach-scene-exotic-tropical-260nw-644740495.jpg','hi'),
+('5', '7TmHqX88TbhL6CQ1XtgRyks50Xl2', 'https://www.moneysense.ca/wp-content/uploads/2017/01/vacation.jpg', 'me'),
+('6', '0MiN674Er2ajv7czWwudVK2BmH83', 'https://content.delta.com/content/www/en_US/shop/delta-vacations/destinations.damAsset.html/content/dam/delta-www/dlv/images/destination-landing-pages/overview.jpg', 'pan the man'),
+('7', '8Z8jBn31fIfHveQYVUb8BziZ9iE2', 'https://travel.usnews.com/images/vacation_landing_hero.jpg','hi'),
+('8', 'IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://hbr.org/resources/images/article_assets/2017/08/aug17-04-vicko-mozara-324955.jpg', 'me'),
+('9', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://cdn.sandals.com/sandals/v12/images/home/top-slides/overwater-collection-mobile.jpg', 'pan the man'),
+('10', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://www.dunes.com/sites/default/files/styles/450x350/public/snippets/piggy_bank_thumbail_copy2.jpg','hi'),
+('11', '7TmHqX88TbhL6CQ1XtgRyks50Xl2', 'https://luxuryescapes.com/magazine/wp-content/uploads/2018/12/five-luxurious-resorts-malaysia-820x394.jpg', 'me'),
+('12', 'IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://images.says.com/uploads/story_source/source_image/493729/2152.jpg', 'pan the man'),
+('13', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://thesmartlocal.com/wp-content/uploads/images/easyblog_articles/4582/Luxury-resorts-Malaysia-thesmartlocal-20-1200x675.jpg', 'DEF ');
 
 INSERT INTO followers(user_id, post_id)
 VALUES
