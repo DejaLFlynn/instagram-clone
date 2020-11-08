@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { apiURL } from "../Utils/apiURL";
 import { AContext } from "../Providers/Context";
-import "../CSS/Explore.CSS";
+import "../CSS/Explorer.css";
 import Grid from "@material-ui/core/Grid";
 import Likes from "./Likes";
 import Paper from "@material-ui/core/Paper";
@@ -43,13 +43,18 @@ const Explorer = () => {
 
   let displayPics = posts.map((post) => {
     return (
-      <div className="allPics" key={post.id + post.posts_images + post.content} display='flex' flex-wrap="wrap">
-        <img alt="allImg" className="postImages" src={post.posts_images} 
-        width="300" height="200" display="flex" flex-wrap="wrap"
-         ></img>
-    <p value={post.content}>{post.content}
-    <br></br>
-    {post.post_time}</p>
+      <div
+        className="allPics"
+        key={post.id + post.posts_images + post.content}
+        display="flex"
+        flex-wrap="wrap"
+      >
+        <img alt="allImg" className="postImages" src={post.posts_images} />
+        <p value={post.content}>
+          {post.content}
+          <br></br>
+          {post.post_time}
+        </p>
       </div>
     );
   });
@@ -66,11 +71,8 @@ const Explorer = () => {
     //     )})}
 
     <div className="Explorer">
-    
       <NavBar />
-      <Grid>
-        
-        </Grid>
+      <Grid></Grid>
       <div className="pictureContainer">{displayPics}</div>
     </div>
     // </Grid>

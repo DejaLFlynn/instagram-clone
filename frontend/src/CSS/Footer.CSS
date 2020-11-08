@@ -1,4 +1,4 @@
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -46,7 +46,7 @@ fieldset {
   margin: 0;
 }
 /* CSS Reset code provided by Elad Shechter */
-.footer{
+/* .footer{
   background-color: white;
   color: midnightblue;
   border-top: 0.5px solid grey;
@@ -58,4 +58,4 @@ fieldset {
 
 
     
-  }
+  } */ 

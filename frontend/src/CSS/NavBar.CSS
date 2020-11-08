@@ -1,4 +1,4 @@
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -48,7 +48,7 @@ fieldset {
 nav{
   display: flex;
   
-}
+} */
 /* CSS Reset code provided by Elad Shechter */
 nav{
   display: flex;

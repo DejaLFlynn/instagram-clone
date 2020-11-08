@@ -1,7 +1,7 @@
--- DROP DATABASE IF EXISTS imstagram_db;
--- CREATE DATABASE imstagram_db;
+DROP DATABASE IF EXISTS imstagram_db;
+CREATE DATABASE imstagram_db;
 
--- \c imstagram_db;
+\c imstagram_db;
 
 DROP TABLE IF EXISTS followers;
 DROP TABLE IF EXISTS likes;
@@ -58,7 +58,7 @@ CREATE TABLE follows (
 INSERT INTO users
 (id, name, user_pic, bio, email)
 VALUES 
-('zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'dejaf', 'https://i.pinimg.com/originals/22/ac/f8/22acf82cb30a3d26e813303509f79d3b.png', 'mommy pig', 'guest@gmail.com'),  
+('Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'dejaf', 'https://i.pinimg.com/originals/22/ac/f8/22acf82cb30a3d26e813303509f79d3b.png', 'mommy pig', 'guest@gmail.com'),  
 ('2', 'sebastianfr', 'https://i.pinimg.com/originals/dc/df/b1/dcdfb182a25ad1617a47422024e16a64.jpg', 'uncle pig', 'sebastianfr@pursuit.org'),
 ('3', 'aliciaf', 'https://i.pinimg.com/236x/65/e6/26/65e626d11b9a4b1688ff73f7bf58f835.jpg', 'grandma pig', 'aliciaf@pursuit.org'),
 ('7TmHqX88TbhL6CQ1XtgRyks50Xl2', 'user', 'https://i.pinimg.com/originals/04/7d/fc/047dfc2552d91ae45f5c5362e71f4e43.gif', 'user account', 'guest2@gmail.com'),

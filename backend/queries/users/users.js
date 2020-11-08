@@ -5,13 +5,13 @@ const createUser = async (req, res, next) => {
 
     try {
        console.log(req.body)
-        let newUser = await db.none(
-          "INSERT INTO users (id, name, user_pic, bio, email) VALUES(${id}, ${name}, ${user_pic}, ${bio}, ${email}) RETURNING *", req.body
+        let newUser = await db.one(
+          "INSERT INTO users (id, name, bio, email) VALUES(${id}, ${name}, ${bio}, ${email}) RETURNING *", req.body
         );
         res.json({
           status: "Success",
           message: "NEW USER CREATED",
-          body: newUser
+          payload: newUser
         });
       } catch (err) {
         next(err);
@@ -44,12 +44,16 @@ const deleteUser = async (req, res, next) => {
     }
   };
   const getUser = async (req, res, next) => {
-    const {id} = req.params
+ 
     try {
       let user = await db.one(
-        "SELECT * FROM users WHERE id = $1", id);
+        "SELECT * FROM users WHERE id =$1", [
+          req.params.id,
+        ]
+      );
       res.status(200).json({
-        message: "retrieved single user",
+        status: "success",
+        message: "User Retrieved",
         payload: user
       });
     } catch (err) {
