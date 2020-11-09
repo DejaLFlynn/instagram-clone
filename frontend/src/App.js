@@ -49,7 +49,7 @@ function App() {
         <Home/>
         <NavBar/>
       </AuthRoute>
-      <AuthRoute path='/signup'>
+      <AuthRoute exact path='/signup'>
         <SignUp/>
         <NavBar/>
       </AuthRoute>

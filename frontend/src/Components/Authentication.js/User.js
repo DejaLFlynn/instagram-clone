@@ -18,14 +18,11 @@ const User = () => {
   const [profile, setProfile] = useState([]);
   const { currentUsers, token, loading } = useContext(AContext);
   const [newProfile, setNewProfile] = useState(null);
-  const [userName, setUserName] = useState("")
-  const [bio, setBio] = useState("")
-  const [userPic, setUserPic] = useState("")
-
-
+  const [userName, setUserName] = useState("");
+  const [bio, setBio] = useState("");
+  const [userPic, setUserPic] = useState("");
 
   const fetchUserById = async () => {
-
     try {
       let res = await axios({
         method: "get",
@@ -34,12 +31,11 @@ const User = () => {
           AuthToken: token,
         },
       });
-     
+
       setProfile(res.data.payload);
-      setUserName(res.data.payload.name)
-      setBio(res.data.payload.bio)
-      setUserPic(res.data.payload.user_pic)
-     
+      setUserName(res.data.payload.name);
+      setBio(res.data.payload.bio);
+      setUserPic(res.data.payload.user_pic);
     } catch (err) {
       console.log(err);
     }
@@ -52,7 +48,6 @@ const User = () => {
     fetchUserById();
   }, [profile, token]);
 
-
   return (
     <div className="User">
       <NavBar />
@@ -60,9 +55,39 @@ const User = () => {
       <div></div>
       <h1>{userName}</h1>
       <h2>{bio}</h2>
-      <img src={userPic} alt="profilePic"></img> 
+      <img src={userPic} alt="profilePic"></img>
     </div>
   );
 };
 
 export default User;
+
+
+// <div className="App">
+// <AuthProvider>
+//      <NavBar />
+//   <Switch>
+//     <AuthRoute exact path={"/"}>
+//       <SignUp />
+//     </AuthRoute>
+
+//     <AuthRoute path={"/login"}>
+//       <Login />
+//     </AuthRoute>
+    
+//     <ProtectedRoute path="/users">
+//       <Users />
+//     </ProtectedRoute>
+
+//     <ProtectedRoute path="/profile">
+//       <Profile />
+//     </ProtectedRoute>
+
+//     <ProtectedRoute path="/home">
+//       <Home />
+//     </ProtectedRoute>
+
+//   </Switch>
+// </AuthProvider>
+
+// </div>

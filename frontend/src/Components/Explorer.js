@@ -30,6 +30,7 @@ const Explorer = () => {
   const classes = useStyles();
 
   const fetchPosts = async () => {
+    debugger
     try {
       let res = await axios.get(`${API}/posts`);
       setPosts(res.data.posts);
@@ -43,39 +44,26 @@ const Explorer = () => {
 
   let displayPics = posts.map((post) => {
     return (
-      <div
-        className="allPics"
-        key={post.id + post.posts_images + post.content}
-        display="flex"
-        flex-wrap="wrap"
-      >
-        <img alt="allImg" className="postImages" src={post.posts_images} />
-        <p value={post.content}>
-          {post.content}
-          <br></br>
-          {post.post_time}
-        </p>
+      <div className="allPics" key={post.id + post.posts_images + post.content} display='flex' flex-wrap="wrap">
+        <img alt="allImg" className="postImages" src={post.posts_images}  />
+    <p value={post.content}>{post.content}
+    <br></br>
+    {post.post_time}</p>
       </div>
     );
   });
   return (
-    // <Grid className={classes.root} container display="flex" direction="row" justify="center" alignItems="center">
-    //   {posts.map(post=>{
-    //     return(
-    //       <Grid className={classes.post} display="flex" direction="column" justify="center" alignItems="center">
-    //         <Typography className={classes.text} >{post.content}</Typography>
-    //         <Card src={post.posts_images} classes={classes.Card}>
 
-    //         </Card>
-    //       </Grid>
-    //     )})}
 
     <div className="Explorer">
+    
       <NavBar />
-      <Grid></Grid>
+      <Grid>
+        
+        </Grid>
       <div className="pictureContainer">{displayPics}</div>
     </div>
-    // </Grid>
+  
   );
 };
 export default Explorer;
