@@ -31,6 +31,7 @@ CREATE TABLE posts(
 CREATE TABLE comments(
     id VARCHAR PRIMARY KEY,
     user_id VARCHAR REFERENCES users(id),
+    post_id VARCHAR REFERENCES posts(id),
     content VARCHAR,
     post_time TIMESTAMP NOT NULL DEFAULT NOW()
 );
@@ -108,13 +109,21 @@ VALUES
 ('3', '12'),
 ('8Z8jBn31fIfHveQYVUb8BziZ9iE2', '13');
 
--- INSERT INTO likes
--- (user_id, post_id, likes) 
--- VALUES
--- ('zKmFaAX9i9QIEE5iV4aIyIeeEEC3', '2', '5'),
--- ('2', '1', '2'),
--- ('3', '4', '10'),
--- ('4', '3', '6');
+INSERT INTO likes
+(user_id, post_id, likes) 
+VALUES
+('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '2', '5'),
+('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '1', '2'),
+('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '4', '10'),
+('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '3', '6');
+
+INSERT INTO comments(id, user_id, post_id, content)
+VALUES
+('1','Lhl39hmBAvalJZPAQyTfnSs02Vr1', '1', 'This is the coolest thing since slice bread'),
+('2','7TmHqX88TbhL6CQ1XtgRyks50Xl2', '2', 'Over the rainbow is the best place on earth'),
+('3','IEFspTPeWoM03IxTTgAn6OLrhO92', '3', 'More cowbell please!');
+
+
 
 -- INSERT INTO hashtags (hashtags_name)
 --    VALUES 
