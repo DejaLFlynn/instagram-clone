@@ -20,6 +20,7 @@ app.use('/users', users);
 app.use('/posts', posts);
 app.use('/likes', likes);
 app.use('/comments', comments);
+
 // app.use('/followers', followers);
 
 app.use((err, req, res, next)=>{

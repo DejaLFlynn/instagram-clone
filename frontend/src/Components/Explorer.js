@@ -3,7 +3,7 @@ import axios from "axios";
 import { apiURL } from "../Utils/apiURL";
 import { AContext } from "../Providers/Context";
 // import "../CSS/Explorer.css";
-
+import Comments from './Comments'
 import Likes from "./Likes";
 
 import NavBar from "./Authentication.js/NavBar";
@@ -40,7 +40,6 @@ const Explorer = () => {
   const classes = useStyles();
 
   const fetchPosts = async () => {
-    debugger
     try {
       let res = await axios.get(`${API}/posts`);
       setPosts(res.data.posts);
@@ -59,7 +58,7 @@ const Explorer = () => {
               <GridListTile key="Subheader" cols={4} style={{ height: 'auto' }}>
               <GridListTile key={post.posts_images} >
             <img src={post.posts_images} alt={post.title} width="300px" height="300px" />
-            
+            <Comments/>
       {/* <div className="allPics" key={post.id + post.posts_images + post.content} > */}
         <img alt="allImg" className="postImages" src={post.posts_images} width="300px" height="200px" />
     <p value={post.content}>{post.content}

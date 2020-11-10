@@ -6,8 +6,8 @@ const {
 
 } = require('../queries/users/comments');
 
-comments.post("/", createComment);
-comments.get("/", fetchCommentsForOne);
+comments.post("/:id", createComment);
+comments.get("/:id", fetchCommentsForOne);
 comments.delete("/", deleteComment);
 
 module.exports = comments;

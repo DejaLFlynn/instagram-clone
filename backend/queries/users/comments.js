@@ -4,7 +4,7 @@ const createComment = async (req, res, next) => {
   try {
     console.log(req.body);
     let newComment = await db.one(
-      "INSERT INTO comments(id, user_id, post_id, content) VALUES(${id}, ${user_id}, ${post_id}, ${content}) RETURNING * ",
+      "INSERT INTO comments (id, user_id, post_id, content) VALUES(${id}, ${user_id}, ${post_id}, ${content}) RETURNING * ",
       req.body
     );
     res.status(200).json({
