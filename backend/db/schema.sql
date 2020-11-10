@@ -6,6 +6,7 @@ CREATE DATABASE imstagram_db;
 DROP TABLE IF EXISTS followers;
 DROP TABLE IF EXISTS likes;
 DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS follows;
 DROP TABLE IF EXISTS hashtags;
@@ -27,7 +28,12 @@ CREATE TABLE posts(
     post_time TIMESTAMP NOT NULL DEFAULT NOW()
 
 );
-
+CREATE TABLE comments(
+    id VARCHAR PRIMARY KEY,
+    user_id VARCHAR REFERENCES users(id),
+    content VARCHAR,
+    post_time TIMESTAMP NOT NULL DEFAULT NOW()
+);
 CREATE TABLE followers(
     id SERIAL PRIMARY KEY,
     user_id VARCHAR REFERENCES users(id),
@@ -72,7 +78,7 @@ VALUES
 
 INSERT INTO posts(id, user_id, posts_images, content) 
 VALUES
-('1', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg','hi'),
+('1', 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg','hi'),
 ('2', '2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPds087Sz0hw4O8vMDn7L5L-TWVoM3k0_EnQSlo3ACFmzUe4fe&usqp=CAU', 'me'),
 ('3', '3', 'https://i.pinimg.com/originals/e6/c1/4d/e6c14dd228b483f710ca30296bf3d71a.jpg', 'pan the man'),
 ('4', 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://image.shutterstock.com/image-photo/tranquil-beach-scene-exotic-tropical-260nw-644740495.jpg','hi'),
@@ -80,15 +86,15 @@ VALUES
 ('6', '0MiN674Er2ajv7czWwudVK2BmH83', 'https://content.delta.com/content/www/en_US/shop/delta-vacations/destinations.damAsset.html/content/dam/delta-www/dlv/images/destination-landing-pages/overview.jpg', 'pan the man'),
 ('7', '8Z8jBn31fIfHveQYVUb8BziZ9iE2', 'https://travel.usnews.com/images/vacation_landing_hero.jpg','hi'),
 ('8', 'IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://hbr.org/resources/images/article_assets/2017/08/aug17-04-vicko-mozara-324955.jpg', 'me'),
-('9', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://cdn.sandals.com/sandals/v12/images/home/top-slides/overwater-collection-mobile.jpg', 'pan the man'),
-('10', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://www.dunes.com/sites/default/files/styles/450x350/public/snippets/piggy_bank_thumbail_copy2.jpg','hi'),
+('9', 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://cdn.sandals.com/sandals/v12/images/home/top-slides/overwater-collection-mobile.jpg', 'pan the man'),
+('10', 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://www.dunes.com/sites/default/files/styles/450x350/public/snippets/piggy_bank_thumbail_copy2.jpg','hi'),
 ('11', '7TmHqX88TbhL6CQ1XtgRyks50Xl2', 'https://luxuryescapes.com/magazine/wp-content/uploads/2018/12/five-luxurious-resorts-malaysia-820x394.jpg', 'me'),
 ('12', 'IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://images.says.com/uploads/story_source/source_image/493729/2152.jpg', 'pan the man'),
-('13', 'zKmFaAX9i9QIEE5iV4aIyIeeEEC3', 'https://thesmartlocal.com/wp-content/uploads/images/easyblog_articles/4582/Luxury-resorts-Malaysia-thesmartlocal-20-1200x675.jpg', 'DEF ');
+('13', 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://thesmartlocal.com/wp-content/uploads/images/easyblog_articles/4582/Luxury-resorts-Malaysia-thesmartlocal-20-1200x675.jpg', 'DEF ');
 
 INSERT INTO followers(user_id, post_id)
 VALUES
-('zKmFaAX9i9QIEE5iV4aIyIeeEEC3', '1'),
+('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '1'),
 ('2', '2'),
 ('3', '3'),
 ('7TmHqX88TbhL6CQ1XtgRyks50Xl2', '4'),
@@ -96,8 +102,8 @@ VALUES
 ('8Z8jBn31fIfHveQYVUb8BziZ9iE2', '6'),
 ('IEFspTPeWoM03IxTTgAn6OLrhO92', '7'),
 ('ogP2B8DhiCgsBsTvlBVwGm5Mm6p2', '8'),
-('zKmFaAX9i9QIEE5iV4aIyIeeEEC3', '9'),
-('zKmFaAX9i9QIEE5iV4aIyIeeEEC3', '10'),
+('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '9'),
+('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '10'),
 ('2', '11'),
 ('3', '12'),
 ('8Z8jBn31fIfHveQYVUb8BziZ9iE2', '13');
