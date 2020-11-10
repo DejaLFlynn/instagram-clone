@@ -14,10 +14,12 @@ const users = require("./routes/users/users");
 const posts = require('./routes/posts/posts');
 const followers = require('./routes/followers/followers')
 const likes = require('./routes/likes/likes')
+const comments = require('./routes/comments')
 
 app.use('/users', users);
 app.use('/posts', posts);
 app.use('/likes', likes);
+app.use('/comments', comments);
 // app.use('/followers', followers);
 
 app.use((err, req, res, next)=>{
