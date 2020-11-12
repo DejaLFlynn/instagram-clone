@@ -19,13 +19,24 @@ const createComment = async (req, res, next) => {
 
 const fetchCommentsForOne = async (req, res, next) => {
   try {
-    let posts = await db.any(
-      "SELECT * FROM comments WHERE users_id=$1",
-      req.params.users_id
-    );
+    let {user_id} = req.params.user_id;
+    let {post_id} = req.params.post_id;
+    let {content} = req.body;
+    let comment = await db.one(
+        "INSERT INTO comments(user_id, post_id, content) VALUES ($1, $2, $3) RETURN *",
+        [post_id, user_id, content]
+    )
+
+    let user = await db.one("SELECT username FROM users WHERE id=$1", [user_id])
+  
+    
     res.json({
       posts,
-      message: "All comments for username",
+      message: "All comments for user",
+      body: {
+          comment,
+          user
+      }
     });
   } catch (error) {
     next(err);
@@ -45,4 +56,22 @@ const deleteComment = async (req, res, next) => {
     next(err);
   }
 };
-module.exports = { createComment, fetchCommentsForOne, deleteComment };
+
+const commentsForPost = async (req, res, next)=>{
+    try {
+        const {post_id} =req.params;
+        res.status(200).json({
+            status: "Success",
+            body:{
+                comments: await db.any(
+                    "SELECT comments.id, post_id, user_id, content FROM comments INNER JOIN users ON users.id = comments.user_id WHERE post_id = $1",
+                    post_id
+                )
+            }
+        })
+    } catch (error) {
+        
+    }
+    
+}
+module.exports = { createComment, fetchCommentsForOne, deleteComment, commentsForPost };
