@@ -5,11 +5,10 @@ const {
     fetchCommentsForOne,
     deleteComment,
     commentsForPost
-
 } = require('../queries/users/comments');
 
 comments.post("/:id", checkFirebaseToken, createComment);
-comments.get("/:id", checkFirebaseToken, fetchCommentsForOne);
+comments.get("/", checkFirebaseToken, fetchCommentsForOne);
 comments.delete("/", deleteComment);
-comments.get("/:post_id", checkFirebaseToken, commentsForPost)
+comments.get("/:id", checkFirebaseToken, commentsForPost)
 module.exports = comments;

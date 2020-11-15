@@ -13,7 +13,7 @@ export default function CommentsForm({post_id, createComment}) {
     try {
         let res = await axios({
             method: 'post',
-            url: `${API}/comments/:${post_id}`,
+            url: `${API}/comments/`,
             data: {content: content},
             headers:{
                 AuthToken: token

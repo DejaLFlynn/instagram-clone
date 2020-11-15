@@ -10,7 +10,7 @@ const ShowContent = ({ post_id }) => {
   const [comments, setComments] = useState([]);
   const [user, setUser] = useState([]);
 
-  const allComments = async () => {
+  const allComments = async (token) => {
     try {
       let res = await axios({
         method: "get",

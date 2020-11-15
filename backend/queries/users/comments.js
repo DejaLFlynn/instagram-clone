@@ -59,16 +59,8 @@ const deleteComment = async (req, res, next) => {
 
 const commentsForPost = async (req, res, next)=>{
     try {
-        const {post_id} =req.params;
-        res.status(200).json({
-            status: "Success",
-            body:{
-                comments: await db.any(
-                    "SELECT comments.id, post_id, user_id, content FROM comments INNER JOIN users ON users.id = comments.user_id WHERE post_id = $1",
-                    post_id
-                )
-            }
-        })
+        const comments = await db.any("SELECT * FROM comments WHERE post_id = $1", req.user_id);
+        res.json({comments})
     } catch (error) {
         
     }
