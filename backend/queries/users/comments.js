@@ -17,31 +17,31 @@ const createComment = async (req, res, next) => {
   }
 };
 
-const fetchCommentsForOne = async (req, res, next) => {
-  try {
-    let {user_id} = req.params.user_id;
-    let {post_id} = req.params.post_id;
-    let {content} = req.body;
-    let comment = await db.one(
-        "INSERT INTO comments(user_id, post_id, content) VALUES ($1, $2, $3) RETURN *",
-        [post_id, user_id, content]
-    )
+// const fetchCommentsForOne = async (req, res, next) => {
+//   try {
+//     let {user_id} = req.params.user_id;
+//     let {post_id} = req.params.post_id;
+//     let {content} = req.body;
+//     let comment = await db.one(
+//         "INSERT INTO comments(user_id, post_id, content) VALUES ($1, $2, $3) RETURN *",
+//         [post_id, user_id, content]
+//     )
 
-    let user = await db.one("SELECT username FROM users WHERE id=$1", [user_id])
+//     let user = await db.one("SELECT username FROM users WHERE id=$1", [user_id])
   
     
-    res.json({
-      posts,
-      message: "All comments for user",
-      body: {
-          comment,
-          user
-      }
-    });
-  } catch (error) {
-    next(err);
-  }
-};
+//     res.json({
+//       posts,
+//       message: "All comments for user",
+//       body: {
+//           comment,
+//           user
+//       }
+//     });
+//   } catch (error) {
+//     next(err);
+//   }
+// };
 const deleteComment = async (req, res, next) => {
   try {
     await db.none(
@@ -59,11 +59,13 @@ const deleteComment = async (req, res, next) => {
 
 const commentsForPost = async (req, res, next)=>{
     try {
-        const comments = await db.any("SELECT * FROM comments WHERE post_id = $1", req.user_id);
+        const comments = await db.any("SELECT * FROM comments WHERE id = $1", req.params.id);
         res.json({comments})
     } catch (error) {
         
     }
     
 }
-module.exports = { createComment, fetchCommentsForOne, deleteComment, commentsForPost };
+module.exports = { createComment, 
+    // fetchCommentsForOne,
+     deleteComment, commentsForPost };
