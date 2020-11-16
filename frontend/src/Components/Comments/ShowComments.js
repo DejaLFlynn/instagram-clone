@@ -3,18 +3,22 @@ import axios from "axios";
 import { AContext } from "../../Providers/Context";
 import { apiURL } from "../../Utils/apiURL";
 import Comments from "../Comments/Comments";
+//component displays comments made on posts by users that are created 
+//grab context from current user to post to comment
+//saving comment to state
+//render comments from state
 
 const ShowContent = ({ post_id }) => {
   const API = apiURL();
-  const { token } = useContext(AContext);
+  const { currentUsers, token, loading } = useContext(AContext);
   const [comments, setComments] = useState([]);
   const [user, setUser] = useState([]);
 
-  const allComments = async (token) => {
+  const allComments = async () => {
     try {
       let res = await axios({
         method: "get",
-        url: `${API}/comments/${post_id}`,
+        url: `${API}/comments/${currentUsers.id}`,
         headers: {
           AuthToken: token,
         },

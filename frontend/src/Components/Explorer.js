@@ -15,18 +15,28 @@ import GridListTileBar from "@material-ui/core/GridListTileBar";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import IconButton from "@material-ui/core/IconButton";
 import InfoIcon from "@material-ui/icons/Info";
-
+import ShowContent from "./Comments/ShowComments";
+//component displays posts, image, caption and date created from database
+//grab contexts from all post
+//comments can be made for posts
+//likes can be made for post
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
-    flexWrap: "wrap",
+    display: "grid",
+    gridTemplateColumns: '1fr 1fr 1fr 1fr',
+
     justifyContent: "space-around",
     overflow: "hidden",
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
+    gridRow: '1/4',
     width: 300,
     height: 250,
+  },
+  gridListTile: {
+    // width: 300,
+    // height: 250,
   },
   icon: {
     color: "rgba(255, 255, 255, 0.54)",
@@ -36,6 +46,7 @@ const Explorer = () => {
   const [posts, setPosts] = useState([]);
   const [pic, setPic] = useState("");
   const [name, setName] = useState("");
+ 
   const API = apiURL();
   const { currentUser, token } = useContext(AContext);
   const classes = useStyles();
@@ -52,32 +63,27 @@ const Explorer = () => {
     fetchPosts();
   }, []);
 
+
   let displayPics = posts.map((post) => {
     return (
       <div className={classes.root}>
-        <GridList cellHeight={180} className={classes.gridList}>
-          <GridListTile key="Subheader" cols={4} style={{ height: "auto" }}>
+        <GridList cellHeight={180} cols={4} className={classes.gridList}>
+          <GridListTile key="Subheader" className={classes.gridListTile} cols={4} style={{ height: "auto" }}>
             <GridListTile key={post.posts_images}>
               <img
                 src={post.posts_images}
                 alt={post.title}
-                width="300px"
+                width="200px"
                 height="300px"
               />
-              < ShowComments />
-              {/* <div className="allPics" key={post.id + post.posts_images + post.content} > */}
-              <img
-                alt="allImg"
-                className="postImages"
-                src={post.posts_images}
-                width="300px"
-                height="200px"
-              />
+           
               <p value={post.content}>
                 {post.content}
                 <br></br>
                 {post.post_time}
+                
               </p>
+              <ShowContent/>
               {/* </div> */}
             </GridListTile>
           </GridListTile>

@@ -2,9 +2,9 @@ import React, {useState, useContext} from 'react'
 import axios from 'axios'
 import {apiURL} from '../../Utils/apiURL'
 import {AContext} from '../../Providers/Context'
-export default function CommentsForm({post_id, createComment}) {
+export default function CommentsForm({id, createComment}) {
     const [content, setContent] = useState("")
-    const {token} = useContext(AContext)
+    const { currentUsers, token, loading } = useContext(AContext);
     const API = apiURL()
 
 
@@ -13,12 +13,13 @@ export default function CommentsForm({post_id, createComment}) {
     try {
         let res = await axios({
             method: 'post',
-            url: `${API}/comments/`,
+            url: `${API}/comments/${currentUsers.id}`,
             data: {content: content},
             headers:{
                 AuthToken: token
             }
         })
+        debugger
 
         // res.data.body
         createComment(res.data.body.content)
@@ -28,11 +29,15 @@ export default function CommentsForm({post_id, createComment}) {
     }
 
     return(
+        <div>
 
+       
         <form onSubmit={handleSubmit}>
             <textarea value={content} onChange={(e)=> setContent(e.currentTarget.value)} type="text" placeholder="comments"/>
             <button type="submit">Add Comment</button>
         </form>
+      
+        </div>
     )
 }
 

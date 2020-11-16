@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+// import "./App.css";
 import Footer from "./Components/Footer";
 import User from "./Components/Authentication.js/User";
 import NavBar from "./Components/Authentication.js/NavBar";

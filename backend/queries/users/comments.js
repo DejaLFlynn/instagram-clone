@@ -1,47 +1,48 @@
 const db = require("../../db/index");
 
-const createComment = async (req, res, next) => {
-  try {
-    console.log(req.body);
-    let newComment = await db.one(
-      "INSERT INTO comments (id, user_id, post_id, content) VALUES(${id}, ${user_id}, ${post_id}, ${content}) RETURNING * ",
-      req.body
-    );
-    res.status(200).json({
-      status: "success",
-      message: "a new comment was created",
-      body: newComment,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
-
-// const fetchCommentsForOne = async (req, res, next) => {
+// const createComment = async (req, res, next) => {
 //   try {
-//     let {user_id} = req.params.user_id;
-//     let {post_id} = req.params.post_id;
-//     let {content} = req.body;
-//     let comment = await db.one(
-//         "INSERT INTO comments(user_id, post_id, content) VALUES ($1, $2, $3) RETURN *",
-//         [post_id, user_id, content]
-//     )
-
-//     let user = await db.one("SELECT username FROM users WHERE id=$1", [user_id])
-  
-    
-//     res.json({
-//       posts,
-//       message: "All comments for user",
-//       body: {
-//           comment,
-//           user
-//       }
+//     console.log(req.body);
+//     let newComment = await db.one(
+//       "INSERT INTO comments (user_id, post_id, content) VALUES( ${user_id}, ${post_id}, ${content}) RETURNING * ",
+//       req.body
+//     );
+//     res.status(200).json({
+//       status: "success",
+//       message: "a new comment was created",
+//       body: newComment,
 //     });
 //   } catch (error) {
-//     next(err);
+//     next(error);
 //   }
 // };
+const createComment = async (req, res, next) => {
+    try {
+      let user_id = req.user_id
+      let { post_id } = req.params;
+      let { content } = req.body;
+      let comment = await db.one(
+        "INSERT INTO comments (post_id, user_id, content) VALUES ($1, $2, $3) RETURNING *",
+        [post_id, user_id, content]
+      );
+      let username = await db.one(
+        "SELECT username FROM users WHERE id = $1", [user_id]
+      )
+      res.status(200).json({
+        status: "Success",
+        message: "Comment Added",
+        body: {
+          comment,
+          username
+        },
+      });
+    } catch (error) {
+      res.json({
+        error: error,
+      });
+    }
+  };
+
 const deleteComment = async (req, res, next) => {
   try {
     await db.none(
@@ -67,5 +68,4 @@ const commentsForPost = async (req, res, next)=>{
     
 }
 module.exports = { createComment, 
-    // fetchCommentsForOne,
      deleteComment, commentsForPost };
