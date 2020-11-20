@@ -67,5 +67,15 @@ const commentsForPost = async (req, res, next)=>{
     }
     
 }
-module.exports = { createComment, 
+
+const fetchCommentsForOne = async (req, res, next)=>{
+    try {
+        const comments = await db.any("SELECT * FROM comments", req.params.id);
+        res.json({comments})
+    } catch (error) {
+        next(error)
+    }
+}
+
+module.exports = { createComment, fetchCommentsForOne,
      deleteComment, commentsForPost };

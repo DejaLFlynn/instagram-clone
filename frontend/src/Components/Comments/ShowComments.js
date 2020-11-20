@@ -18,12 +18,13 @@ const ShowContent = ({ post_id }) => {
     try {
       let res = await axios({
         method: "get",
-        url: `${API}/comments/${currentUsers.id}`,
+        url: `${API}/comments`,
         headers: {
           AuthToken: token,
         },
       });
-      setComments(res.data.body.comments);
+     
+      setComments(res.data.comments);
     } catch (error) {
       console.log(error);
     }
