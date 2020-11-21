@@ -39,6 +39,7 @@ const ShowContent = ({ post_id }) => {
     });
   };
   const showAll = comments.map((comment) => {
+      
     return (
       <ul className="commentList">
         <li>
