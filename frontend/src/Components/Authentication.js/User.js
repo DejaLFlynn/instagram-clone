@@ -24,6 +24,7 @@ const User = () => {
 
   const fetchUserById = async () => {
     try {
+   
       let res = await axios({
         method: "get",
         url: `${API}/users/${currentUsers.id}`,
@@ -31,7 +32,7 @@ const User = () => {
           AuthToken: token,
         },
       });
-
+   
       setProfile(res.data.payload);
       setUserName(res.data.payload.name);
       setBio(res.data.payload.bio);
@@ -51,7 +52,7 @@ const User = () => {
   return (
     <div className="User">
       <NavBar />
-      <Upload />
+      {/* <Upload /> */}
       <div></div>
       <h1>{userName}</h1>
       <h2>{bio}</h2>

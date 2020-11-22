@@ -1,6 +1,6 @@
-import app from 'firebase/app'
+import firebase from 'firebase/app'
 import 'firebase/auth'
-import 'firebase/firebase-firestore'
+import 'firebase/storage'
 const {
     REACT_APP_APIKEY,
     REACT_APP_AUTHDOMAIN,
@@ -23,13 +23,7 @@ const config = {
     appId: REACT_APP_APPID,
     measurementId: REACT_APP_MEASUREMENTID 
 }
+firebase.initializeApp(config)
+export const storage = firebase.storage()
+export default firebase
 
-app.initializeApp(config);
-export default app;
-
-// const storage = app.storage();
-
-// export {
-//     storage, 
-//     app as default
-// }

@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Message from './Message';
 import Progress from './Progress';
 import axios from 'axios';
+import {storage} from '../Firebase'
 
 const Upload = () => {
   const [file, setFile] = useState('');
@@ -15,13 +16,14 @@ const Upload = () => {
     setFilename(e.target.files[0].name);
   };
 
-  const onSubmit = async e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('file', file);
 
     try {
-      const res = await axios.post('/upload/:id', formData, {
+      console.log(file)
+      const res = await axios.post('/images', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -54,7 +56,7 @@ const Upload = () => {
   return (
     <Fragment>
       {message ? <Message msg={message} /> : null}
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className='custom-file mb-4'>
           <input
             type='file'
