@@ -84,6 +84,8 @@ const Explorer = () => {
                 
               </p>
               <ShowContent/>
+              <Likes/>
+
               {/* </div> */}
             </GridListTile>
           </GridListTile>

@@ -4,7 +4,7 @@ const db = require("../../db/index");
 
 const addLike = async (req, res) => {
     try {
-        let addedLike = await db.one("INSERT INTO likes (like_id, picture_id, likes) VALUES (${voter_id}, ${picture_id}, ${likes}) RETURNING *", req.body);
+        let addedLike = await db.one("INSERT INTO likes (user_id, post_id, likes) VALUES ($1, $2, $3) RETURNING *", req.body);
         res.status(200).json({
             status: "Success",
             message: "New like created",
@@ -35,8 +35,30 @@ const explorerLikes = async (req, res) => {
         })
     }
 }
+const getById = async (req, res, next) => {
+	try {
+		const postId = req.params.post_id;
+		console.log("POST ID", postId);
+		let posts = await db.any(
+			"SELECT * FROM likes WHERE post_id =$1 ORDER BY id DESC",
+			postId
+		);
+		res.status(200).json({
+			status: "ok",
+			message: "Retrieve all friends likes",
+			payload: posts,
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(400).json({
+			status: "error",
+			payload: "Couldn't retrieve all the likes",
+		});
+		next();
+	}
+};
 
 
 
 
-module.exports = { addLike, explorerLikes };
+module.exports = { addLike, explorerLikes, getById };

@@ -18,7 +18,7 @@ const ShowContent = ({ post_id }) => {
     try {
       let res = await axios({
         method: "get",
-        url: `${API}/comments`,
+        url: `${API}/comments/${post_id}`,
         headers: {
           AuthToken: token,
         },

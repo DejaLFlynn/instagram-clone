@@ -4,7 +4,8 @@ const {
 
 
 	addLike,
-	explorerLikes
+	explorerLikes,
+	getById
 
 	
 } = require("../../queries/users/likes");
@@ -13,7 +14,9 @@ const {
 likes.post("/",
 checkFirebaseToken, 
 addLike);
-likes.get("/:post_id", explorerLikes)
+
+likes.get("/", explorerLikes)
+likes.get("/:id", getById)
 
 
 module.exports = likes;

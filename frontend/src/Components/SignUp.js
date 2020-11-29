@@ -17,7 +17,7 @@ const SignUpPage = () => {
   const [password, setPassword] = useState("");
   const { token } = useContext(AContext);
   const [url, setUrl] = useState("");
-  // const { currentUsers, token, loading } = useContext(AContext);
+  const [bio, setBio] =useState("");
   const [image, setImage] = useState(null);
   const [error, setError] = useState(null);
   const API = apiURL();
@@ -27,17 +27,17 @@ const SignUpPage = () => {
     e.preventDefault();
     try {
       let res = await signUp(email, password);
-      debugger;
+     
       let res2 = await axios({
         method: "post",
-        url: `${API}/users/${res2.user.uid}`,
-        data: { id: res.user.uid, email, name, image },
+        url: `${API}/users`,
+        data: { id: res.user.uid, email: email, name: name, image: url },
 
         headers: {
           AuthToken: token,
         },
       });
-      debugger;
+      
       console.log(res2.data);
       history.push("/posts");
     } catch (error) {
@@ -51,17 +51,25 @@ const SignUpPage = () => {
       setImage(e.target.files[0]);
     }
   };
-  const handleUpload = () => {
+  const handleUpload = (e) => {
+    e.stopPropagation();
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
-    uploadTask.on("state_changed", () => {
-      storage
-        .ref("images")
-        .child(image.name)
-        .getDownloadURL()
-        .then((url) => {
-          setUrl(url);
-        });
-    });
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {},
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            setUrl(url);
+          });
+      }
+    );
   };
 
   // console.log("image: ", uploadPic);
@@ -77,6 +85,12 @@ const SignUpPage = () => {
             type="text"
             placeholder="name"
           />
+           <input
+            value={bio}
+            onChange={(e) => setBio(e.currentTarget.value)}
+            type="text"
+            placeholder="bio"
+          />
           <input
             value={email}
             onChange={(e) => setEmail(e.currentTarget.value)}
@@ -91,11 +105,11 @@ const SignUpPage = () => {
             placeholder="password"
           />
           <input type="file" onChange={handleChange} />
-          <button onClick={handleUpload}>Upload Image</button>
           <br />
           {/* <Dropzone handleImageChange={handleImageChange} dropzoneText={"Drop or Select Your Profile Image"}/> */}
           <button type="submit">Sign Up</button>
         </form>
+        <button onClick={handleUpload}>Upload Image</button>
       </div>
     </>
   );

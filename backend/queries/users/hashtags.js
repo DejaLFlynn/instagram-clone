@@ -40,5 +40,4 @@ const postsByHashtag = async (req, res, next) => {
   }
 }
 
-
 module.exports = {createHashtag, searchHashtag, postsByHashtag};

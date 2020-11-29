@@ -23,28 +23,28 @@ app.use('/comments', comments);
 
 // app.use('/followers', followers);
 
-app.use((err, req, res, next)=>{
-    console.log("backend error", err)
-    if(err.status){
-        res.status(err.status).json(err)
-    }else{
-        // next(err)
-        res.status(500).json(err)
-    }
-})
-app.post('/upload/:id', (req, res)=>{
-    if(req.files === null){
-       return res.status(400).json({msg:'no file uploaded'})
-    }
-    const file = req.files.file
-    file.mv(`${__dirname}/client/public/uploads/${file.name}`,err=>{
-        if(err){
-            console.log(err);
-            return res.status(500).send(err)
-        }
-        res.json({fileName: file.name, filePath: `/uploads/${file.name}`})
-    })
-})
+// app.use((err, req, res, next)=>{
+//     console.log("backend error", err)
+//     if(err.status){
+//         res.status(err.status).json(err)
+//     }else{
+//         // next(err)
+//         res.status(500).json(err)
+//     }
+// })
+// app.post('/upload/:id', (req, res)=>{
+//     if(req.files === null){
+//        return res.status(400).json({msg:'no file uploaded'})
+//     }
+//     const file = req.files.file
+//     file.mv(`${__dirname}/client/public/uploads/${file.name}`,err=>{
+//         if(err){
+//             console.log(err);
+//             return res.status(500).send(err)
+//         }
+//         res.json({fileName: file.name, filePath: `/uploads/${file.name}`})
+//     })
+// })
 app.listen(PORT, () => {
     console.log("Listening to port ", PORT);
 })

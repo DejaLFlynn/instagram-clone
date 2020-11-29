@@ -32,7 +32,7 @@ const User = () => {
           AuthToken: token,
         },
       });
-   
+  
       setProfile(res.data.payload);
       setUserName(res.data.payload.name);
       setBio(res.data.payload.bio);

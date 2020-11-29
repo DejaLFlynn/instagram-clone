@@ -7,6 +7,7 @@ const checkFirebaseToken = async (req, res, next) => {
         const decodeToken = await admin.auth().verifyIdToken(token);
         const uid = decodeToken.uid;
         req.user_id = uid;
+        req.user = {email: decodeToken.email};
         
         next();
     }

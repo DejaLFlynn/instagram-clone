@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS imstagram_db;
-CREATE DATABASE imstagram_db;
+-- DROP DATABASE IF EXISTS imstagram_db;
+-- CREATE DATABASE imstagram_db;
 
-\c imstagram_db;
+-- \c imstagram_db;
 
 DROP TABLE IF EXISTS followers;
 DROP TABLE IF EXISTS likes;
@@ -118,12 +118,12 @@ VALUES
     ('8Z8jBn31fIfHveQYVUb8BziZ9iE2', '13');
 
 INSERT INTO likes
-    (user_id, post_id, likes)
+    (id, user_id, post_id, likes)
 VALUES
-    ('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '2', '5'),
-    ('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '1', '2'),
-    ('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '4', '10'),
-    ('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '3', '6');
+    ('1', 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', '2', '5'),
+    ('2', 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', '1', '2'),
+    ('3', 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', '4', '10'),
+    ('4', 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', '3', '6');
 
 INSERT INTO comments
     (id, user_id, post_id, content)

@@ -2,19 +2,21 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { apiURL } from "../../Utils/apiURL";
 import { AContext } from "../../Providers/Context";
+import {useHistory} from "react-router-dom";
 // component has form that passes back the userId, postId and content to database
 //uses button to fire request
 
 
-export default function CommentsForm({ id, createComment }) {
+const  Comments =({ post_id }) =>{
   const [content, setContent] = useState("");
   const [postId, setPostId] = useState("");
   const { currentUsers, token, loading } = useContext(AContext);
   const API = apiURL();
-
+  const history = useHistory()
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+   
       let res = await axios({
         method: "post",
         url: `${API}/comments/${currentUsers.id}`,
@@ -23,11 +25,14 @@ export default function CommentsForm({ id, createComment }) {
           AuthToken: token,
         },
       });
-      debugger;
-
-      // res.data.body
-      createComment(res.data.body.content);
-    } catch (error) {}
+      debugger
+      setPostId(res.data.payload)
+      // res.data.body.comment.id = res.data.body.id["id"]
+      setContent(res.data.body.content);
+      history.push("/posts")
+    } catch (error) {
+        console.log(error)
+    }
   };
 
   return (
@@ -44,3 +49,4 @@ export default function CommentsForm({ id, createComment }) {
     </div>
   );
 }
+export default Comments
