@@ -1,5 +1,5 @@
 import React from "react";
-// import "./App.css";
+import "./App.css";
 import Footer from "./Components/Footer";
 import User from "./Components/Authentication.js/User";
 import NavBar from "./Components/Authentication.js/NavBar";
@@ -41,6 +41,13 @@ function App() {
  
   return (
     <div className="App">
+      <div className="app_header">
+
+        <img className="app_header_pic"
+        src="https://turbologo.com/articles/wp-content/uploads/2019/09/instagram-logo-illustration.png.webp"
+        />
+
+
       <Context>
     
         <Switch>
@@ -74,6 +81,8 @@ function App() {
         <Copyright />
       </footer>
       </Context>
+        
+      </div>
 
 
 

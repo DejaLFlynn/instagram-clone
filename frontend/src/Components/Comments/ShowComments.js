@@ -18,13 +18,14 @@ const ShowContent = ({ post_id }) => {
     try {
       let res = await axios({
         method: "get",
-        url: `${API}/comments/${post_id}`,
+        url: `${API}/comments`,
         headers: {
           AuthToken: token,
         },
       });
-     
+     debugger
       setComments(res.data.comments);
+      setUser(res.data.comments[0].user_id)
     } catch (error) {
       console.log(error);
     }
@@ -38,12 +39,15 @@ const ShowContent = ({ post_id }) => {
       return [...comment, comments];
     });
   };
+ 
+
+
   const showAll = comments.map((comment) => {
-      
     return (
       <ul className="commentList">
         <li>
-          {user} {comment.content}
+          {/* {comment.user_id} */}
+           {comment.content}{comment.post_id}
         </li>
       </ul>
     );

@@ -25,7 +25,7 @@ const Home = () => {
            <div className="leftSide">
 
           
-          <h1>Imstagram</h1>
+         
        
          
             <SignIn />

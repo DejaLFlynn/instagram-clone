@@ -71,6 +71,7 @@ const Explorer = () => {
           <GridListTile key="Subheader" className={classes.gridListTile} cols={4} style={{ height: "auto" }}>
             <GridListTile key={post.posts_images}>
               <img
+              className="app_header"
                 src={post.posts_images}
                 alt={post.title}
                 width="200px"

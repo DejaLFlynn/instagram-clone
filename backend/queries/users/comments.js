@@ -6,18 +6,16 @@ const createComment = async (req, res, next) => {
 
     let comment = await db.one(
       "INSERT INTO comments (user_id, post_id, content) VALUES ($1, $2, $3) RETURNING *",
-      [req.body.content]
+      [req.body.content, req.params.user_id, req.params.post_id]
     );
-    let user_id = await db.one("SELECT user_id FROM users WHERE id = $1", [
-      req.params.post_id,
-    ]);
+
    
     res.status(200).json({
       status: "Success",
       message: "Comment Added",
       body: {
-        comment,
-        user_id,
+        comment
+        
     
       },
     });
