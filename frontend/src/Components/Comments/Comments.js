@@ -25,7 +25,7 @@ const  Comments =({ post_id }) =>{
           AuthToken: token,
         },
       });
-      debugger
+      // debugger
       setPostId(res.data.payload)
       // res.data.body.comment.id = res.data.body.id["id"]
       setContent(res.data.body.content);

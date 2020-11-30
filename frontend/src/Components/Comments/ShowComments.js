@@ -23,7 +23,7 @@ const ShowContent = ({ post_id }) => {
           AuthToken: token,
         },
       });
-     debugger
+    //  debugger
       setComments(res.data.comments);
       setUser(res.data.comments[0].user_id)
     } catch (error) {

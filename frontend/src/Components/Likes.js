@@ -12,7 +12,7 @@ const Likes = () => {
   const getLikes = async () => {
     try {
       const res = await axios.get(`${API}/likes`);
-      debugger;
+      // debugger;
       if (res) {
         setLikes(res.length);
       }
