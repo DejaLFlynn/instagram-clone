@@ -5,7 +5,8 @@ const {
 
 	addLike,
 	explorerLikes,
-	getById
+	getById,
+	removeDislike
 
 	
 } = require("../../queries/users/likes");
@@ -17,6 +18,7 @@ addLike);
 
 likes.get("/", explorerLikes)
 likes.get("/:id", getById)
+likes.delete("/:id", removeDislike)
 
 
 module.exports = likes;

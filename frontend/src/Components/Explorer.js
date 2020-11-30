@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { apiURL } from "../Utils/apiURL";
 import { AContext } from "../Providers/Context";
-// import "../CSS/Explorer.css";
+import "../CSS/Explorer.css";
 
 import ShowComments from './Comments/ShowComments'
 import Likes from "./Likes";

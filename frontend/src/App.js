@@ -44,7 +44,7 @@ function App() {
       <div className="app_header">
 
         <img className="app_header_pic"
-        src="https://turbologo.com/articles/wp-content/uploads/2019/09/instagram-logo-illustration.png.webp"
+        src="https://cdn.icon-icons.com/icons2/1826/PNG/512/4202090instagramlogosocialsocialmedia-115598_115703.png"
         />
 
 

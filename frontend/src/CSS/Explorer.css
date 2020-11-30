@@ -1,9 +1,9 @@
 
 .postImages{
-    display: flex;
+    display: grid;
     width: 300px;
     height: 200px;
-    flex-direction: row;
+    
     border-style: solid;
     border-color: aqua;
     border-width: 3px;
