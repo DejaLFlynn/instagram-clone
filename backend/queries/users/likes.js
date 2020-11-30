@@ -26,7 +26,7 @@ const removeDislike = async (req, res, next) => {
     await db.none("DELETE FROM likes WHERE id = $1 ", postId);
     res.status(200).json({
       status: "success",
-      message: "DISLIKED REMOVED",
+      message: "LIKE REMOVED",
     });
   } catch (err) {
     next(err);
@@ -40,13 +40,13 @@ const explorerLikes = async (req, res) => {
     );
     res.status(200).json({
       status: "Success",
-      message: "Retrieved top 10 liked Posts",
+      message: "Retrieved top 10 liked likes",
       payload: topPosts,
     });
   } catch (err) {
     res.status(404).json({
       status: err,
-      message: "Couldn't find top Posts",
+      message: "Couldn't find top likes",
       payload: null,
     });
   }
