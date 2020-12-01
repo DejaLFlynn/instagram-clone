@@ -2,8 +2,19 @@ import React, { useState, useEffect, useContext } from "react";
 import { apiURL } from "../Utils/apiURL";
 import axios from "axios";
 import { AContext } from "../Providers/Context";
+import { makeStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+}));
 
 const Likes = () => {
+
   const [posts, setPosts] = useState([]);
   const [likes, setLikes] = useState([]);
   const API = apiURL();
@@ -70,9 +81,13 @@ const Likes = () => {
         <form onclick={handleSubmit}>
           {likeArray ? (
             likeArray(likeArray) ? (
-              <button onClick={likeDisplay}>Unlike</button>
+              <IconButton  color="secondary"  onClick={likeDisplay}>
+              <FavoriteIcon />
+              </IconButton>
             ) : (
-              <button onClick={likeDisplay}>Like</button>
+              <IconButton color="primary" onClick={likeDisplay}>
+              <FavoriteIcon />
+              </IconButton>
             )
           ) : (
             <p> 0 </p>

@@ -6,7 +6,7 @@ import "../CSS/Explorer.css";
 
 import ShowComments from "./Comments/ShowComments";
 import Likes from "./Likes";
-
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import NavBar from "./Authentication.js/NavBar";
 import Footer from "./Footer";
 import GridList from "@material-ui/core/GridList";
@@ -137,9 +137,9 @@ const Explorer = () => {
                       <Typography>{post.content}</Typography>
                     </CardContent>
                     <CardActions>
-                      <Button size="small" color="primary">
+                      <IconButton size="small" color="primary" >
                         <Likes />
-                      </Button>
+                      </IconButton>
                       <ShowComments />
                     </CardActions>
                   </Card>
