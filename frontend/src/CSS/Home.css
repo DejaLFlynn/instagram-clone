@@ -6,7 +6,7 @@ html, body{
 }
 
 .div{
-background-color: whitesmoke;
+
 height: 100%;
 background-size: cover;
 background-position: center;
@@ -22,8 +22,7 @@ grid-template-columns: repeat(2, 50%);
 .rightSide{
     background-color: white;
     display: grid;
-
-    justify-content: center ;
+    justify-content: right;
     height: 200%;
     display: inline-block;
     overflow: hidden;
@@ -31,7 +30,8 @@ grid-template-columns: repeat(2, 50%);
 }
 .leftSide{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: right;
+    align-items: right;
     margin-top: 50px;
+    padding-bottom: ;
 }
