@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory, Link } from "react-router-dom";
 import { login } from "../Utils/Firebase";
 import { apiURL } from "../Utils/apiURL";
-// import "../CSS/Home.css";
+import "../CSS/Home.css";
 import SignIn from "./Authentication.js/SignIn";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "justify",
     color: theme.palette.text.secondary,
   },
+  container:{
+    
+  }
+  
 }));
 
 const API = apiURL();
@@ -31,7 +35,7 @@ const Home = () => {
           <Grid container spacing={3} >
             <Grid item xs={6}>
               <div className="rightSide">
-                <img
+                <img className="phones"
                   src="https://i.postimg.cc/RhDKs1vV/igphones.png"
                   alt="iphone"
                   width="400px"

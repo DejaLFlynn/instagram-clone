@@ -10,15 +10,20 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    padding:50,
+    backgroundColor: "white",
   },
   media: {
-    height: 140,
+    height: 240,
+    padding: 200,
   },
+
+  
 });
 
 const API = apiURL();
@@ -51,7 +56,7 @@ const SignIn = () => {
             <img
               src="https://i.postimg.cc/44bfJzn7/Screen-Shot-2020-12-01-at-9-58-32-AM.png"
               width="250"
-              height="100px"
+              height="80px"
             />
           </CardContent>
           <CardContent>
@@ -76,7 +81,7 @@ const SignIn = () => {
             </form>
           </CardContent>
         </CardActionArea>
-        <CardActions></CardActions>
+       
       </Card>
  
       <div>
@@ -94,7 +99,7 @@ const SignIn = () => {
 
     </CardActionArea>
         </Card>
-        <br></br>
+       
         <p>Get the App</p>
           <img
             className="appleStore"

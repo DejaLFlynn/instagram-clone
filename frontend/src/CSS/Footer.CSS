@@ -46,16 +46,9 @@ fieldset {
   margin: 0;
 }
 /* CSS Reset code provided by Elad Shechter */
-/* .footer{
-  background-color: white;
-  color: midnightblue;
-  border-top: 0.5px solid grey;
-   display: grid;
-  grid-row:25; 
-
-  text-align: left;
-  text-decoration: none;
+ a {
+color:gray;
 
 
     
-  } */ 
+  } 
