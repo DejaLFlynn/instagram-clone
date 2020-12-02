@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#FFFFF",
     color: "#A9A9A9",
-    minHeight: "5rem",
+    minHeight: "2rem",
     display: "flex",
     alignItems: "center",
     "& *": {
@@ -18,8 +18,10 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     margin: theme.spacing(1),
+    fontSize: 8,
     
   },
+
   
 }));
 const Footer = () => {
@@ -29,7 +31,7 @@ const Footer = () => {
     <div className="footer">
       <BottomNavigation className={classes.root}>
         <a href={`https://about.instagram.com/about-us`}>
-          <Typography className={classes.content} align="center" color="textSecondary" >
+          <Typography className={classes.content} align="center"  color="textSecondary" >
             ABOUT
           </Typography>
         </a>
@@ -77,11 +79,10 @@ const Footer = () => {
         </a>
         <a href={`https://www.instagram.com/directory/hashtags/`}>
           <Typography className={classes.content} align="center"color="textSecondary">
-            HASHTAGS
+            HASHTAGS 
           </Typography>
         </a>
-        <a>LANGUAGE li</a>
-        <a>© 2020 INSTAGRAM FROM FACEBOOK</a>
+       
         <a
           href={`https://www.linkedin.com/in/deja-flynn`}
           className={classes.content}

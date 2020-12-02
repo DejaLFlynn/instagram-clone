@@ -3,7 +3,7 @@ import axios from "axios";
 import { apiURL } from "../Utils/apiURL";
 import { AContext } from "../Providers/Context";
 import "../CSS/Explorer.css";
-
+import Avatar from "@material-ui/core/Avatar";
 import ShowComments from "./Comments/ShowComments";
 import Likes from "./Likes";
 import FavoriteIcon from '@material-ui/icons/Favorite';
