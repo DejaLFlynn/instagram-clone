@@ -24,6 +24,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Toolbar from "@material-ui/core/Toolbar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
+import UsersGallery from './UsersGallery'
 // component displays the info saved in the database for the current logged-in user
 //grab context that contains the current user✅
 //fire network request using axios to the backend using the current user id to retrieve the user information stored in database
@@ -31,6 +32,7 @@ import AppBar from "@material-ui/core/AppBar";
 //render user information from the state
 //user may upload new pics from component to the database
 //display pictures thant belong to logged-in user uploaded by logged-in user
+//make a new component for user gallery and call in return
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -157,6 +159,7 @@ const User = () => {
           </CardContent>
         </Collapse>
       </Card>
+      <UsersGallery/>
       <NavBar />
       {/* <Upload /> */}
     </div>

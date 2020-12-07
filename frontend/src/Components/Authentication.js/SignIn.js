@@ -85,12 +85,12 @@ const SignIn = () => {
                 onChange={(e) => setPassword(e.currentTarget.value)}
               ></TextField>
               <Button  type="submit"
-              
-                        variant="contained"
+
+                        // variant="contained"
                         color="inherit"
                         className={classes.button}>
 
-              {/* <input type="submit"></input> */}
+              <input type="submit" value="Log In"></input>
               </Button>
             </form>
           </CardContent>

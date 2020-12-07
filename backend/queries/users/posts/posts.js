@@ -52,6 +52,7 @@ const deletePost = async (req, res, next) => {
     try {
       let posts = await db.any(
         "SELECT * FROM posts WHERE users_id=$1", req.params.users_id
+        //username and hav a join query 
       )
       res.json({
         posts,

@@ -138,7 +138,7 @@ const Explorer = () => {
                     </CardContent>
                     <CardActions>
                       <IconButton size="small" color="primary" >
-                        <Likes />
+                        {/* <Likes /> */}
                       </IconButton>
                       <ShowComments />
                     </CardActions>

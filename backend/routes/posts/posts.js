@@ -4,12 +4,14 @@ const {
     allPosts,
     deletePost,
     getPost,
+    fetchAllForOne,
   } = require("../../queries/users/posts/posts");
   
   posts.post("/", createPost);
   posts.get("/", allPosts);
   posts.delete("/:id", deletePost);
-  posts.get("/:id", getPost);
+  posts.get("/", getPost);
+  posts.get("/:username", fetchAllForOne)
   
 
 
