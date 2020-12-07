@@ -113,9 +113,7 @@ const SignUpPage = () => {
       <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+    
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
@@ -128,9 +126,7 @@ const SignUpPage = () => {
                 onChange={(e) => setName(e.currentTarget.value)}
                 required
                 fullWidth
-                id="Name"
-                label="Name"
-                autoFocus
+                id="name" label="Filled" variant="filled" 
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -184,6 +180,7 @@ const SignUpPage = () => {
             fullWidth
             variant="contained"
             color="primary"
+            label="Log In"
             className={classes.submit}
       
           >

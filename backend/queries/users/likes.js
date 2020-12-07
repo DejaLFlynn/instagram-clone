@@ -6,10 +6,14 @@ const addLike = async (req, res) => {
       "INSERT INTO likes (user_id, post_id, likes) VALUES ($1, $2, $3) RETURNING *",
       req.body
     );
+    let posts = await db.any(
+      "SELECT * FROM posts WHERE users_id=$1", req.params.users_id
+    )
     res.status(200).json({
       status: "Success",
       message: "New like created",
       payload: addedLike,
+      posts,
     });
   } catch (err) {
     res.status(404).json({
@@ -19,7 +23,7 @@ const addLike = async (req, res) => {
     });
   }
 };
-const removeDislike = async (req, res, next) => {
+const removeLike = async (req, res, next) => {
   try {
     const postId = req.params.post_id;
     console.log("POST ID", postId);
@@ -74,4 +78,4 @@ const getById = async (req, res, next) => {
   }
 };
 
-module.exports = { addLike, explorerLikes, getById, removeDislike };
+module.exports = { addLike, explorerLikes, getById, removeLike };

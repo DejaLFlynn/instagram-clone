@@ -11,6 +11,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, withTheme } from "@material-ui/core/styles";
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles({
   root: {
@@ -61,23 +62,36 @@ const SignIn = () => {
           </CardContent>
           <CardContent>
             <form onSubmit={handleSubmit}>
-              <input
+              <TextField
                 autoComplete="on"
+                defaultValue="Small"
                 type="text"
                 className="email"
                 value={email}
                 placeholder="email"
+                variant="outlined"
+
                 onChange={(e) => setEmail(e.currentTarget.value)}
-              ></input>
-              <input
+              ></TextField>
+              <TextField
                 autoComplete="on"
                 type="password"
                 className="password"
+                defaultValue="Small"
                 value={password}
                 placeholder="password"
+                variant="outlined"
+
                 onChange={(e) => setPassword(e.currentTarget.value)}
-              ></input>
-              <input type="submit"></input>
+              ></TextField>
+              <Button  type="submit"
+              
+                        variant="contained"
+                        color="inherit"
+                        className={classes.button}>
+
+              {/* <input type="submit"></input> */}
+              </Button>
             </form>
           </CardContent>
         </CardActionArea>

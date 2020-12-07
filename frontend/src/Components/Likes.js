@@ -13,12 +13,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Likes = () => {
+const Likes = (post_id) => {
 
+  const classes = useStyles();
   const [posts, setPosts] = useState([]);
   const [likes, setLikes] = useState([]);
+  const [unlike, setUnlike] = useState(false);
   const API = apiURL();
   const {currentUser, token} = useContext(AContext);
+  const like_id= currentUser.id;
 
   const getLikes = async () => {
     try {
@@ -37,18 +40,19 @@ const Likes = () => {
   }, []);
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // let dataObj = {
-    //   user_id,
-    //   post_id: post_id,
-    // };
-    // try {
-    //   const res = addLike(dataObj);
-    //   if (res) {
-    //     getLikes();
-    //   }
-    // } catch (error) {
-    //   console.log(error, "like error");
-    // }
+    let dataObj = {
+      like_id,
+      post_id: post_id,
+    };
+    try {
+      const res = await axios.post(API + `/likes`, dataObj);
+	
+      if (res) {
+        getLikes();
+      }
+    } catch (error) {
+      console.log(error, "like error");
+    }
   };
   const likeDisplay = async (event) => {
     if (event.target.innerText === "Like") {
@@ -65,10 +69,10 @@ const Likes = () => {
     }
   };
   const likeArray = (arr) => {
-    // return arr.every((liked) => {
-    //   debugger;
-    //   return liked.length;
-    // });
+    return arr.every((liked) => {
+      debugger;
+      return liked.length;
+    });
   };
 
   useEffect(() => {
