@@ -114,6 +114,7 @@ const Explorer = () => {
               </Typography>
 
               <div className={classes.heroButtons}>
+                
                 <Grid container spacing={2} justify="center"></Grid>
               </div>
             </Container>
@@ -121,20 +122,25 @@ const Explorer = () => {
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
             <Grid container spacing={4}>
+              
               {posts.map((post) => (
                 <Grid item key={post} xs={12} sm={6} md={4}>
                   <Card className={classes.card}>
+                  <Avatar>
+                      
+                      </Avatar>
                     <CardMedia
                       className={classes.cardMedia}
                       image={post.posts_images}
                       title="Image title"
                     />
-                    {/* <CardContent className={classes.cardContent}>
+                   
+                    <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
                         {post.content}
                       </Typography>
                       <Typography>{post.content}</Typography>
-                    </CardContent> */}
+                    </CardContent>
                     <CardActions>
                       <IconButton size="small" color="primary">
                         {/* <Likes /> */}
