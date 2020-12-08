@@ -65,8 +65,8 @@ const UsersGallery = () => {
           AuthToken: token,
         },
       });
-      debugger
-      setPosts(res.data.payload);
+    //   debugger
+      setPosts(res.data.usersPosts);
     } catch (err) {
       console.log(err);
     }
@@ -78,19 +78,74 @@ const UsersGallery = () => {
   useEffect(() => {
     fetchUserById();
   }, [posts, token]);
-//   let display = posts.map((post, index)=>{
-//     return(
-//         <div key={index} className="contentDisplay">
+  const display = posts.map((post, index)=>{
+    return(
+        <div key={index} className="contentDisplay">
          
-//     <p>{post.posts_images}</p>
+    <img src={post.posts_images}/>
 
-//         </div>
-//     )
-// })
+        </div>
+    )
+})
 
   return (
     <div className="UsersGallery">
-        {/* {display} */}
+        <React.Fragment>
+        <CssBaseline />
+ 
+        <main>
+          {/* Hero unit */}
+          <div className={classes.heroContent}>
+            <Container maxWidth="sm">
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="textPrimary"
+                gutterBottom
+              >
+                Explore Users
+              </Typography>
+
+              <div className={classes.heroButtons}>
+                <Grid container spacing={2} justify="center"></Grid>
+              </div>
+            </Container>
+          </div>
+          <Container className={classes.cardGrid} maxWidth="md">
+            {/* End hero unit */}
+            <Grid container spacing={4}>
+              {posts.map((post) => (
+                <Grid item key={post} xs={12} sm={6} md={4}>
+                  <Card className={classes.card}>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={post.posts_images}
+                      title="Image title"
+                    />
+                    <CardContent className={classes.cardContent}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                      {post.content}
+                      </Typography>
+                      <Typography>{post.content}</Typography>
+                    </CardContent>
+                    <CardActions>
+                      <IconButton size="small" color="primary" >
+                        {/* <Likes /> */}
+                      </IconButton>
+                      <ShowComments />
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </main>
+
+      </React.Fragment>
+       
+
+
      
     </div>
   );
