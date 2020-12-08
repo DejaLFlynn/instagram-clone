@@ -47,7 +47,7 @@ const ShowContent = ({ post_id }) => {
       <ul className="commentList">
         <li>
           {/* {comment.user_id} */}
-           {comment.content}{comment.post_id}
+           {comment.content}
         </li>
       </ul>
     );

@@ -6,6 +6,7 @@ import Upload from "../Upload";
 import { useParams } from "react-router-dom";
 import NavBar from "./NavBar";
 import ShowComments from "../Comments/ShowComments";
+import Likes from "../Likes";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -65,7 +66,7 @@ const UsersGallery = () => {
           AuthToken: token,
         },
       });
-    //   debugger
+      //   debugger
       setPosts(res.data.usersPosts);
     } catch (err) {
       console.log(err);
@@ -78,35 +79,23 @@ const UsersGallery = () => {
   useEffect(() => {
     fetchUserById();
   }, [posts, token]);
-  const display = posts.map((post, index)=>{
-    return(
-        <div key={index} className="contentDisplay">
-         
-    <img src={post.posts_images}/>
-
-        </div>
-    )
-})
+  const display = posts.map((post, index) => {
+    return (
+      <div key={index} className="contentDisplay">
+        <img src={post.posts_images} />
+      </div>
+    );
+  });
 
   return (
     <div className="UsersGallery">
-        <React.Fragment>
+      <React.Fragment>
         <CssBaseline />
- 
+
         <main>
           {/* Hero unit */}
           <div className={classes.heroContent}>
             <Container maxWidth="sm">
-              <Typography
-                component="h1"
-                variant="h2"
-                align="center"
-                color="textPrimary"
-                gutterBottom
-              >
-                Explore Users
-              </Typography>
-
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center"></Grid>
               </div>
@@ -125,15 +114,17 @@ const UsersGallery = () => {
                     />
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
-                      {post.content}
+                        {post.content}
                       </Typography>
                       <Typography>{post.content}</Typography>
                     </CardContent>
                     <CardActions>
-                      <IconButton size="small" color="primary" >
-                        {/* <Likes /> */}
-                      </IconButton>
-                      <ShowComments />
+                      <CardActions>
+                        <IconButton size="small" color="primary">
+                          {/* <Likes /> */}
+                        </IconButton>
+                        <ShowComments />
+                      </CardActions>
                     </CardActions>
                   </Card>
                 </Grid>
@@ -141,12 +132,7 @@ const UsersGallery = () => {
             </Grid>
           </Container>
         </main>
-
       </React.Fragment>
-       
-
-
-     
     </div>
   );
 };

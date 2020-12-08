@@ -6,7 +6,7 @@ import "../CSS/Explorer.css";
 import Avatar from "@material-ui/core/Avatar";
 import ShowComments from "./Comments/ShowComments";
 import Likes from "./Likes";
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import NavBar from "./Authentication.js/NavBar";
 import Footer from "./Footer";
 import GridList from "@material-ui/core/GridList";
@@ -88,7 +88,6 @@ const Explorer = () => {
     fetchPosts();
   }, []);
 
-
   return (
     <div className="Explorer">
       <React.Fragment>
@@ -130,17 +129,17 @@ const Explorer = () => {
                       image={post.posts_images}
                       title="Image title"
                     />
-                    <CardContent className={classes.cardContent}>
+                    {/* <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
-                      {post.content}
+                        {post.content}
                       </Typography>
                       <Typography>{post.content}</Typography>
-                    </CardContent>
+                    </CardContent> */}
                     <CardActions>
-                      <IconButton size="small" color="primary" >
+                      <IconButton size="small" color="primary">
                         {/* <Likes /> */}
                       </IconButton>
-                      <ShowComments />
+                      
                     </CardActions>
                   </Card>
                 </Grid>
@@ -150,16 +149,14 @@ const Explorer = () => {
         </main>
         {/* Footer */}
         <footer className={classes.footer}>
-          <Typography variant="h6" align="center" gutterBottom>
-          
-          </Typography>
+          <Typography variant="h6" align="center" gutterBottom></Typography>
           <Typography
             variant="subtitle1"
             align="center"
             color="textSecondary"
             component="p"
           >
-            <Footer />
+            
           </Typography>
         </footer>
       </React.Fragment>

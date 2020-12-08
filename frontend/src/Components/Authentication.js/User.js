@@ -24,7 +24,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Toolbar from "@material-ui/core/Toolbar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
-import UsersGallery from './UsersGallery'
+import UsersGallery from "./UsersGallery";
 // component displays the info saved in the database for the current logged-in user
 //grab context that contains the current user✅
 //fire network request using axios to the backend using the current user id to retrieve the user information stored in database
@@ -124,7 +124,7 @@ const User = () => {
         <CardMedia
           className={classes.media}
           image={userPic}
-          title="Paella dish"
+          title="userPics"
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
@@ -159,7 +159,7 @@ const User = () => {
           </CardContent>
         </Collapse>
       </Card>
-      <UsersGallery/>
+      <UsersGallery />
       <NavBar />
       {/* <Upload /> */}
     </div>
