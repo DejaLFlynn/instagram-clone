@@ -21,7 +21,7 @@ const UsersGallery = () => {
           AuthToken: token,
         },
       });
-
+debugger
       setPosts(res.data.payload);
      
     } catch (err) {

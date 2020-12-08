@@ -8,7 +8,7 @@ const createPost = async (req, res, next) => {
           status: 'success',
           message: 'a new post was created',
           body: newPost
-          
+  
         });
       } catch (err) {
         next(err);
@@ -36,6 +36,7 @@ const deletePost = async (req, res, next) => {
         next(err);
     }
   };
+
   const getPost = async (req, res, next) => {
     try {
       let posts = await db.any("SELECT * FROM posts");
@@ -50,12 +51,10 @@ const deletePost = async (req, res, next) => {
   };
   const fetchAllForOne = async(req, res, next)=>{
     try {
-      let posts = await db.any(
-        "SELECT * FROM posts WHERE users_id=$1", req.params.users_id
-        //username and hav a join query 
-      )
+     
+      let usersPosts = await db.any('SELECT posts.id, posts.user_id, posts.posts_images, posts.content, users.name FROM posts LEFT JOIN users ON posts.user_id=users.id WHERE user_id = $1', [req.params.user_id]);
       res.json({
-        posts,
+        usersPosts,
         message: "All posts for username"
       })
     } catch (error) {

@@ -1,7 +1,7 @@
--- DROP DATABASE IF EXISTS imstagram_db;
--- CREATE DATABASE imstagram_db;
+DROP DATABASE IF EXISTS imstagram_db;
+CREATE DATABASE imstagram_db;
 
--- \c imstagram_db;
+\c imstagram_db;
 
 DROP TABLE IF EXISTS followers;
 DROP TABLE IF EXISTS likes;
