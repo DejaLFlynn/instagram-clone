@@ -88,9 +88,9 @@ const User = () => {
       console.log(err);
     }
   };
-  useEffect(() => {
-    fetchUserById();
-  }, [token]);
+  // useEffect(() => {
+  //   fetchUserById();
+  // }, [token]);
 
   useEffect(() => {
     fetchUserById();

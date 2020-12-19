@@ -1,6 +1,10 @@
-import React from "react";
+import React,{useState, useEffect, useContext} from "react";
 import "./App.css";
+
 import Footer from "./Components/Footer";
+import {apiURL} from './Utils/apiURL'
+import axios from 'axios'
+import {AContext} from './Providers/Context'
 import User from "./Components/Authentication.js/User";
 import NavBar from "./Components/Authentication.js/NavBar";
 import SignUp from "./Components/SignUp";
@@ -22,6 +26,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { getFirebaseIdToken} from './Utils/Firebase'
+import LoadingComponent from './Components/LoadingComponent'
 function Copyright() {
   
   return (
@@ -38,6 +44,64 @@ function Copyright() {
 function App() {
 
   
+  const API = apiURL();
+  const { currentUser, token, loading } = useContext(AContext);
+  const [profile, setProfile] = useState([]);
+  const fetchUserById = async () => {
+    try {
+      let res = await axios({
+        method: "get",
+        url: `${API}/users/${currentUser.id}`,
+        headers: {
+          AuthToken: token,
+        },
+      });
+
+     
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+
+  useEffect(() => {
+    fetchUserById();
+  }, [profile, token]);
+  // const userSession = async (user) => {
+  //   if (user) {
+  //     const { email, id } = user;
+  //     let res = await axios.get(`${apiURL()}/users/${currentUser.id}`);
+  //     const {
+  //       name,
+  //       user_pic,
+  //       bio,
+       
+       
+  //     } = res.data.payload;
+  //     getFirebaseIdToken().then((token) => {
+  //       dispatch(
+  //         setProfile({
+  //           email,
+  //           id,
+  //           token,
+  //           name,
+  //           user_pic,
+  //           bio,
+  //         })
+  //       );
+        
+  //     });
+  //   } else {
+  //     dispatch(setProfile(null));
+      
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   // const authStateObserver = firebase.auth().onAuthStateChanged(userSession);
+  //   // return authStateObserver;
+  // }, []);
+  
  
   return (
     <div className="App">
@@ -49,13 +113,16 @@ function App() {
 
 
       <Context>
-    
+    {/* <LoadingComponent> */}
+    {/* {currentUser ? <NavBar /> : null} */}
+   
         <Switch>
-
       <AuthRoute exact path="/">
         <Home/>
+        
         <NavBar/>
       </AuthRoute>
+{/* <LoadingComponent> */}
       <AuthRoute exact path='/signup'>
         <SignUp/>
         <NavBar/>
@@ -75,7 +142,9 @@ function App() {
         <Explorer/>
         <NavBar/>
       </ProtectedRoute>
+      {/* </LoadingComponent> */}
         </Switch>
+       
      <footer>
         <Footer />
         <Copyright />
