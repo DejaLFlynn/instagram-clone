@@ -11,7 +11,7 @@ const {
   posts.get("/", allPosts);
   posts.delete("/:id", deletePost);
   posts.get("/", getPost);
-  posts.get("/:user_id", checkFirebaseToken, fetchAllForOne)
+  posts.get("/:id", checkFirebaseToken, fetchAllForOne)
   
 
 

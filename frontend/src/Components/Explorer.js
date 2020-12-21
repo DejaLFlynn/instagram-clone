@@ -30,6 +30,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
+import {fetchPostUser} from '../Utils/UserCalls'
 //component displays posts, image, caption and date created from database
 //grab contexts from all post
 //comments can be made for posts
@@ -71,7 +72,7 @@ const Explorer = () => {
   const [posts, setPosts] = useState([]);
   const [pic, setPic] = useState("");
   const [name, setName] = useState("");
-
+  const [avatarPic, setAvatarPic] = useState("")
   const API = apiURL();
   const { currentUser, token } = useContext(AContext);
   const classes = useStyles();
@@ -80,6 +81,7 @@ const Explorer = () => {
     try {
       let res = await axios.get(`${API}/posts`);
       setPosts(res.data.posts);
+      debugger
     } catch (error) {
       console.log(error);
     }
@@ -87,7 +89,7 @@ const Explorer = () => {
   useEffect(() => {
     fetchPosts();
   }, []);
-
+ 
   return (
     <div className="Explorer">
       <React.Fragment>
@@ -126,7 +128,7 @@ const Explorer = () => {
               {posts.map((post) => (
                 <Grid item key={post} xs={12} sm={6} md={4}>
                   <Card className={classes.card}>
-                  <Avatar>
+                  <Avatar value={post.user_pic} src={post.user_pic}  >
                       
                       </Avatar>
                     <CardMedia
