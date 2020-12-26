@@ -31,6 +31,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import { fetchPostUser } from "../Utils/UserCalls";
+import Search from './Search'
 //component displays posts, image, caption and date created from database
 //grab contexts from all post
 //comments can be made for posts
@@ -103,6 +104,7 @@ const Explorer = () => {
         </AppBar>
         <main>
           <div className={classes.heroContent}>
+            <Search/>
             <Container maxWidth="sm">
               <Typography
                 component="h1"

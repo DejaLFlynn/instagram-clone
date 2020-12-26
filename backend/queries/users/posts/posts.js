@@ -19,15 +19,13 @@ const createPost = async (req, res, next) => {
 const allPosts = async (req, res, next) => {
   try {
     const posts = await db.any(
-      
       "SELECT users.user_pic, users.email, users.name, users.bio, posts.user_id, posts.posts_images, posts.content FROM users JOIN posts ON users.id = posts.user_id"
-      );
+    );
 
     res.json({
       posts,
       message: "All Posts",
     });
-
   } catch (err) {
     next(err);
   }
@@ -58,18 +56,33 @@ const getPost = async (req, res, next) => {
 };
 const fetchAllForOne = async (req, res, next) => {
   try {
- 
     let usersPosts = await db.any(
-      'SELECT posts.id, posts.user_id, posts.posts_images, posts.content, users.name FROM posts LEFT JOIN users ON posts.user_id=users.id WHERE user_id = $1', [req.params.user_id],
-     
+      "SELECT posts.id, posts.user_id, posts.posts_images, posts.content, users.name FROM posts LEFT JOIN users ON posts.user_id=users.id WHERE users.id = $1",
+      [req.params.user_id]
     );
+
     res.json({
       usersPosts,
-      usersName,
       message: "All posts for username",
     });
   } catch (error) {
     next(err);
   }
 };
+const getUserPosts = async (req, res) => {
+  try {
+    let posts = await db.any(
+      "SELECT posts.id, posts.user_id, posts.posts_images, posts.content, users.name FROM posts LEFT JOIN users ON posts.user_id=users.id WHERE users.id =  $1",
+      [req.params.user_id]
+    );
+    res.status(200).json({
+      status: 200,
+      posts,
+      message: "all posts retrieved",
+    });
+  } catch (error) {
+    res.status(404).json({ status: 404, message: "no posts found" });
+  }
+};
+
 module.exports = { createPost, allPosts, deletePost, getPost, fetchAllForOne };

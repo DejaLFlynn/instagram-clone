@@ -28,6 +28,7 @@ const Search = () => {
   }, [API, token, hashtag, currentUser]);
   return (
     <div className="Search">
+        <input></input>
       <p>{posts}</p>
     </div>
   );

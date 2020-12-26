@@ -15,8 +15,6 @@ const createComment = async (req, res, next) => {
       message: "Comment Added",
       body: {
         comment
-        
-    
       },
     });
   } catch (error) {
