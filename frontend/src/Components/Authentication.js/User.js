@@ -25,6 +25,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import UsersGallery from "./UsersGallery";
+import UserPosts from './UserPosts'
 // component displays the info saved in the database for the current logged-in user
 //grab context that contains the current user✅
 //fire network request using axios to the backend using the current user id to retrieve the user information stored in database
@@ -159,6 +160,7 @@ const User = () => {
           </CardContent>
         </Collapse>
       </Card>
+      <UserPosts/>
       <UsersGallery />
       <NavBar />
       {/* <Upload /> */}

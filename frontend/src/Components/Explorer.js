@@ -31,7 +31,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import { fetchPostUser } from "../Utils/UserCalls";
-import Search from './Search'
+import Search from "./Search";
+
 //component displays posts, image, caption and date created from database
 //grab contexts from all post
 //comments can be made for posts
@@ -82,7 +83,6 @@ const Explorer = () => {
     try {
       let res = await axios.get(`${API}/posts`);
       setPosts(res.data.posts);
-      debugger;
     } catch (error) {
       console.log(error);
     }
@@ -93,6 +93,7 @@ const Explorer = () => {
 
   return (
     <div className="Explorer">
+
       <React.Fragment>
         <CssBaseline />
         <AppBar position="relative">
@@ -104,7 +105,7 @@ const Explorer = () => {
         </AppBar>
         <main>
           <div className={classes.heroContent}>
-            <Search/>
+            <Search />
             <Container maxWidth="sm">
               <Typography
                 component="h1"
@@ -116,9 +117,9 @@ const Explorer = () => {
                 Explore Users
               </Typography>
 
-              <div className={classes.heroButtons}>
+              {/* <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center"></Grid>
-              </div>
+              </div> */}
             </Container>
           </div>
           <Container className={classes.cardGrid} maxWidth="md">
