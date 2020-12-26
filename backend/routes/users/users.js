@@ -8,7 +8,7 @@ const {
 } = require("../../queries/users/users");
 
 const { checkFirebaseToken } = require("../../middleware/Auth");
-users.use("/posts", checkFirebaseToken, getUserPosts);
+users.use("/:id/posts", checkFirebaseToken, getUserPosts);
 users.post("/", checkFirebaseToken, createUser);
 users.get("/", allUsers);
 users.get("/:id", checkFirebaseToken, getUser);

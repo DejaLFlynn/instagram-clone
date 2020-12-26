@@ -16,7 +16,7 @@ const UsersGallery = () => {
     try {
       let res = await axios({
         method: "get",
-        url: `${API}/posts/${currentUsers.id}`,
+        url: `${API}/${currentUsers}/posts`,
         headers: {
           AuthToken: token,
         },

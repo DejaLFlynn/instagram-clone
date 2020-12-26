@@ -15,11 +15,13 @@ const posts = require('./routes/posts/posts');
 const followers = require('./routes/followers/followers')
 const likes = require('./routes/likes/likes')
 const comments = require('./routes/comments')
+const hashtags = require('./routes/hashtags/hashtags')
 
 app.use('/users', users);
 app.use('/posts', posts);
 app.use('/likes', likes);
 app.use('/comments', comments);
+app.use('/comments', hashtags);
 
 // app.use('/followers', followers);
 

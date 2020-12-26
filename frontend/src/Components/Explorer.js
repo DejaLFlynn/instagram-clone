@@ -30,7 +30,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
-import {fetchPostUser} from '../Utils/UserCalls'
+import { fetchPostUser } from "../Utils/UserCalls";
 //component displays posts, image, caption and date created from database
 //grab contexts from all post
 //comments can be made for posts
@@ -72,7 +72,7 @@ const Explorer = () => {
   const [posts, setPosts] = useState([]);
   const [pic, setPic] = useState("");
   const [name, setName] = useState("");
-  const [avatarPic, setAvatarPic] = useState("")
+  const [avatarPic, setAvatarPic] = useState("");
   const API = apiURL();
   const { currentUser, token } = useContext(AContext);
   const classes = useStyles();
@@ -81,7 +81,7 @@ const Explorer = () => {
     try {
       let res = await axios.get(`${API}/posts`);
       setPosts(res.data.posts);
-      debugger
+      debugger;
     } catch (error) {
       console.log(error);
     }
@@ -89,7 +89,7 @@ const Explorer = () => {
   useEffect(() => {
     fetchPosts();
   }, []);
- 
+
   return (
     <div className="Explorer">
       <React.Fragment>
@@ -102,8 +102,6 @@ const Explorer = () => {
           </Toolbar>
         </AppBar>
         <main>
-          
-
           <div className={classes.heroContent}>
             <Container maxWidth="sm">
               <Typography
@@ -117,7 +115,6 @@ const Explorer = () => {
               </Typography>
 
               <div className={classes.heroButtons}>
-                
                 <Grid container spacing={2} justify="center"></Grid>
               </div>
             </Container>
@@ -125,19 +122,16 @@ const Explorer = () => {
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
             <Grid container spacing={4}>
-              
               {posts.map((post) => (
                 <Grid item key={post} xs={12} sm={6} md={4}>
                   <Card className={classes.card}>
-                  <Avatar value={post.user_pic} src={post.user_pic}  >
-                      
-                      </Avatar>
+                    <Avatar value={post.user_pic} src={post.user_pic}></Avatar>
                     <CardMedia
                       className={classes.cardMedia}
                       image={post.posts_images}
                       title="Image title"
                     />
-                   
+
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
                         {post.content}
@@ -148,7 +142,6 @@ const Explorer = () => {
                       <IconButton size="small" color="primary">
                         {/* <Likes /> */}
                       </IconButton>
-                      
                     </CardActions>
                   </Card>
                 </Grid>
@@ -164,9 +157,7 @@ const Explorer = () => {
             align="center"
             color="textSecondary"
             component="p"
-          >
-            
-          </Typography>
+          ></Typography>
         </footer>
       </React.Fragment>
     </div>

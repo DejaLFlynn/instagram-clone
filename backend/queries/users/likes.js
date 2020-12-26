@@ -7,8 +7,9 @@ const addLike = async (req, res) => {
       req.body
     );
     let posts = await db.any(
-      "SELECT * FROM posts WHERE users_id=$1", req.params.users_id
-    )
+      "SELECT * FROM posts WHERE users_id=$1",
+      req.params.users_id
+    );
     res.status(200).json({
       status: "Success",
       message: "New like created",
@@ -23,6 +24,7 @@ const addLike = async (req, res) => {
     });
   }
 };
+
 const removeLike = async (req, res, next) => {
   try {
     const postId = req.params.post_id;
