@@ -7,7 +7,8 @@ const {
     fetchAllForOne,
   } = require("../../queries/users/posts/posts");
   const { checkFirebaseToken } = require("../../middleware/Auth");
-  posts.post("/", createPost);
+  // posts.post("/", createPost);
+  posts.post("/", checkFirebaseToken, createPost);
   posts.get("/", allPosts);
   posts.delete("/:id", deletePost);
   posts.get("/", getPost);

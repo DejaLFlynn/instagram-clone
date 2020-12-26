@@ -39,6 +39,7 @@ const UserPosts = () => {
   const [image, setImage] = useState(null);
   const [content, setContent] = useState("");
   const [error, setError] = useState(null);
+  const [time, setTime] = useState("")
   const API = apiURL();
   const history = useHistory();
   const handleSubmit = async (e) => {
@@ -47,7 +48,7 @@ const UserPosts = () => {
       let res = await axios({
         method: "post",
         url: `${API}/posts`,
-        data: { id: res.user.uid, content: content, image: url },
+        data: { user_id: res.currentUser.uid, content: content, posts_images: url, post_time:time },
 
         headers: {
           AuthToken: token,
