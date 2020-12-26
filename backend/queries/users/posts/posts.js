@@ -56,16 +56,12 @@ const getPost = async (req, res, next) => {
     next(err);
   }
 };
-
 const fetchAllForOne = async (req, res, next) => {
   try {
-    let usersName = await db.any(
-      "SELECT posts.id, posts.user_id, posts.posts_images, posts.content, users.name FROM posts LEFT JOIN users ON posts.user_id=users.id WHERE users.name = $1",
-      [req.params.name]
-    );
+ 
     let usersPosts = await db.any(
-      "SELECT posts.id, posts.user_id, posts.posts_images, posts.content, users.name FROM posts LEFT JOIN users ON posts.user_id=users.id WHERE user_id = $1",
-      [req.params.user_id]
+      'SELECT posts.id, posts.user_id, posts.posts_images, posts.content, users.name FROM posts LEFT JOIN users ON posts.user_id=users.id WHERE user_id = $1', [req.params.user_id],
+     
     );
     res.json({
       usersPosts,

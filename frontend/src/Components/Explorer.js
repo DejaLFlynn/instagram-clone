@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Explorer = () => {
-  const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [posts, setPosts] = useState([]);
   const [pic, setPic] = useState("");
   const [name, setName] = useState("");
@@ -102,7 +102,8 @@ const Explorer = () => {
           </Toolbar>
         </AppBar>
         <main>
-          {/* Hero unit */}
+          
+
           <div className={classes.heroContent}>
             <Container maxWidth="sm">
               <Typography
