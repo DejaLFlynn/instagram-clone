@@ -26,6 +26,10 @@ const Search = () => {
   useEffect(() => {
     searchHashtag();
   }, [API, token, hashtag, currentUser]);
-  return <div className="Search"></div>;
+  return (
+    <div className="Search">
+      <p>{posts}</p>
+    </div>
+  );
 };
 export default Search;
