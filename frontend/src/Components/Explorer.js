@@ -32,6 +32,7 @@ import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import { fetchPostUser } from "../Utils/UserCalls";
 import Search from "./Search";
+import NewLike from './NewLike'
 
 //component displays posts, image, caption and date created from database
 //grab contexts from all post
@@ -144,6 +145,7 @@ const Explorer = () => {
                     <CardActions>
                       <IconButton size="small" color="primary">
                         {/* <Likes /> */}
+                        <NewLike/>
                       </IconButton>
                     </CardActions>
                   </Card>

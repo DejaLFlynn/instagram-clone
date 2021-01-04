@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { AContext } from "../../Providers/Context";
 import { apiURL } from "../../Utils/apiURL";
 import axios from "axios";
+import { getFirebaseIdToken } from "../../Utils/Firebase";
 import { storage } from "../../Firebase";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -34,29 +35,35 @@ const useStyles = makeStyles((theme) => ({
 
 const UserPosts = () => {
   const classes = useStyles();
-  const {currentUser, token } = useContext(AContext);
+  const { currentUser, token } = useContext(AContext);
   const [url, setUrl] = useState("");
   const [image, setImage] = useState(null);
   const [content, setContent] = useState("");
   const [error, setError] = useState(null);
-  const [time, setTime] = useState("")
+  const [time, setTime] = useState("");
   const API = apiURL();
   const history = useHistory();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios({
+      let res = await getFirebaseIdToken(true);
+      let res2 = await axios({
         method: "post",
         url: `${API}/posts`,
-        data: { user_id: res.currentUser.uid, content: content, posts_images: url, post_time:time },
+        data: {
+          id: res.user.uid,
+          content: content,
+          posts_images: url,
+          post_time: time,
+        },
 
         headers: {
           AuthToken: token,
         },
       });
-      debugger
-      console.log(res.data);
-      history.push("/users/:id");
+      debugger;
+      console.log(res2.data.payload);
+      history.push("/posts");
     } catch (error) {
       setError(error.message);
       console.log(error);
