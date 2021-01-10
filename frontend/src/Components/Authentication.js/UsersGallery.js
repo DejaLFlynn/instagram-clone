@@ -83,13 +83,20 @@ const UsersGallery = () => {
   useEffect(() => {
     fetchUserById();
   }, [posts, token]);
-  const display = posts.map((post, index) => {
+  const display = posts.map((post) => {
     return (
-      <div key={index} className="contentDisplay">
+      <div key={post.id} className="contentDisplay">
         <img src={post.posts_images} />
       </div>
     );
   });
+  // const display = posts.map((post, index) => {
+  //   return (
+  //     <div key={index} className="contentDisplay">
+  //       <img src={post.posts_images} />
+  //     </div>
+  //   );
+  // });
 
   return (
     <div className="UsersGallery">

@@ -3,7 +3,7 @@ const db = require("../../db/index");
 const addLike = async (req, res) => {
   try {
     let addedLike = await db.one(
-      "INSERT INTO likes (user_id, post_id, likes) VALUES ($1, $2, $3) RETURNING *",
+      "INSERT INTO likes (user_id, post_id) VALUES ($1, $2) RETURNING *",
       req.body
     );
     let posts = await db.any(

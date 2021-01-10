@@ -127,7 +127,9 @@ const Explorer = () => {
             {/* End hero unit */}
             <Grid container spacing={4}>
               {posts.map((post) => (
-                <Grid item key={post} xs={12} sm={6} md={4}>
+                <Grid 
+                item key={post} xs={12} sm={6} md={4}
+                >
                   <Card className={classes.card}>
                     <Avatar value={post.user_pic} src={post.user_pic}></Avatar>
                     <CardMedia

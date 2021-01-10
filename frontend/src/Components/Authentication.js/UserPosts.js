@@ -47,6 +47,7 @@ const UserPosts = () => {
     e.preventDefault();
     try {
       let res = await getFirebaseIdToken(true);
+      // debugger
       let res2 = await axios({
         method: "post",
         url: `${API}/posts`,
@@ -76,6 +77,7 @@ const UserPosts = () => {
   };
   const handleUpload = (e) => {
     e.stopPropagation();
+    console.log('handleUpload')
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on(
       "state_changed",
@@ -84,13 +86,16 @@ const UserPosts = () => {
         console.log(error);
       },
       () => {
+        console.log("image")
         storage
           .ref("images")
           .child(image.name)
           .getDownloadURL()
           .then((url) => {
             setUrl(url);
+            console.log(url)
           });
+          
       }
     );
   };
@@ -119,6 +124,7 @@ const UserPosts = () => {
                   <br />
                 </Grid>
               </Grid>
+              <button type ="button" onClick={handleUpload}>Upload Image</button>
               <Button
                 type="submit"
                 fullWidth
@@ -133,7 +139,7 @@ const UserPosts = () => {
                 <Grid item></Grid>
               </Grid>
             </form>
-            <button onClick={handleUpload}>Upload Image</button>
+           
           </div>
         </Container>
       </div>
