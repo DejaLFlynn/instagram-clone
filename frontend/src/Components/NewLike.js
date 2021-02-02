@@ -34,7 +34,7 @@ class NewLike extends React.Component {
               style={this.state.likeCount !== likes ? btnStyle : btnDefault}
               onClick={this.likeHandler}
             >
-              Like
+              <FavoriteIcon></FavoriteIcon>
             </button>{" "}
             | {this.state.likeCount}
           </span>
@@ -46,7 +46,7 @@ class NewLike extends React.Component {
               }
               onClick={this.dislikeHandler}
             >
-              Dislike
+              <FavoriteIcon></FavoriteIcon>
             </button>{" "}
             | {this.state.dislikeCount}
           </span>

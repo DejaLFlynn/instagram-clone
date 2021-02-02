@@ -9,7 +9,6 @@ const createComment = async (req, res, next) => {
       [req.body.content, req.params.user_id, req.params.post_id]
     );
 
-   
     res.status(200).json({
       status: "Success",
       message: "Comment Added",
@@ -21,7 +20,6 @@ const createComment = async (req, res, next) => {
     next(error);
   }
 };
-
 const deleteComment = async (req, res, next) => {
   try {
     await db.none(
