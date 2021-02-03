@@ -15,5 +15,4 @@ users.get("/", allUsers);
 users.get("/:id", checkFirebaseToken, getUser);
 users.delete("/:id", deleteUser);
 users.get("/:id/posts", checkFirebaseToken, getUserPosts)
-
 module.exports = users;

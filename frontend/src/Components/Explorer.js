@@ -94,79 +94,16 @@ const Explorer = () => {
 
   return (
     <div className="Explorer">
+<div>
 
-      <React.Fragment>
-        <CssBaseline />
-        <AppBar position="relative">
-          <Toolbar>
-            <Typography variant="h6" color="inherit" noWrap>
-              <NavBar />
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <main>
-          <div className={classes.heroContent}>
-            <Search />
-            <Container maxWidth="sm">
-              <Typography
-                component="h1"
-                variant="h2"
-                align="center"
-                color="textPrimary"
-                gutterBottom
-              >
-                Explore Users
-              </Typography>
+     <NavBar>
+     </NavBar>
+     <IconButton>
+       
+     </IconButton>
+</div>
 
-              {/* <div className={classes.heroButtons}>
-                <Grid container spacing={2} justify="center"></Grid>
-              </div> */}
-            </Container>
-          </div>
-          <Container className={classes.cardGrid} maxWidth="md">
-            {/* End hero unit */}
-            <Grid container spacing={4}>
-              {posts.map((post) => (
-                <Grid 
-                item key={post} xs={12} sm={6} md={4}
-                >
-                  <Card className={classes.card}>
-                    <Avatar value={post.user_pic} src={post.user_pic}></Avatar>
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image={post.posts_images}
-                      title="Image title"
-                    />
 
-                    <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {post.content}
-                      </Typography>
-                      <Typography>{post.content}</Typography>
-                    </CardContent>
-                    <CardActions>
-                      <IconButton size="small" color="primary">
-                        {/* <Likes /> */}
-                        <NewLike/>
-                      </IconButton>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-          </Container>
-        </main>
-        {/* Footer */}
-        <footer className={classes.footer}>
-          <Typography variant="h6" align="center" gutterBottom></Typography>
-          <Typography
-            variant="subtitle1"
-            align="center"
-            color="textSecondary"
-            component="p"
-          ></Typography>
-        </footer>
-      </React.Fragment>
     </div>
   );
 };
