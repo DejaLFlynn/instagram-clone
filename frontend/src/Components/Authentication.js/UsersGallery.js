@@ -108,33 +108,33 @@ const UsersGallery = () => {
           <div className={classes.heroContent}>
             <Container maxWidth="sm">
               <div className={classes.heroButtons}>
-                <Grid container spacing={2} justify="center"></Grid>
+                <Grid container spacing={1} justify="center"></Grid>
               </div>
             </Container>
           </div>
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
-            <Grid container spacing={4}>
+            <Grid container spacing={1}>
               {posts.map((post) => (
                 <Grid item key={post} xs={12} sm={6} md={4}>
-                  <Card className={classes.card}>
+                  <Card className={classes.card.posts_images}>
                     <CardMedia
                       className={classes.cardMedia}
                       image={post.posts_images}
                       title="Image title"
                     />
                     <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h5" component="h2">
+                      {/* <Typography gutterBottom variant="h5" component="h2">
                         {post.content}
-                      </Typography>
-                      <Typography>{post.content}</Typography>
+                      </Typography> */}
+                      {/* <Typography>{post.content}</Typography> */}
                     </CardContent>
                     <CardActions>
                       <CardActions>
                         <IconButton size="small" color="primary">
                           {/* <Likes /> */}
                         </IconButton>
-                        <ShowComments />
+                        {/* <ShowComments /> */}
                       </CardActions>
                     </CardActions>
                   </Card>

@@ -39,43 +39,42 @@ import NewLike from './NewLike'
 //comments can be made for posts
 //likes can be made for post
 const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  cardMedia: {
-    paddingTop: "56.25%", // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
+//   icon: {
+//     marginRight: theme.spacing(2),
+//   },
+//   heroContent: {
+//     backgroundColor: theme.palette.background.paper,
+//     padding: theme.spacing(8, 0, 6),
+//   },
+//   heroButtons: {
+//     marginTop: theme.spacing(4),
+//   },
+//   cardGrid: {
+//     paddingTop: theme.spacing(8),
+//     paddingBottom: theme.spacing(8),
+//   },
+//   card: {
+//     height: "100%",
+//     display: "flex",
+//     flexDirection: "column",
+//   },
+//   cardMedia: {
+//     paddingTop: "56.25%", // 16:9
+//   },
+//   cardContent: {
+//     flexGrow: 1,
+//   },
+//   footer: {
+//     backgroundColor: theme.palette.background.paper,
+//     padding: theme.spacing(6),
+//   },
 }));
 
 const Explorer = () => {
   // const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [posts, setPosts] = useState([]);
-  const [pic, setPic] = useState("");
-  const [name, setName] = useState("");
-  const [avatarPic, setAvatarPic] = useState("");
+  const [pic, setPic] = useState([]);
+  const [homePosts, setHomePosts] = useState([])
   const API = apiURL();
   const { currentUser, token } = useContext(AContext);
   const classes = useStyles();
@@ -83,7 +82,9 @@ const Explorer = () => {
   const fetchPosts = async () => {
     try {
       let res = await axios.get(`${API}/posts`);
+      debugger
       setPosts(res.data.posts);
+      setPic(res.data.pic)
     } catch (error) {
       console.log(error);
     }
@@ -91,6 +92,19 @@ const Explorer = () => {
   useEffect(() => {
     fetchPosts();
   }, []);
+
+  const showHomePosts = posts.map((post)=>{
+    return(
+       <div>
+         <img
+         src={post.posts_images}>
+         
+         </img>
+      
+       </div>
+    )
+ 
+})
 
   return (
     <div className="Explorer">
@@ -101,6 +115,9 @@ const Explorer = () => {
      <IconButton>
        
      </IconButton>
+     <div>
+     {showHomePosts}
+     </div>
 </div>
 
 

@@ -166,17 +166,9 @@ const User = () => {
             <ExpandMoreIcon />
           </IconButton>
         </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>More info:</Typography>
-            <Typography paragraph>More info</Typography>
-            <Typography paragraph>More Info</Typography>
-            <Typography paragraph>More info</Typography>
-            <Typography>More info</Typography>
-          </CardContent>
-        </Collapse>
+
       </Card>
-      <UserPosts/>
+      {/* <UserPosts/> */}
       <UsersGallery />
       <NavBar />
       {/* <Upload /> */}
