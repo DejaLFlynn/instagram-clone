@@ -32,49 +32,52 @@ import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import { fetchPostUser } from "../Utils/UserCalls";
 import Search from "./Search";
-import NewLike from './NewLike'
+import NewLike from "./NewLike";
+import Comments from "./Comments/Comments";
 
 //component displays posts, image, caption and date created from database
 //grab contexts from all post
 //comments can be made for posts
 //likes can be made for post
 const useStyles = makeStyles((theme) => ({
-//   icon: {
-//     marginRight: theme.spacing(2),
-//   },
-//   heroContent: {
-//     backgroundColor: theme.palette.background.paper,
-//     padding: theme.spacing(8, 0, 6),
-//   },
-//   heroButtons: {
-//     marginTop: theme.spacing(4),
-//   },
-//   cardGrid: {
-//     paddingTop: theme.spacing(8),
-//     paddingBottom: theme.spacing(8),
-//   },
-//   card: {
-//     height: "100%",
-//     display: "flex",
-//     flexDirection: "column",
-//   },
-//   cardMedia: {
-//     paddingTop: "56.25%", // 16:9
-//   },
-//   cardContent: {
-//     flexGrow: 1,
-//   },
-//   footer: {
-//     backgroundColor: theme.palette.background.paper,
-//     padding: theme.spacing(6),
-//   },
+  //   icon: {
+  //     marginRight: theme.spacing(2),
+  //   },
+  //   heroContent: {
+  //     backgroundColor: theme.palette.background.paper,
+  //     padding: theme.spacing(8, 0, 6),
+  //   },
+  //   heroButtons: {
+  //     marginTop: theme.spacing(4),
+  //   },
+  //   cardGrid: {
+  //     paddingTop: theme.spacing(8),
+  //     paddingBottom: theme.spacing(8),
+  //   },
+  //   card: {
+  //     height: "100%",
+  //     display: "flex",
+  //     flexDirection: "column",
+  //   },
+  //   cardMedia: {
+  //     paddingTop: "56.25%", // 16:9
+  //   },
+  //   cardContent: {
+  //     flexGrow: 1,
+  //   },
+  //   footer: {
+  //     backgroundColor: theme.palette.background.paper,
+  //     padding: theme.spacing(6),
+  //   },
 }));
 
 const Explorer = () => {
   // const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [posts, setPosts] = useState([]);
   const [pic, setPic] = useState([]);
-  const [homePosts, setHomePosts] = useState([])
+  const [userPic, setUserPic] = useState([]);
+  const [postContent, setPostContent] = useState([]);
+
   const API = apiURL();
   const { currentUser, token } = useContext(AContext);
   const classes = useStyles();
@@ -82,9 +85,11 @@ const Explorer = () => {
   const fetchPosts = async () => {
     try {
       let res = await axios.get(`${API}/posts`);
-      debugger
+      debugger;
       setPosts(res.data.posts);
-      setPic(res.data.pic)
+      setPic(res.data.pic);
+      setPostContent(res.data.content);
+      setUserPic(res.data.user_pic);
     } catch (error) {
       console.log(error);
     }
@@ -93,34 +98,29 @@ const Explorer = () => {
     fetchPosts();
   }, []);
 
-  const showHomePosts = posts.map((post)=>{
-    return(
-       <div>
-         <img
-         src={post.posts_images}>
-         
-         </img>
-      
-       </div>
-    )
- 
-})
+  const showHomePosts = posts.map((post) => {
+    return (
+      <div>
+        <Avatar src={post.user_pic}></Avatar>
+        <img src={post.posts_images}></img>
+        {post.content}
+        <NewLike/>
+        <Comments/>
+      </div>
+    );
+  });
 
   return (
     <div className="Explorer">
-<div>
+      <div>
+        <NavBar></NavBar>
+        <IconButton></IconButton>
 
-     <NavBar>
-     </NavBar>
-     <IconButton>
+        <div>{showHomePosts}
        
-     </IconButton>
-     <div>
-     {showHomePosts}
-     </div>
-</div>
-
-
+      
+        </div>
+      </div>
     </div>
   );
 };
