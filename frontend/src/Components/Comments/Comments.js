@@ -12,6 +12,7 @@ const  Comments =({ post_id }) =>{
   const [postId, setPostId] = useState("");
   const { currentUsers, token, loading } = useContext(AContext);
   const API = apiURL();
+  const [content, setContent] = useState("")
   const history = useHistory()
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,18 +20,12 @@ const  Comments =({ post_id }) =>{
       let dataObj = {
        
         postId: postId,
+        content,
       };
       const res = await axios.post(API + `/comments`, dataObj);
-      // let res = await axios({
-      //   method: "post",
-      //   url: `${API}/comments/${currentUsers.id}`,
-      //   data: { comments: comments },
-      //   headers: {
-      //     AuthToken: token,
-      //   },
-      // });
       debugger
       setPostId(res.data.payload)
+      setContent("")
       // res.data.body.comment.id = res.data.body.id["id"]
       setComments(res.data.body.comments);
       history.push("/posts")
@@ -38,6 +33,26 @@ const  Comments =({ post_id }) =>{
         console.log(error)
     }
   };
+  // const handleSubmit = async (e) => {
+	// 	e.preventDefault();
+
+	// 	let dataObj = {
+	// 		post_id,
+	// 		poster_id: id,
+	// 		content,
+	// 	};
+
+	// 	try {
+	// 		const res = await createComments(dataObj);
+	// 		setContent("")
+	// 		if (res) {
+	// 			getComments();
+
+	// 		}
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// };
 
   return (
     <div>
@@ -46,12 +61,12 @@ const  Comments =({ post_id }) =>{
           value={comments}
           onChange={(e) => setComments(e.currentTarget.value)}
           type="text"
-          placeholder="comments"
+          placeholder="Add Comment"
         />
       <li>
         {comments}
         </li>
-        <button type="submit">Add Comment</button>
+        <button type="submit">Post</button>
       </form>
     </div>
   );

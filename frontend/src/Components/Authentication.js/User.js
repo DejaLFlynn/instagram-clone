@@ -26,6 +26,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import UsersGallery from "./UsersGallery";
 import UserPosts from './UserPosts'
+import SideBar from '../Comments/SideBar'
 // component displays the info saved in the database for the current logged-in user
 //grab context that contains the current user✅
 //fire network request using axios to the backend using the current user id to retrieve the user information stored in database
@@ -54,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     backgroundColor: red[500],
+    position: "static",
   },
 }));
 
@@ -115,63 +117,20 @@ const User = () => {
 
   return (
     <div className="User">
+      <NavBar/>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            <NavBar />
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Card className={classes.root}>
-        <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-              M
-            </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title={userName}
-          subheader="September 14, 2016"
-        />
-        <CardMedia
-          className={classes.media}
-          image={userPic}
-          title="userPics"
-        />
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {bio}
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-          <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
-            })}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions>
+  
+  
+      <Avatar src= {userPic} >
 
-      </Card>
-      {/* <UserPosts/> */}
+      </Avatar>
+      <h2> {userName}</h2>
+ 
+      <p> {bio}</p>
       <UsersGallery />
-      <NavBar />
+    
       {/* <Upload /> */}
+      <SideBar/>
     </div>
   );
 };

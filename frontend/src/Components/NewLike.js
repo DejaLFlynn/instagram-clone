@@ -67,7 +67,7 @@ class NewLike extends React.Component {
   dislikeHandler() {
     if (this.state.dislikeCount === dislikes) {
       this.setState((state) => ({
-        dislikeCount: state.dislikeCount + 1,
+        dislikeCount: state.dislikeCount - 1,
         likeCount: likes,
       }));
     }
@@ -75,9 +75,9 @@ class NewLike extends React.Component {
 }
 
 NewLike.defaultProps = {
-  headerProp: "Header Section",
+  headerProp: "",
 
-  contentProp: "Content area",
+  contentProp: "",
 };
 
 export default NewLike;

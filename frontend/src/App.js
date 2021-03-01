@@ -107,9 +107,7 @@ function App() {
     <div className="App">
       <div className="app_header">
 
-        <img className="app_header_pic"
-        src="https://cdn.icon-icons.com/icons2/1826/PNG/512/4202090instagramlogosocialsocialmedia-115598_115703.png"
-        />
+
 
 
       <Context>

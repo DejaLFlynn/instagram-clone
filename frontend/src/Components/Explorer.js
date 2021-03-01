@@ -33,42 +33,38 @@ import Link from "@material-ui/core/Link";
 import { fetchPostUser } from "../Utils/UserCalls";
 import Search from "./Search";
 import NewLike from "./NewLike";
+import Like from './Likes'
+import SideBar from '../Components/Comments/SideBar'
 import Comments from "./Comments/Comments";
-
+import { red } from "@material-ui/core/colors";
+import { CardHeader } from "@material-ui/core";
 //component displays posts, image, caption and date created from database
 //grab contexts from all post
 //comments can be made for posts
 //likes can be made for post
 const useStyles = makeStyles((theme) => ({
-  //   icon: {
-  //     marginRight: theme.spacing(2),
-  //   },
-  //   heroContent: {
-  //     backgroundColor: theme.palette.background.paper,
-  //     padding: theme.spacing(8, 0, 6),
-  //   },
-  //   heroButtons: {
-  //     marginTop: theme.spacing(4),
-  //   },
-  //   cardGrid: {
-  //     paddingTop: theme.spacing(8),
-  //     paddingBottom: theme.spacing(8),
-  //   },
-  //   card: {
-  //     height: "100%",
-  //     display: "flex",
-  //     flexDirection: "column",
-  //   },
-  //   cardMedia: {
-  //     paddingTop: "56.25%", // 16:9
-  //   },
-  //   cardContent: {
-  //     flexGrow: 1,
-  //   },
-  //   footer: {
-  //     backgroundColor: theme.palette.background.paper,
-  //     padding: theme.spacing(6),
-  //   },
+  root: {
+    maxWidth: 750,
+    position: 'center',
+  },
+  media: {
+    height: 0,
+    paddingTop: "56.25%", 
+  },
+  expand: {
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: "rotate(180deg)",
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+
 }));
 
 const Explorer = () => {
@@ -77,15 +73,18 @@ const Explorer = () => {
   const [pic, setPic] = useState([]);
   const [userPic, setUserPic] = useState([]);
   const [postContent, setPostContent] = useState([]);
-
+  const [expanded, setExpanded] = React.useState(false);
   const API = apiURL();
   const { currentUser, token } = useContext(AContext);
+  const [userName, setUserName] = useState("");
   const classes = useStyles();
-
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
   const fetchPosts = async () => {
     try {
       let res = await axios.get(`${API}/posts`);
-      debugger;
+     
       setPosts(res.data.posts);
       setPic(res.data.pic);
       setPostContent(res.data.content);
@@ -101,11 +100,38 @@ const Explorer = () => {
   const showHomePosts = posts.map((post) => {
     return (
       <div>
-        <Avatar src={post.user_pic}></Avatar>
-        <img src={post.posts_images}></img>
-        {post.content}
+       <Card className={classes.root}>
+         <CardHeader
+         avatar={
+          <Avatar src={post.user_pic}></Avatar>
+         }
+         action={
+          <IconButton aria-label="settings">
+           
+          </IconButton>
+        }
+        title={userName}
+       
+      />
+      <CardMedia
+         
+         className={classes.media}
+         image={post.posts_images}
+         title="userPics"
+       />
+    <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {post.content}
+          </Typography>
+        </CardContent>
+        <CardContent>
         <NewLike/>
+        </CardContent>
+        <CardContent>
         <Comments/>
+        </CardContent>
+       </Card>
+      
       </div>
     );
   });
@@ -121,6 +147,7 @@ const Explorer = () => {
       
         </div>
       </div>
+      <SideBar/>
     </div>
   );
 };
