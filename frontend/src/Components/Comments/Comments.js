@@ -33,26 +33,7 @@ const  Comments =({ post_id }) =>{
         console.log(error)
     }
   };
-  // const handleSubmit = async (e) => {
-	// 	e.preventDefault();
 
-	// 	let dataObj = {
-	// 		post_id,
-	// 		poster_id: id,
-	// 		content,
-	// 	};
-
-	// 	try {
-	// 		const res = await createComments(dataObj);
-	// 		setContent("")
-	// 		if (res) {
-	// 			getComments();
-
-	// 		}
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// };
 
   return (
     <div>

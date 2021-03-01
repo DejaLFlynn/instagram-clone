@@ -118,7 +118,7 @@ function App() {
       <AuthRoute exact path="/">
         <Home/>
         
-        <NavBar/>
+        {/* <NavBar/> */}
       </AuthRoute>
 {/* <LoadingComponent> */}
       <AuthRoute exact path='/signup'>

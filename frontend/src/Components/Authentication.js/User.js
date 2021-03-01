@@ -25,8 +25,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import UsersGallery from "./UsersGallery";
-import UserPosts from './UserPosts'
-import SideBar from '../Comments/SideBar'
+import UserPosts from "./UserPosts";
+import SideBar from "../Comments/SideBar";
 // component displays the info saved in the database for the current logged-in user
 //grab context that contains the current user✅
 //fire network request using axios to the backend using the current user id to retrieve the user information stored in database
@@ -37,8 +37,9 @@ import SideBar from '../Comments/SideBar'
 //make a new component for user gallery and call in return
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 750,
   },
+
   media: {
     height: 0,
     paddingTop: "56.25%", // 16:9
@@ -53,10 +54,25 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
-  avatar: {
-    backgroundColor: red[500],
-    position: "static",
+  profile:{
+    display: "flex",
+    
   },
+
+  avatar: {
+    width: "200px",
+    height: "200px",
+    backgroundColor: red[500],
+    position: "center",
+  },
+  userName:{
+    
+
+  }, 
+  bio:{
+
+  },
+
 }));
 
 const User = () => {
@@ -82,7 +98,7 @@ const User = () => {
           AuthToken: token,
         },
       });
-// debugger
+      // debugger
       setProfile(res.data.payload);
       setUserName(res.data.payload.name);
       setBio(res.data.payload.bio);
@@ -116,21 +132,24 @@ const User = () => {
   }, [profile, token]);
 
   return (
-    <div className="User">
-      <NavBar/>
+    <div className={classes.root}>
+      <NavBar />
       <CssBaseline />
-  
-  
-      <Avatar src= {userPic} >
+<div className={classes.profile}>
 
-      </Avatar>
-      <h2> {userName}</h2>
- 
-      <p> {bio}</p>
+      <Avatar className={classes.avatar} src={userPic}></Avatar>
+      <Typography className={classes.userName}>
+        <h2> {userName}</h2>
+      </Typography>
+      <Typography className={classes.bio}>
+        <p> {bio}</p>
+      </Typography>
+
+</div>
       <UsersGallery />
-    
+
       {/* <Upload /> */}
-      <SideBar/>
+      <SideBar className={classes.sidebar} />
     </div>
   );
 };
