@@ -23,7 +23,7 @@ const ShowContent = ({ post_id }) => {
           AuthToken: token,
         },
       });
-    //  debugger
+ 
       setComments(res.data.comments);
       setUser(res.data.comments[0].user_id)
     } catch (error) {
@@ -36,6 +36,7 @@ const ShowContent = ({ post_id }) => {
 
   const addContent = (comments) => {
     setUser((comment) => {
+  
       return [...comment, comments];
     });
   };
@@ -46,8 +47,11 @@ const ShowContent = ({ post_id }) => {
     return (
       <ul className="commentList">
         <li>
-          {/* {comment.user_id} */}
+          {comment.user_id}
+          
+
            {comment.content}
+
         </li>
       </ul>
     );

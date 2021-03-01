@@ -1,55 +1,59 @@
-import React, { Fragment, useState } from 'react';
-import Message from './Message';
-import Progress from './Progress';
-import axios from 'axios';
-import {storage} from '../Firebase'
-
+import React, { Fragment, useContext, useState } from "react";
+import Message from "./Message";
+import Progress from "./Progress";
+import axios from "axios";
+import { storage } from "../Firebase";
+import {AContext} from "../Providers/Context"
+import { apiURL } from "../Utils/apiURL";
 const Upload = () => {
-  const [file, setFile] = useState('');
-  const [filename, setFilename] = useState('Choose File');
+  const [file, setFile] = useState("");
+  const [filename, setFilename] = useState("Choose File");
   const [uploadedFile, setUploadedFile] = useState({});
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
+  const [content, setContent] = useState("");
   const [uploadPercentage, setUploadPercentage] = useState(0);
-
-  const onChange = e => {
+  const {currentUsers, token} = useContext(AContext)
+  const API = apiURL()
+  const onChange = (e) => {
     setFile(e.target.files[0]);
     setFilename(e.target.files[0].name);
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('file', file);
-
-    try {
-      console.log(file)
-      const res = await axios.post('/images', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        },
-        onUploadProgress: progressEvent => {
-          setUploadPercentage(
-            parseInt(
-              Math.round((progressEvent.loaded * 100) / progressEvent.total)
-            )
-          );
-
-          // Clear percentage
-          setTimeout(() => setUploadPercentage(0), 10000);
-        }
-      });
-
-      const { fileName, filePath } = res.data;
-
-      setUploadedFile({ fileName, filePath });
-
-      setMessage('File Uploaded');
-    } catch (err) {
-      if (err.response.status === 500) {
-        setMessage('There was a problem with the server');
-      } else {
-        setMessage(err.response.data.msg);
+    const uploadTask = storage.ref(`images/${filename}`).put(file);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {},
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(filename)
+          .getDownloadURL()
+          .then((url) => {
+            // setUrl(url);
+            const post = {
+              user_id: currentUsers.id,
+              posts_images: url,
+              content: content,
+            };
+            addPost(post);
+          });
       }
+      
+    );
+  };
+  const addPost = async (post) => {
+    try {
+      let res = await axios.post(`${API}/posts`, post);
+      debugger
+      console.log(res.data)
+      setMessage("post created")
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -57,34 +61,41 @@ const Upload = () => {
     <Fragment>
       {message ? <Message msg={message} /> : null}
       <form onSubmit={handleSubmit}>
-        <div className='custom-file mb-4'>
+        <div className="custom-file mb-4">
           <input
-            type='file'
-            className='custom-file-input'
-            id='customFile'
+            type="file"
+            className="custom-file-input"
+            id="customFile"
             onChange={onChange}
           />
-          <label className='custom-file-label' htmlFor='customFile'>
+          <label className="custom-file-label" htmlFor="customFile">
             {filename}
           </label>
         </div>
-
-        <Progress percentage={uploadPercentage} />
+        <input
+          type="text"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
 
         <input
-          type='submit'
-          value='Upload'
-          className='btn btn-primary btn-block mt-4'
+          type="submit"
+          value="Upload"
+          className="btn btn-primary btn-block mt-4"
         />
-      </form>
-      {uploadedFile ? (
-        <div className='row mt-5'>
-          <div className='col-md-6 m-auto'>
-            <h3 className='text-center'>{uploadedFile.fileName}</h3>
-            <img style={{ width: '100%' }} src={uploadedFile.filePath} alt='' />
+        {uploadedFile ? (
+          <div className="row mt-5">
+            <div className="col-md-6 m-auto">
+              <h3 className="text-center">{uploadedFile.fileName}</h3>
+              <img
+                style={{ width: "100%" }}
+                src={uploadedFile.filePath}
+                alt=""
+              />
+            </div>
           </div>
-        </div>
-      ) : null}
+        ) : null}
+      </form>
     </Fragment>
   );
 };

@@ -16,6 +16,7 @@ const createPost = async (req, res, next) => {
     next(err);
   }
 };
+
 const allPosts = async (req, res, next) => {
   try {
     const posts = await db.any(

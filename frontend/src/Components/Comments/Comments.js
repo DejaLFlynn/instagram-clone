@@ -18,7 +18,7 @@ const  Comments =({ post_id }) =>{
     e.preventDefault();
     try {
       let dataObj = {
-       
+        
         postId: postId,
         content,
       };
@@ -28,7 +28,7 @@ const  Comments =({ post_id }) =>{
       setContent("")
       // res.data.body.comment.id = res.data.body.id["id"]
       setComments(res.data.body.comments);
-      history.push("/posts")
+      // history.push("/posts")
     } catch (error) {
         console.log(error)
     }

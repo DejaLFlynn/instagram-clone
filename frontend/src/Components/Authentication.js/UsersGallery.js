@@ -18,7 +18,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
-
+import Upload from "../Upload"
 
 // import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
@@ -144,6 +144,7 @@ const UsersGallery = () => {
           </Container>
         </main>
       </React.Fragment>
+      <Upload/>
     </div>
   );
 };
