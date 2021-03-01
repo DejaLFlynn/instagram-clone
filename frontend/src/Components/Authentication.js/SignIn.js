@@ -108,6 +108,7 @@ const SignIn = () => {
         </Link>
         <button className="guest" onClick={handleGuestSignIn}>
               Guest
+             
             </button>
          
 

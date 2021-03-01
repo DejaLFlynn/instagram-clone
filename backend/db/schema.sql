@@ -86,19 +86,19 @@ VALUES
 INSERT INTO posts
     (user_id, posts_images, content)
 VALUES
-    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg', 'hi'),
-    ( '0MiN674Er2ajv7czWwudVK2BmH83', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPds087Sz0hw4O8vMDn7L5L-TWVoM3k0_EnQSlo3ACFmzUe4fe&usqp=CAU', 'me'),
+    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://www.itl.cat/pngfile/big/43-430987_cute-profile-images-pic-for-whatsapp-for-boys.jpg', 'To my amazing sister...I want to wish you a VERY Happy Birthday! I am so proud of all that you have accomplished'),
+    ( '0MiN674Er2ajv7czWwudVK2BmH83', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPds087Sz0hw4O8vMDn7L5L-TWVoM3k0_EnQSlo3ACFmzUe4fe&usqp=CAU', ' Let us discuss! Let’s share the healing and put the proper energy out into the universe so we are all in a better space!'),
     ( '8Z8jBn31fIfHveQYVUb8BziZ9iE2', 'https://i.pinimg.com/originals/e6/c1/4d/e6c14dd228b483f710ca30296bf3d71a.jpg', 'pan the man'),
-    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://image.shutterstock.com/image-photo/tranquil-beach-scene-exotic-tropical-260nw-644740495.jpg', 'hi'),
+    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://image.shutterstock.com/image-photo/tranquil-beach-scene-exotic-tropical-260nw-644740495.jpg', 'Love the neighbor right. This is exactly how you welcome the new kid to block 😉'),
     ( '7TmHqX88TbhL6CQ1XtgRyks50Xl2', 'https://www.moneysense.ca/wp-content/uploads/2017/01/vacation.jpg', 'me'),
-    ( '0MiN674Er2ajv7czWwudVK2BmH83', 'https://content.delta.com/content/www/en_US/shop/delta-vacations/destinations.damAsset.html/content/dam/delta-www/dlv/images/destination-landing-pages/overview.jpg', 'pan the man'),
-    ( '8Z8jBn31fIfHveQYVUb8BziZ9iE2', 'https://travel.usnews.com/images/vacation_landing_hero.jpg', 'hi'),
-    ('IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://hbr.org/resources/images/article_assets/2017/08/aug17-04-vicko-mozara-324955.jpg', 'me'),
-    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://cdn.sandals.com/sandals/v12/images/home/top-slides/overwater-collection-mobile.jpg', 'pan the man'),
-    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://www.dunes.com/sites/default/files/styles/450x350/public/snippets/piggy_bank_thumbail_copy2.jpg', 'hi'),
+    ( '0MiN674Er2ajv7czWwudVK2BmH83', 'https://content.delta.com/content/www/en_US/shop/delta-vacations/destinations.damAsset.html/content/dam/delta-www/dlv/images/destination-landing-pages/overview.jpg', 'Just love to have fun great times ❤️❤️'),
+    ( '8Z8jBn31fIfHveQYVUb8BziZ9iE2', 'https://travel.usnews.com/images/vacation_landing_hero.jpg', '🚨 Sunday ThrowBack 🚨'),
+    ( 'IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://hbr.org/resources/images/article_assets/2017/08/aug17-04-vicko-mozara-324955.jpg', 'There isn’t a large body of research on prickly pear oil yet.'),
+    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://cdn.sandals.com/sandals/v12/images/home/top-slides/overwater-collection-mobile.jpg', 'What a great night thanks again ladies ❤️❤️'),
+    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://www.dunes.com/sites/default/files/styles/450x350/public/snippets/piggy_bank_thumbail_copy2.jpg', 'Sometimes you gotta get in your element! You have to understand who you are to understand where you plan on going'),
     ( '7TmHqX88TbhL6CQ1XtgRyks50Xl2', 'https://luxuryescapes.com/magazine/wp-content/uploads/2018/12/five-luxurious-resorts-malaysia-820x394.jpg', 'me'),
-    ( 'IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://images.says.com/uploads/story_source/source_image/493729/2152.jpg', 'pan the man'),
-    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://thesmartlocal.com/wp-content/uploads/images/easyblog_articles/4582/Luxury-resorts-Malaysia-thesmartlocal-20-1200x675.jpg', 'DEF ');
+    ( 'IEFspTPeWoM03IxTTgAn6OLrhO92', 'https://images.says.com/uploads/story_source/source_image/493729/2152.jpg', 'Finding My Peace, While Trusting In God ❤️'),
+    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 'https://thesmartlocal.com/wp-content/uploads/images/easyblog_articles/4582/Luxury-resorts-Malaysia-thesmartlocal-20-1200x675.jpg', 'Stepping Out For a DRANK!!!');
 
 INSERT INTO followers
     (user_id, post_id)
