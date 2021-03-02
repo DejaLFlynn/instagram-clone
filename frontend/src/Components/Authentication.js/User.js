@@ -148,7 +148,7 @@ const User = () => {
 </div>
       <UsersGallery />
 
-      {/* <Upload /> */}
+      <Upload />
       <SideBar className={classes.sidebar} />
     </div>
   );
