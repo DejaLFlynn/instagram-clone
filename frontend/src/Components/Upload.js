@@ -49,10 +49,7 @@ const Upload = () => {
     );
   };
   const addPost = async (post) => {
- 
     try {
-      // 
-
       let res = await axios({
         method: "post",
         url: `${API}/posts/`,
@@ -65,7 +62,6 @@ const Upload = () => {
       debugger
       console.log(res.data)
       setMessage("post created")
-      
       handleSubmit(post)
     } catch (error) {
       console.log(error);

@@ -4,7 +4,7 @@ const createPost = async (req, res, next) => {
   try {
     console.log(req.body);
     let newPost = await db.one(
-      "INSERT INTO posts(user_id, posts_images, content) VALUES($1, $2, $3) RETURNING *",
+      "INSERT INTO posts(user_id, posts_images, content) VALUES(${user_id}, ${posts_images}, ${content}) RETURNING *",
       [req.body.user_id, req.body.posts_images, req.body.content]
     );
     res.status(200).json({
