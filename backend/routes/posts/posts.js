@@ -13,5 +13,4 @@ const {
   posts.delete("/:id", deletePost);
   posts.get("/", getPost);
   posts.get("/:user_id", checkFirebaseToken, fetchAllForOne)
-  
 module.exports = posts;

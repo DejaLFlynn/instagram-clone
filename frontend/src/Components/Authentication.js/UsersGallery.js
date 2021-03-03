@@ -76,9 +76,9 @@ const UsersGallery = () => {
       console.log(err);
     }
   };
-  useEffect(() => {
-    fetchUserById();
-  }, [token]);
+  // useEffect(() => {
+  //   fetchUserById();
+  // }, [token]);
 
   useEffect(() => {
     fetchUserById();
@@ -123,20 +123,7 @@ const UsersGallery = () => {
                       image={post.posts_images}
                       title="Image title"
                     />
-                    <CardContent className={classes.cardContent}>
-                      {/* <Typography gutterBottom variant="h5" component="h2">
-                        {post.content}
-                      </Typography> */}
-                      {/* <Typography>{post.content}</Typography> */}
-                    </CardContent>
-                    <CardActions>
-                      <CardActions>
-                        <IconButton size="small" color="primary">
-                          {/* <Likes /> */}
-                        </IconButton>
-                        {/* <ShowComments /> */}
-                      </CardActions>
-                    </CardActions>
+   
                   </Card>
                 </Grid>
               ))}
