@@ -1,22 +1,41 @@
 const db = require("../../../db/index");
 
-const createPost = async (req, res, next) => {
+// const createPost = async (req, res, next) => {
+//   try {
+//     console.log(req.body);
+//     let newPost = await db.one(
+//       "INSERT INTO posts(user_id, posts_images, content) VALUES(${user_id}, ${posts_images}, ${content}) RETURNING *",
+//       [req.body.user_id, req.body.posts_images, req.body.content]
+//     );
+//     res.status(200).json({
+//       status: "success",
+//       message: "a new post was created",
+//       body: newPost,
+//     });
+//   } catch (err) {
+//     next(err);
+//   }
+// };
+const createPost = async (req, res) => {
   try {
-    console.log(req.body);
     let newPost = await db.one(
-      "INSERT INTO posts(user_id, posts_images, content) VALUES(${user_id}, ${posts_images}, ${content}) RETURNING *",
-      [req.body.user_id, req.body.posts_images, req.body.content]
+      "INSERT INTO posts(user_id, posts_images, content) VALUES($1, $2, $3) RETURNING *",
+    [req.body.user_id, req.body.posts_images, req.body.content]
     );
     res.status(200).json({
       status: "success",
       message: "a new post was created",
-      body: newPost,
+      payload: newPost
     });
   } catch (err) {
-    next(err);
+    console.log(err)
+    res.status(404).json({
+      status: err,
+      message: "Post was not created",
+      payload: null,
+    });
   }
-};
-
+}
 const allPosts = async (req, res, next) => {
   try {
     const posts = await db.any(

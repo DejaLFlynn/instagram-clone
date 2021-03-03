@@ -42,7 +42,10 @@ const Upload = () => {
               posts_images: url,
               content: content,
             };
-            addPost(post);
+            addPost(post)
+            // addPost(post.user_id, post.posts_images, post.content);
+           
+            
           });
       }
       
@@ -50,15 +53,17 @@ const Upload = () => {
   };
   const addPost = async (post) => {
     try {
-      let res = await axios({
-        method: "post",
-        url: `${API}/posts/`,
-        headers: {
-            'AuthToken': token,
-             'Content-Type': 'application/json'
-        },
-        post
-      })
+      // let res = await axios({
+      //   method: "post",
+      //   url: `${API}/posts/`,
+      //   headers: {
+      //       'AuthToken': token,
+      //        'Content-Type': 'application/json'
+      //   },
+      //   post
+      // })
+      const res = await axios.post(API + `/posts`, post);
+		// return res;
       debugger
       console.log(res.data)
       setMessage("post created")
