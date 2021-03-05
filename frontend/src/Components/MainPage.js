@@ -26,15 +26,20 @@ const MainPage = () => {
     const classes = useStyles();
   return (
     <div>
-        <NavBar/>
        <CssBaseline />
+       <Grid item xs={12}>
+            <Paper>
+        <NavBar/>
+
+            </Paper>
+          </Grid>
       <Grid container className={classes.root}>
         {/* COLUMN ONE */}
         <Grid container item className={classes.column}>
     
           <Grid container item>
             <Grid item xs={8}>
-              <Paper className={classes.paper}><Explorer/></Paper>
+              <Paper className={classes.paper}><Likes/><Explorer/></Paper>
             </Grid>
             <Grid item xs={3}>
               <Paper className={classes.paper}><SideBar/></Paper>
@@ -42,6 +47,7 @@ const MainPage = () => {
           </Grid>
         </Grid>
       </Grid>
+      
     </div>
   );
 };

@@ -27,6 +27,8 @@ import AppBar from "@material-ui/core/AppBar";
 import UsersGallery from "./UsersGallery";
 import UserPosts from "./UserPosts";
 import SideBar from "../Comments/SideBar";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 // component displays the info saved in the database for the current logged-in user
 //grab context that contains the current user✅
 //fire network request using axios to the backend using the current user id to retrieve the user information stored in database
@@ -37,7 +39,9 @@ import SideBar from "../Comments/SideBar";
 //make a new component for user gallery and call in return
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 750,
+    flexGrow: 1,
+    alignItems: "stretch",
+    
   },
 
   media: {
@@ -54,25 +58,24 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
-  profile:{
-    display: "flex",
+  profile: {
+    position: 'absolute', 
+    left: '40%', 
+    top: '30%',
+    transform: 'translate(-50%, -50%)'
     
+
   },
 
   avatar: {
     width: "200px",
     height: "200px",
+    left: '20%', 
     backgroundColor: red[500],
     position: "center",
   },
-  userName:{
-    
-
-  }, 
-  bio:{
-
-  },
-
+  userName: {},
+  bio: {},
 }));
 
 const User = () => {
@@ -133,23 +136,28 @@ const User = () => {
 
   return (
     <div className={classes.root}>
-      <NavBar />
+      <Grid item xs={12}>
+        <Paper>
+          <NavBar />
+        </Paper>
+      </Grid>
       <CssBaseline />
-<div className={classes.profile}>
+        <Avatar className={classes.avatar} src={userPic}></Avatar>
+  
+      <div className={classes.profile}>
 
-      <Avatar className={classes.avatar} src={userPic}></Avatar>
-      <Typography className={classes.userName}>
-        <h2> {userName}</h2>
-      </Typography>
-      <Typography className={classes.bio}>
-        <p> {bio}</p>
-      </Typography>
-
-</div>
+          <h2> {userName}</h2>
+          <p> {bio}</p>
+    
+   
+      </div>
+      <div>
+        <img src="https://i.postimg.cc/nh6Y34Hp/Screen-Shot-2021-03-05-at-1-50-34-PM.png" />
+      </div>
       <UsersGallery />
 
       <Upload />
-      <SideBar className={classes.sidebar} />
+      {/* <SideBar className={classes.sidebar} /> */}
     </div>
   );
 };

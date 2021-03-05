@@ -19,6 +19,8 @@ import Likes from '../Likes'
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
+    padding: '20px',
+
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -31,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     position: 'relative',
+   
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
@@ -123,7 +126,7 @@ const NavBar = () => {
         
         <br></br>
       
-      <Likes/>
+    
 
       </div>
   
