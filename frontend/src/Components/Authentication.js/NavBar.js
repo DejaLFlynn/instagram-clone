@@ -118,10 +118,12 @@ const NavBar = () => {
           </ExitToAppRoundedIcon>
 
           </Toolbar>
+         
         </AppBar>
+        
         <br></br>
-        <Likes/>
       
+      <Likes/>
 
       </div>
   

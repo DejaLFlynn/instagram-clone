@@ -101,6 +101,7 @@ const Explorer = () => {
   const showHomePosts = posts.map((post) => {
     return (
       <div>
+        
        <Card className={classes.root}>
          <CardHeader
          avatar={
@@ -140,7 +141,7 @@ const Explorer = () => {
   return (
     <div className="Explorer">
       <div>
-        <NavBar></NavBar>
+       
         <IconButton></IconButton>
 
         <div>{showHomePosts}
@@ -148,7 +149,7 @@ const Explorer = () => {
       
         </div>
       </div>
-      <SideBar/>
+     
     </div>
   );
 };

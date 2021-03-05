@@ -28,6 +28,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { getFirebaseIdToken} from './Utils/Firebase'
 import LoadingComponent from './Components/LoadingComponent'
+import MainPage from "./Components/MainPage";
 function Copyright() {
   
   return (
@@ -126,7 +127,7 @@ function App() {
         <NavBar/>
       </AuthRoute>
       <AuthRoute exact path="/posts">
-      <Explorer/>
+      <MainPage/>
       </AuthRoute>
       <AuthRoute exact path="/users/:id">
       <User/>
@@ -137,7 +138,7 @@ function App() {
         <NavBar/>
       </ProtectedRoute>
       <ProtectedRoute exact path="/posts">
-        <Explorer/>
+        <MainPage/>
         <NavBar/>
       </ProtectedRoute>
       {/* </LoadingComponent> */}
