@@ -30,13 +30,12 @@ CREATE TABLE posts
     post_time TIMESTAMP NOT NULL DEFAULT NOW()
 
 );
-CREATE TABLE comments
-(
+CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
     user_id VARCHAR REFERENCES users(id),
-    post_id INTEGER REFERENCES posts(id),
+    post_id INT REFERENCES posts(id) ON DELETE CASCADE,
     content VARCHAR,
-    post_time TIMESTAMP NOT NULL DEFAULT NOW()
+    time_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE followers
 (
@@ -126,11 +125,11 @@ VALUES
     ('Lhl39hmBAvalJZPAQyTfnSs02Vr1', '3', '6');
 
 INSERT INTO comments
-    ( user_id, post_id, content)
+    ( user_id,  post_id, content)
 VALUES
-    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', 1, 'This is the coolest thing since slice bread'),
-    ( '7TmHqX88TbhL6CQ1XtgRyks50Xl2', 2, 'Over the rainbow is the best place on earth'),
-    ( 'IEFspTPeWoM03IxTTgAn6OLrhO92', 3, 'More cowbell please!');
+    ( 'Lhl39hmBAvalJZPAQyTfnSs02Vr1', '2', 'This is the coolest thing since slice bread'),
+    ( '7TmHqX88TbhL6CQ1XtgRyks50Xl2', '1', 'Over the rainbow is the best place on earth'),
+    ( 'IEFspTPeWoM03IxTTgAn6OLrhO92', '3', 'More cowbell please!');
 
 
 

@@ -6,7 +6,7 @@ const {
   deleteComment,
   commentsForPost,
 } = require("../queries/users/comments");
-comments.post("/:id", checkFirebaseToken, createComment);
+comments.post("/", createComment);
 comments.get("/", fetchCommentsForOne);
 comments.delete("/", deleteComment);
 comments.get("/:id", commentsForPost);
