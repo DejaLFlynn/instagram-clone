@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const Explorer = () => {
+const Explorer = ({post_id}) => {
   // const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [posts, setPosts] = useState([]);
   const [pic, setPic] = useState([]);
@@ -58,16 +58,17 @@ const Explorer = () => {
   const [postContent, setPostContent] = useState([]);
   const [expanded, setExpanded] = React.useState(false);
   const API = apiURL();
-  const { currentUser, token } = useContext(AContext);
+  const { currentUsers, token } = useContext(AContext);
   const [userName, setUserName] = useState("");
   const classes = useStyles();
+  const [content, setContent] = useState("");
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
   const fetchPosts = async () => {
     try {
       let res = await axios.get(`${API}/posts`);
-    
+    debugger
       setPosts(res.data.posts);
       setPic(res.data.pic);
       setPostContent(res.data.content);
@@ -79,6 +80,25 @@ const Explorer = () => {
   useEffect(() => {
     fetchPosts();
   }, []);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const dataObj = {
+      user_id: currentUsers.id,
+      post_id: post_id,
+      content: content,
+    };
+
+    try {
+      const res = await axios.post(API + `/comments`, dataObj);
+      debugger;
+      setContent(res.data.payload.content);
+      // console.log(res.data)
+      // setComments(res.data.payload.content)
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const showHomePosts = posts.map((post) => {
     return (
@@ -112,8 +132,23 @@ const Explorer = () => {
         <NewLike/>
         </CardContent>
         <CardContent>
-       
-        <NewComments/>
+        <form onSubmit={handleSubmit}>
+        <input
+          className="comment_input"
+          type="text"
+          placeholder="Add a comment..."
+          onChange={(e) => setContent(e.target.value)}
+          value={content}
+          autoComplete="on"
+        />
+        <input
+          className="comment"
+          type="button"
+          value="Post"
+          onClick={handleSubmit}
+          disabled={content ? false : true}
+        />
+      </form>
         </CardContent>
        </Card>
       
