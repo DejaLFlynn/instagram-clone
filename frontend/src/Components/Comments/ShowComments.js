@@ -2,13 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AContext } from "../../Providers/Context";
 import { apiURL } from "../../Utils/apiURL";
-import Comments from "../Comments/Comments";
+import NewComments from "../Comments/NewComments";
 //component displays comments made on posts by users that are created 
 //grab context from current user to post to comment
 //saving comment to state
 //render comments from state
 
-const ShowContent = ({ post_id }) => {
+const ShowContent = ({ content }) => {
   const API = apiURL();
   const { currentUsers, token, loading } = useContext(AContext);
   const [comments, setComments] = useState([]);
@@ -25,6 +25,7 @@ const ShowContent = ({ post_id }) => {
       });
  
       setComments(res.data.comments);
+      setComments(content)
       setUser(res.data.comments[0].user_id)
     } catch (error) {
       console.log(error);
@@ -51,6 +52,7 @@ const ShowContent = ({ post_id }) => {
           
 
            {comment.content}
+           {content}
 
         </li>
       </ul>

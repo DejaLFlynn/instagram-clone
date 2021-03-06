@@ -4,41 +4,22 @@ import { apiURL } from "../Utils/apiURL";
 import { AContext } from "../Providers/Context";
 import "../CSS/Explorer.css";
 import Avatar from "@material-ui/core/Avatar";
-import ShowComments from "./Comments/ShowComments";
-import Likes from "./Likes";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import NavBar from "./Authentication.js/NavBar";
-import Footer from "./Footer";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import ListSubheader from "@material-ui/core/ListSubheader";
+
 import IconButton from "@material-ui/core/IconButton";
-import InfoIcon from "@material-ui/icons/Info";
-import ShowContent from "./Comments/ShowComments";
-import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import CameraIcon from "@material-ui/icons/PhotoCamera";
+
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
-import Toolbar from "@material-ui/core/Toolbar";
+
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
-import { fetchPostUser } from "../Utils/UserCalls";
-import Search from "./Search";
+
 import NewLike from "./NewLike";
-import Like from './Likes'
-import SideBar from '../Components/Comments/SideBar'
-import Comments from "./Comments/Comments";
+
 import { red } from "@material-ui/core/colors";
 import { CardHeader } from "@material-ui/core";
-import NewComment from "./NewComment";
+
 import NewComments from "./Comments/NewComments";
 //component displays posts, image, caption and date created from database
 //grab contexts from all post
@@ -86,7 +67,7 @@ const Explorer = () => {
   const fetchPosts = async () => {
     try {
       let res = await axios.get(`${API}/posts`);
-     
+    
       setPosts(res.data.posts);
       setPic(res.data.pic);
       setPostContent(res.data.content);
@@ -131,7 +112,7 @@ const Explorer = () => {
         <NewLike/>
         </CardContent>
         <CardContent>
-        {/* <Comments/> */}
+       
         <NewComments/>
         </CardContent>
        </Card>
