@@ -39,6 +39,7 @@ import Comments from "./Comments/Comments";
 import { red } from "@material-ui/core/colors";
 import { CardHeader } from "@material-ui/core";
 import NewComment from "./NewComment";
+import NewComments from "./Comments/NewComments";
 //component displays posts, image, caption and date created from database
 //grab contexts from all post
 //comments can be made for posts
@@ -130,7 +131,8 @@ const Explorer = () => {
         <NewLike/>
         </CardContent>
         <CardContent>
-        <Comments/>
+        {/* <Comments/> */}
+        <NewComments/>
         </CardContent>
        </Card>
       

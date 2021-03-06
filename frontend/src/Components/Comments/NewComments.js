@@ -45,15 +45,15 @@ const NewComments = ({post_id})=>{
         const dataObj = {
             user_id: currentUsers.id,
             post_id: post_id,
-            comments: comments,
+            content: content,
           }
 
 		try {
-            const res = await axios.post(API + `/comments/${post_id}`, dataObj)
+            const res = await axios.post(API + `/comments`, dataObj)
             debugger
 			setContent("")
-            console.log(res.data)
-            setComments(res.data.payload.content)
+            // console.log(res.data)
+            // setComments(res.data.payload.content)
 		} catch (error) {
 			console.log(error);
 		}
@@ -61,49 +61,12 @@ const NewComments = ({post_id})=>{
 
     return(
         <div>
-		<>
-			{short ? (
-				<>
-					{" "}
-					{shortComments.map((comment) => {
-						return (
-							<li key={comment.id} className="display-comments">
-								{comment.content}
-							</li>
-						);
-					})}
-				
-				</>
-			) : (
-				comments.map((comment) => {
-					return (
-						<li key={comment.id} className="display-comments-list">
-							{comment.content}
-						</li>
-					);
-				})
-			)}
-			<Divider className={classes.divider} orientation="horizontal" />
-			<form onSubmit={handleSubmit} className="display-comments-form">
-				<div component="form" className={classes.root}>
-					<InputBase
-						className={classes.input}
-						placeholder="Add a comment…"
-						type="text"
-						name="comments"
-						value={content}
-						onChange={(e) => setContent(e.currentTarget.value)}
-					/>
-					<IconButton
-						className={classes.iconButton}
-						id="comment-button"
-						type="submit"
-					>
-						Post
-					</IconButton>
-				</div>
+			<form onSubmit={handleSubmit}>
+
+<input className="comment_input" type="text" placeholder="Add a comment..." onChange={(e) => setContent(e.target.value)} value={content} autoComplete="on" />
+                <input className="comment" type="button" value="Post" onClick={handleSubmit} disabled={content ? false : true}/>
 			</form>
-		</>
+		
         </div>
     )
 

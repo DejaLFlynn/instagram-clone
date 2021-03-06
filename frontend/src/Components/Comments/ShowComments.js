@@ -61,7 +61,7 @@ const ShowContent = ({ post_id }) => {
     <div className="allComments">
       <div className="pastComments">{showAll}</div>
       <div className="addComments">
-        <Comments post_id={post_id} addContent={addContent} />
+        {/* <Comments post_id={post_id} addContent={addContent} /> */}
       </div>
     </div>
   );
