@@ -36,10 +36,32 @@ const createPost = async (req, res) => {
     });
   }
 }
+
+const userCommentForPost = async (req, res, next)=>{
+
+  try {
+    let comment = await db.one(
+
+    )
+    res.status(200).json({
+      status: "success",
+      message: "a new post was created",
+      payload: newPost
+    });
+  } catch (error) {
+    console.log(err)
+    res.status(404).json({
+      status: err,
+      message: "Post was not created",
+      payload: null,
+    });
+    
+  }
+}
 const allPosts = async (req, res, next) => {
   try {
     const posts = await db.any(
-      "SELECT users.user_pic, users.email, users.name, users.bio, posts.user_id, posts.posts_images, posts.content FROM users JOIN posts ON users.id = posts.user_id"
+      "SELECT users.user_pic, posts.id, users.email, users.name, users.bio, posts.user_id, posts.posts_images, posts.content FROM users JOIN posts ON users.id = posts.user_id"
     );
 
     res.json({
@@ -89,20 +111,18 @@ const fetchAllForOne = async (req, res, next) => {
     next(err);
   }
 };
-const getUserPosts = async (req, res) => {
+const getCommentsByPost = async (req, res) => {
   try {
-    let posts = await db.any(
-      "SELECT posts.id, posts.user_id, posts.posts_images, posts.content, users.name FROM posts LEFT JOIN users ON posts.user_id=users.id WHERE users.id =  $1",
-      [req.params.user_id]
-    );
-    res.status(200).json({
-      status: 200,
-      posts,
-      message: "all posts retrieved",
-    });
+  let comments = await db.any(
+    `SELECT posts.id, comments.post_id, comments.user_id, posts.user_id, comments.content FROM posts INNER JOIN comments ON posts.id=comments.post_id WHERE posts.id = $1`,
+    [req.params.id]
+  );
+  res.json({
+    comments,
+    message: "posts user comments"
+  })
   } catch (error) {
     res.status(404).json({ status: 404, message: "no posts found" });
   }
 };
-
-module.exports = { createPost, allPosts, deletePost, getPost, fetchAllForOne };
+module.exports = { createPost, allPosts, deletePost, getPost, fetchAllForOne, getCommentsByPost, userCommentForPost    };

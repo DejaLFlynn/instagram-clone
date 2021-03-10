@@ -1,6 +1,6 @@
 const db = require("../../db/index");
 
-const createComment = async (req, res, next) => {
+const createNewComment = async (req, res, next) => {
   try {
     console.log(req.body);
 
@@ -40,22 +40,24 @@ const commentsForPost = async (req, res, next) => {
       req.params.id
     );
     res.json({ comments });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error)
+  }
 };
-const getCommentsByPost = async (req, res, next) => {
+const getAllCommentsByPostId = async (req, res, next) => {
 	try {
 		const postId = req.params.post_id
 		let posts = await db.any("SELECT * FROM comments WHERE post_id =$1 ORDER BY id DESC", postId);
 		res.status(200).json({
 			status: "ok",
-			message: "Retrieve all friends comments",
+			message: "Retrieved comments",
 			payload: posts,
 		});
 	} catch (error) {
 		console.log(error);
 		res.status(400).json({
 			status: "error",
-			payload: "Couldn't retrieve all the comments",
+			payload: "Couldn't retrieve comments",
 		});
 		next();
 	}
@@ -70,9 +72,10 @@ const fetchCommentsForOne = async (req, res, next) => {
 };
 
 module.exports = {
-  createComment,
+  createNewComment,
   fetchCommentsForOne,
   deleteComment,
   commentsForPost,
-  getCommentsByPost,
+  // getCommentsByPost,
+  getAllCommentsByPostId
 };

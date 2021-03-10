@@ -5,32 +5,38 @@ import { AContext } from "../../Providers/Context";
 import {useHistory} from "react-router-dom";
 // component has form that passes back the userId, postId and comments to database
 //uses button to fire request
+//display comments of a post 
+//display a form for leaving new comments on post
 
-
-const  Comments =({ post_id }) =>{
-  const [comments, setComments] = useState("");
-  const [postId, setPostId] = useState("");
+const  Comments =({post_id, user_id}) =>{
+  const [commentText, setCommentText] = useState("");
+  // const [postId, setPostId] = useState("");
   const { currentUsers, token, loading } = useContext(AContext);
   const API = apiURL();
   const [content, setContent] = useState("")
   const history = useHistory()
+
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let dataObj = {
+      post_id: post_id,
+      content:commentText,
+      user_id: user_id
+    }
+    postNewComment(dataObj)
+  };
+
+
+  const postNewComment = async (body) => {
     try {
-      let dataObj = {
-        
-        postId: postId,
-        content,
-      };
-      const res = await axios.post(API + `/comments`, dataObj);
+      const res = await axios.post(API + `/posts/${post_id}/comments`, body);
       debugger
-      setPostId(res.data.payload)
-      setContent("")
-      // res.data.body.comment.id = res.data.body.id["id"]
-      setComments(res.data.body.comments);
-      history.push("/posts")
+      console.log(res.data)
+ 
+      // handleSubmit(dataObj)
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
   };
 
@@ -39,17 +45,17 @@ const  Comments =({ post_id }) =>{
     <div>
       <form onSubmit={handleSubmit}>
         <textarea
-          value={comments}
-          onChange={(e) => setComments(e.currentTarget.value)}
+          value={commentText}
+          onChange={(e) => setCommentText(e.currentTarget.value)}
           type="text"
           placeholder="Add Comment"
         />
-      <li>
-        {comments}
-        </li>
         <button type="submit">Post</button>
       </form>
+      <li>
+        {commentText}
+        </li>
     </div>
   );
-}
+  }
 export default Comments

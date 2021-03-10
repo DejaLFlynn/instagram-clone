@@ -70,7 +70,7 @@ const UsersGallery = () => {
         },
       });
 
-      setPosts(res.data.usersPosts);
+          setPosts(res.data.usersPosts);
       // setPosts(res.data.payload)
     } catch (err) {
       console.log(err);

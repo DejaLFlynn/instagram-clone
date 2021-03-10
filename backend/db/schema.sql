@@ -34,6 +34,7 @@ CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
     user_id VARCHAR REFERENCES users(id),
     post_id INT REFERENCES posts(id) ON DELETE CASCADE,
+    -- poster_id VARCHAR REFERENCES users(id) ON DELETE CASCADE,
     content VARCHAR,
     time_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

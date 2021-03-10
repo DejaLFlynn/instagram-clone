@@ -21,6 +21,7 @@ import { red } from "@material-ui/core/colors";
 import { CardHeader } from "@material-ui/core";
 
 import NewComments from "./Comments/NewComments";
+import Comments from "./Comments/Comments";
 //component displays posts, image, caption and date created from database
 //grab contexts from all post
 //comments can be made for posts
@@ -50,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const Explorer = ({post_id}) => {
+const Explorer = () => {
   // const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [posts, setPosts] = useState([]);
   const [pic, setPic] = useState([]);
@@ -61,46 +62,41 @@ const Explorer = ({post_id}) => {
   const { currentUsers, token } = useContext(AContext);
   const [userName, setUserName] = useState("");
   const classes = useStyles();
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState([]);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
   const fetchPosts = async () => {
     try {
       let res = await axios.get(`${API}/posts`);
-    debugger
+
+
       setPosts(res.data.posts);
       setPic(res.data.pic);
       setPostContent(res.data.content);
       setUserPic(res.data.user_pic);
+      fetchComments(res.data)
     } catch (error) {
       console.log(error);
     }
   };
+  const fetchComments = async ()=>{
+    try {
+      let res = await axios.get(`${API}/posts`)
+     debugger
+      setContent(res.data.payload.content)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   useEffect(() => {
     fetchPosts();
+   
   }, []);
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    const dataObj = {
-      user_id: currentUsers.id,
-      post_id: post_id,
-      content: content,
-    };
-
-    try {
-      const res = await axios.post(API + `/comments`, dataObj);
-      debugger;
-      setContent(res.data.payload.content);
-      // console.log(res.data)
-      // setComments(res.data.payload.content)
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const showHomePosts = posts.map((post) => {
+//  debugger
     return (
       <div>
         
@@ -126,13 +122,17 @@ const Explorer = ({post_id}) => {
     <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
             {post.content}
+
+           
           </Typography>
         </CardContent>
         <CardContent>
         <NewLike/>
         </CardContent>
         <CardContent>
-        <form onSubmit={handleSubmit}>
+         {/* <NewComments post_id={post.id}/>  */}
+
+        {/* <form onSubmit={handleSubmit}>
         <input
           className="comment_input"
           type="text"
@@ -148,8 +148,11 @@ const Explorer = ({post_id}) => {
           onClick={handleSubmit}
           disabled={content ? false : true}
         />
-      </form>
-        </CardContent>
+      </form> */}
+      <Comments post_id={post.id}
+       user_id={post.user_id}
+       />
+        </CardContent >
        </Card>
       
       </div>
@@ -164,7 +167,7 @@ const Explorer = ({post_id}) => {
 
         <div>{showHomePosts}
        
-      
+        
         </div>
       </div>
      
