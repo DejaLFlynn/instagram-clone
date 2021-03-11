@@ -33,7 +33,7 @@ const  Comments =({post_id, user_id}) =>{
       const res = await axios.post(API + `/posts/${post_id}/comments`, body);
       debugger
       console.log(res.data)
- 
+      setContent(res.data.payload.content)
       // handleSubmit(dataObj)
     } catch (error) {
       console.log(error);
@@ -53,7 +53,8 @@ const  Comments =({post_id, user_id}) =>{
         <button type="submit">Post</button>
       </form>
       <li>
-        {commentText}
+     
+        {content}
         </li>
     </div>
   );

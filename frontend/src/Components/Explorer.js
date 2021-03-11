@@ -82,9 +82,9 @@ const Explorer = () => {
   };
   const fetchComments = async ()=>{
     try {
-      let res = await axios.get(`${API}/posts`)
+      let res = await axios.get(`${API}/comments`)
      debugger
-      setContent(res.data.payload.content)
+      setContent(res.data.payload)
     } catch (error) {
       console.log(error)
     }
@@ -122,6 +122,7 @@ const Explorer = () => {
     <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
             {post.content}
+            {content}
 
            
           </Typography>
@@ -153,6 +154,7 @@ const Explorer = () => {
        user_id={post.user_id}
        />
         </CardContent >
+       
        </Card>
       
       </div>
