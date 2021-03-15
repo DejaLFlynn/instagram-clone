@@ -63,6 +63,7 @@ const Comments = ({ post_id, user_id }) => {
         />
         <button type="submit">Post</button>
       </form>
+      <li>{content}</li>
       <ul> {displayComments}</ul>
     </div>
   );
