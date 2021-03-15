@@ -3,7 +3,7 @@ import Message from "./Message";
 import Progress from "./Progress";
 import axios from "axios";
 import { storage } from "../Firebase";
-import {AContext} from "../Providers/Context"
+import { AContext } from "../Providers/Context";
 import { apiURL } from "../Utils/apiURL";
 
 const Upload = () => {
@@ -13,9 +13,9 @@ const Upload = () => {
   const [message, setMessage] = useState("");
   const [content, setContent] = useState("");
   const [uploadPercentage, setUploadPercentage] = useState(0);
-  const {currentUsers, token} = useContext(AContext)
-  const API = apiURL()
-  
+  const { currentUsers, token } = useContext(AContext);
+  const API = apiURL();
+
   const onChange = (e) => {
     setFile(e.target.files[0]);
     setFilename(e.target.files[0].name);
@@ -42,19 +42,17 @@ const Upload = () => {
               posts_images: url,
               content: content,
             };
-            addPost(post)
-        
+            addPost(post);
           });
       }
-      
     );
   };
   const addPost = async (post) => {
     try {
       const res = await axios.post(API + `/posts`, post);
-      console.log(res.data)
-      setMessage("post created")
-      handleSubmit(post)
+      console.log(res.data);
+      setMessage("post created");
+      handleSubmit(post);
     } catch (error) {
       console.log(error);
     }

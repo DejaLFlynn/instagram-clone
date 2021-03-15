@@ -29,11 +29,11 @@ import Comments from "./Comments/Comments";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 750,
-    position: 'center',
+    position: "center",
   },
   media: {
     height: 0,
-    paddingTop: "56.25%", 
+    paddingTop: "56.25%",
   },
   expand: {
     transform: "rotate(0deg)",
@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
-
 }));
 
 const Explorer = () => {
@@ -70,93 +69,56 @@ const Explorer = () => {
     try {
       let res = await axios.get(`${API}/posts`);
 
-
       setPosts(res.data.posts);
       setPic(res.data.pic);
       setPostContent(res.data.content);
       setUserPic(res.data.user_pic);
-      fetchComments(res.data)
+      fetchComments(res.data);
     } catch (error) {
       console.log(error);
     }
   };
-  const fetchComments = async ()=>{
+  const fetchComments = async () => {
     try {
-      let res = await axios.get(`${API}/comments`)
-     debugger
-      setContent(res.data.payload)
+      let res = await axios.get(`${API}/comments`);
+      //  debugger
+      setContent(res.data.payload);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
   useEffect(() => {
     fetchPosts();
-   
   }, []);
 
-
   const showHomePosts = posts.map((post) => {
-//  debugger
+    //  debugger
     return (
       <div>
-        
-       <Card className={classes.root}>
-         <CardHeader
-         avatar={
-          <Avatar src={post.user_pic}></Avatar>
-         }
-         action={
-          <IconButton aria-label="settings">
-           
-          </IconButton>
-        }
-        title={userName}
-       
-      />
-      <CardMedia
-         
-         className={classes.media}
-         image={post.posts_images}
-         title="userPics"
-       />
-    <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {post.content}
-            {content}
-
-           
-          </Typography>
-        </CardContent>
-        <CardContent>
-        <NewLike/>
-        </CardContent>
-        <CardContent>
-         {/* <NewComments post_id={post.id}/>  */}
-
-        {/* <form onSubmit={handleSubmit}>
-        <input
-          className="comment_input"
-          type="text"
-          placeholder="Add a comment..."
-          onChange={(e) => setContent(e.target.value)}
-          value={content}
-          autoComplete="on"
-        />
-        <input
-          className="comment"
-          type="button"
-          value="Post"
-          onClick={handleSubmit}
-          disabled={content ? false : true}
-        />
-      </form> */}
-      <Comments post_id={post.id}
-       user_id={post.user_id}
-       />
-        </CardContent >
-       
-       </Card>
-      
+        <Card className={classes.root}>
+          <CardHeader
+            avatar={<Avatar src={post.user_pic}></Avatar>}
+            action={<IconButton aria-label="settings"></IconButton>}
+            title={userName}
+          />
+          <CardMedia
+            className={classes.media}
+            image={post.posts_images}
+            title="userPics"
+          />
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {post.content}
+              {content}
+            </Typography>
+          </CardContent>
+          <CardContent>
+            <NewLike />
+          </CardContent>
+          <CardContent>
+            <Comments post_id={post.id} user_id={post.user_id} />
+          </CardContent>
+        </Card>
       </div>
     );
   });
@@ -164,15 +126,10 @@ const Explorer = () => {
   return (
     <div className="Explorer">
       <div>
-       
         <IconButton></IconButton>
 
-        <div>{showHomePosts}
-       
-        
-        </div>
+        <div>{showHomePosts}</div>
       </div>
-     
     </div>
   );
 };

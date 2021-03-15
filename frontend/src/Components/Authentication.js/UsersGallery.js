@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
   },
-  
+
   heroContent: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
@@ -70,7 +70,7 @@ const UsersGallery = () => {
         },
       });
 
-          setPosts(res.data.usersPosts);
+      setPosts(res.data.usersPosts);
       // setPosts(res.data.payload)
     } catch (err) {
       console.log(err);
@@ -90,13 +90,6 @@ const UsersGallery = () => {
       </div>
     );
   });
-  // const display = posts.map((post, index) => {
-  //   return (
-  //     <div key={index} className="contentDisplay">
-  //       <img src={post.posts_images} />
-  //     </div>
-  //   );
-  // });
 
   return (
     <div className="UsersGallery">
@@ -123,7 +116,6 @@ const UsersGallery = () => {
                       image={post.posts_images}
                       title="Image title"
                     />
-   
                   </Card>
                 </Grid>
               ))}

@@ -105,8 +105,6 @@ const SignUpPage = () => {
     );
   };
 
-  // console.log("image: ", uploadPic);
-
   return (
     <>
       <div>

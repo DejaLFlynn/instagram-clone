@@ -110,25 +110,7 @@ const User = () => {
       console.log(err);
     }
   };
-  // useEffect(() => {
-  //   fetchUserById();
-  // }, [token]);
-  // const getUser = async()=>{
-  //   try {
-  //     let res = await axios.get(`${API}/users/:id`)
-  //     debugger
-  //     setNewProfile(res.data.payload)
-  //     setUserName(res.data.payload.name);
-  //     setBio(res.data.payload.bio);
-  //     setUserPic(res.data.payload.user_pic);
-  //   } catch (error) {
-  //     console.log(err)
-  //   }
 
-  // }
-  // useEffect(()=>{
-  //   getUser()
-  // })
 
   useEffect(() => {
     fetchUserById();
