@@ -23,4 +23,17 @@ export const fetchPostUser = async(id) => {
     } catch (error) {
         console.log(error);
     }
+
+
+}
+export const fetchUserPic = async ( id, data ) => {
+  const API = apiURL()
+  try {
+    let res = await axios.get(`${API}/users/:id`)
+      return res.data.user.userPic;
+  } catch (error) {
+      console.log(error);
+  }
+
+  
 }
