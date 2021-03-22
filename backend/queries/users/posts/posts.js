@@ -114,7 +114,7 @@ const fetchAllForOne = async (req, res, next) => {
 const getCommentsByPost = async (req, res) => {
   try {
   let comments = await db.any(
-    `SELECT posts.id, comments.post_id, comments.user_id, posts.user_id, comments.content, users.user_pic FROM posts INNER JOIN comments ON posts.id=comments.post_id JOIN users ON users.id= posts.user_id WHERE posts.id = $1`,
+    `SELECT posts.id, comments.post_id, comments.user_id, posts.user_id, comments.content, users.user_pic, users.name FROM posts INNER JOIN comments ON posts.id=comments.post_id JOIN users ON users.id= posts.user_id WHERE posts.id = $1`,
     [req.params.id]
   );
   res.json({

@@ -82,8 +82,8 @@ const Comments = ({ post_id, user_id }) => {
     return (
       
       <li>
-        <Avatar src={comment.user_pic}></Avatar>
-        {comment.content}
+        {/* <Avatar src={comment.user_pic}></Avatar> */}
+        {comment.name}{comment.content}
       </li>
     );
   });
