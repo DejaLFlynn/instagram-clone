@@ -59,7 +59,7 @@ const Comments = ({ post_id, user_id }) => {
     try {
       const res = await axios.post(API + `/posts/${post_id}/comments`, body);
       setContent(res.data.payload.content);
-      // handleSubmit(dataObj)
+ 
     } catch (error) {
       console.log(error);
     }
@@ -68,15 +68,8 @@ const Comments = ({ post_id, user_id }) => {
     try {
       const res = await axios.get(API + `/posts/${post_id}/comments`);
       setComments(res.data.comments);
-      // handleSubmit(dataObj)
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const getUserPic = async () => {
-    try {
-      const res = await axios.get(`${API}/posts`);
-      setUserPic(res.data.pic);
+      setUserPic(res.data.comments)
+     
     } catch (error) {
       console.log(error);
     }
@@ -84,23 +77,17 @@ const Comments = ({ post_id, user_id }) => {
 
   useEffect(() => {
     getComments();
-    getUserPic();
   }, []);
   const displayComments = comments.map((comment) => {
     return (
+      
       <li>
-        {comment.user_id}
+        <Avatar src={comment.user_pic}></Avatar>
         {comment.content}
       </li>
     );
   });
-  const displayPicture = userPic.map((pic) => {
-    return (
-      <div>
-        <Avatar src={pic.pic}></Avatar>
-      </div>
-    );
-  });
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -112,9 +99,8 @@ const Comments = ({ post_id, user_id }) => {
         />
         <button type="submit">Post</button>
       </form>
-      {displayPicture}
-      <li>{content}</li>
-      <ul> {displayComments}</ul>
+      
+      <ul> {content} {displayComments}</ul>
     </div>
   );
 };
