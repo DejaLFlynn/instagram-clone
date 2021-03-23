@@ -83,13 +83,15 @@ const Comments = ({ post_id, user_id }) => {
       
       <li>
         {/* <Avatar src={comment.user_pic}></Avatar> */}
-        {comment.name}{comment.content}
+        {comment.name}
+        {comment.content}
       </li>
     );
   });
 
   return (
     <div>
+        <ul> {content} {displayComments}</ul>
       <form onSubmit={handleSubmit}>
         <textarea
           value={commentText}
@@ -100,7 +102,6 @@ const Comments = ({ post_id, user_id }) => {
         <button type="submit">Post</button>
       </form>
       
-      <ul> {content} {displayComments}</ul>
     </div>
   );
 };
