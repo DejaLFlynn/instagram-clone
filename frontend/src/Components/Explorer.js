@@ -28,8 +28,9 @@ import Comments from "./Comments/Comments";
 //likes can be made for post
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 750,
+    maxWidth: 600,
     position: "center",
+    marginLeft: 400
   },
   media: {
     height: 0,
@@ -95,6 +96,7 @@ const Explorer = () => {
     //  debugger
     return (
       <div>
+       
         <Card className={classes.root}>
           <CardHeader
             avatar={<Avatar src={post.user_pic}></Avatar>}
@@ -106,18 +108,16 @@ const Explorer = () => {
             image={post.posts_images}
             title="userPics"
           />
+            <NewLike />
           <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography justify="left" variant="body2" color="textPrimary" component="p">
               {post.content}
               {content}
+              <Comments post_id={post.id} user_id={post.user_id} />
             </Typography>
+ 
           </CardContent>
-          <CardContent>
-            <NewLike />
-          </CardContent>
-          <CardContent>
-            <Comments post_id={post.id} user_id={post.user_id} />
-          </CardContent>
+        
         </Card>
       </div>
     );
@@ -125,11 +125,14 @@ const Explorer = () => {
 
   return (
     <div className="Explorer">
-      <div>
-        <IconButton></IconButton>
+    
+      
 
-        <div>{showHomePosts}</div>
-      </div>
+        
+     
+          {showHomePosts}
+          <NewLike />
+   
     </div>
   );
 };

@@ -13,7 +13,18 @@ import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import Likes from "../Likes";
+import { Typography } from "@material-ui/core";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+
 const useStyles = makeStyles((theme) => ({
+  root: {
+    background: 'white',
+    '& *': {
+            fontColor: 'black'
+    },
+
+  },
   grow: {
     flexGrow: 1,
     padding: "20px",
@@ -25,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
+      padding: 20,
+      fontColor: 'black'
+      
     },
   },
   search: {
@@ -46,13 +60,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   searchIcon: {
-    padding: theme.spacing(0, 2),
+    padding: theme.spacing(0, 8),
     height: "100%",
     position: "absolute",
     pointerEvents: "none",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+
   },
   inputRoot: {
     color: "inherit",
@@ -78,19 +93,23 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       display: "none",
     },
+    instagram:{
+      cursor: 'pointer',
+      color: '#F89B29',
+    }
   },
 }));
 const NavBar = () => {
   const classes = useStyles();
   return (
-    <div className="nav_bar">
-      <AppBar position="static" color="white">
+  
+      <AppBar position={'fixed'} className={classes.root}>
         <Toolbar className="title">
           <NavLink exact to={"/"}>
-            <img
-              src="https://i.postimg.cc/44mwxHDp/Screen-Shot-2021-01-29-at-8-20-32-PM.png"
-              width="450px"
-            ></img>
+          <Typography className={classes.instagram} >
+          ℑ𝔫𝔰𝔱𝔞𝔤𝔯𝔞𝔪
+          </Typography>
+          
           </NavLink>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -119,8 +138,8 @@ const NavBar = () => {
         </Toolbar>
       </AppBar>
 
-      <br></br>
-    </div>
+    
+
   );
 };
 export default NavBar;
