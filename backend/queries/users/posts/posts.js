@@ -61,9 +61,8 @@ const userCommentForPost = async (req, res, next)=>{
 const allPosts = async (req, res, next) => {
   try {
     const posts = await db.any(
-      "SELECT users.user_pic, posts.id, users.email, users.name, users.bio, posts.user_id, posts.posts_images, posts.content FROM users JOIN posts ON users.id = posts.user_id"
+      "SELECT users.user_pic, posts.id, users.email, users.name, users.bio, posts.user_id, posts.posts_images, posts.content FROM users JOIN posts ON users.id = posts.user_id LIMIT 20"
     );
-
     res.json({
       posts,
       message: "All Posts",
