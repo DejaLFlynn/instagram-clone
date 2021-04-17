@@ -5,7 +5,6 @@ import { AContext } from "../../Providers/Context";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
-import Grid from "@material-ui/core/Grid";
 import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControl from "@material-ui/core/FormControl";
@@ -18,11 +17,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
-
+import Grid from "@material-ui/core/Grid";
 // component has form that passes back the userId, postId and comments to database
-//uses button to fire request
-//display comments of a post
-//display a form for leaving new comments on post
+// uses button to fire request
+// display comments of a post
+// display a form for leaving new comments on post
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -42,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     useStyles: "none",
   },
-
   avatar: {
     backgroundColor: red[500],
   },
@@ -58,7 +56,6 @@ const Comments = ({ post_id, user_id }) => {
   const [content, setContent] = useState("");
   const history = useHistory();
   const classes = useStyles();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     let dataObj = {
@@ -92,48 +89,50 @@ const Comments = ({ post_id, user_id }) => {
   }, []);
   const displayComments = comments.map((comment) => {
     return (
-      <div>
-        <List className={classes.root}>
-          <ListItem alignItems="left">
-            <ListItemText
-              secondary={
-                <React.Fragment>
-                  <Typography
-                    component="span"
-                    variant="body2"
-                    color="textPrimary"
-                  >
-                    <strong>{comment.name}</strong>
-                    {"          "}
-                    {comment.content}
-                  </Typography>
-                </React.Fragment>
-              }
-            />
-          </ListItem>
-        </List>
-      </div>
+      <>
+        <div>
+          <List className={classes.root}>
+            <ListItem alignItems="left">
+              <ListItemText
+                secondary={
+                  <React.Fragment>
+                    <Typography
+                      component="span"
+                      variant="body2"
+                      color="textPrimary"
+                    >
+                      <strong>{comment.name}</strong>
+                      {"          "}
+                      {comment.content}
+                    </Typography>
+                  </React.Fragment>
+                }
+              />
+            </ListItem>
+          </List>
+        </div>
+      </>
     );
   });
 
   return (
     <>
-      <Grid
-        container
-        className={classes.root}
-        display="flex"
-        direction="row"
-        justify="left"
-        alignItems="left"
-      >
-        <ul>
-          {content} {displayComments}
-        </ul>
-        <div>
-          <FormControl className={classes.margin}>
-            <form onSubmit={handleSubmit}>
+      <div>
+        <Grid
+          container
+          className={classes.root}
+          display="flex"
+          direction="row"
+          justify="left"
+          alignItems="left"
+        >
+          <ul>
+            {" "}
+            {content} {displayComments}
+          </ul>
+          <form onSubmit={handleSubmit}>
+            <FormControl className={classes.margin}>
               <Input
-                id="input-with-icon-adornment"
                 value={commentText}
                 onChange={(e) => setCommentText(e.currentTarget.value)}
                 type="text"
@@ -144,11 +143,13 @@ const Comments = ({ post_id, user_id }) => {
                   </InputAdornment>
                 }
               />
-              <Button color="primary">𝗣𝗼𝘀𝘁</Button>
-            </form>
-          </FormControl>
-        </div>
-      </Grid>
+              <Button type="submit" color="primary">
+                𝗣𝗼𝘀𝘁
+              </Button>
+            </FormControl>
+          </form>
+        </Grid>
+      </div>
     </>
   );
 };

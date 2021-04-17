@@ -18,6 +18,7 @@ const createNewComment = async (req, res, next) => {
     next(error);
   }
 };
+
 const deleteComment = async (req, res, next) => {
   try {
     await db.none(
