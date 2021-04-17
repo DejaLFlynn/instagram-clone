@@ -106,14 +106,14 @@ const Explorer = () => {
             image={post.posts_images}
             title="userPics"
           />
+            <NewLike />
           <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body2" color="textPrimary" component="p">
               {post.content}
               {content}
             </Typography>
           </CardContent>
           <CardContent>
-            <NewLike />
           </CardContent>
           <CardContent>
             <Comments post_id={post.id} user_id={post.user_id} />

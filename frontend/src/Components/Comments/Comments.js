@@ -127,7 +127,7 @@ const Comments = ({ post_id, user_id }) => {
           alignItems="left"
         >
           <ul>
-            {" "}
+            {"        "}
             {content} {displayComments}
           </ul>
           <form onSubmit={handleSubmit}>
@@ -143,10 +143,10 @@ const Comments = ({ post_id, user_id }) => {
                   </InputAdornment>
                 }
               />
+            </FormControl>
               <Button type="submit" color="primary">
                 𝗣𝗼𝘀𝘁
               </Button>
-            </FormControl>
           </form>
         </Grid>
       </div>
