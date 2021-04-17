@@ -86,28 +86,40 @@ const UsersGallery = () => {
   const display = posts.map((post) => {
     return (
       <div key={post.id} className="contentDisplay">
-        <img src={post.posts_images} />
+        {/* <img src={post.posts_images} /> */}
+
+     
+        <Grid item key={post} xs={12} sm={6} md={4}>
+                  <Card className={classes.card.posts_images}>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={post.posts_images}
+                      title="Image title"
+                    />
+                  </Card>
+                </Grid>
       </div>
     );
   });
 
   return (
+    <>
     <div className="UsersGallery">
-      <React.Fragment>
+      {/* <React.Fragment>
         <CssBaseline />
 
         <main>
           {/* Hero unit */}
-          <div className={classes.heroContent}>
+          {/* <div className={classes.heroContent}>
             <Container maxWidth="sm">
               <div className={classes.heroButtons}>
                 <Grid container spacing={1} justify="center"></Grid>
               </div>
             </Container>
           </div>
-          <Container className={classes.cardGrid} maxWidth="md">
+          <Container className={classes.cardGrid} maxWidth="md"> 
             {/* End hero unit */}
-            <Grid container spacing={1}>
+            {/* <Grid container spacing={1}>
               {posts.map((post) => (
                 <Grid item key={post} xs={12} sm={6} md={4}>
                   <Card className={classes.card.posts_images}>
@@ -119,12 +131,14 @@ const UsersGallery = () => {
                   </Card>
                 </Grid>
               ))}
-            </Grid>
-          </Container>
+            </Grid> */}
+            {display}
+          {/* </Container>
         </main>
-      </React.Fragment>
+     
       {/* <Upload/> */}
-    </div>
+    </div> 
+    </>
   );
 };
 

@@ -136,9 +136,9 @@ const User = () => {
       <div>
         <img src="https://i.postimg.cc/nh6Y34Hp/Screen-Shot-2021-03-05-at-1-50-34-PM.png" />
       </div>
+      <Upload />
       <UsersGallery />
 
-      <Upload />
       {/* <SideBar className={classes.sidebar} /> */}
     </div>
   );
