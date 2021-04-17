@@ -11,6 +11,14 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControl from "@material-ui/core/FormControl";
 import Button from '@material-ui/core/Button';
 import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Divider from '@material-ui/core/Divider';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
+
 // component has form that passes back the userId, postId and comments to database
 //uses button to fire request
 //display comments of a post
@@ -19,12 +27,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     '& > *': {
-      margin: theme.spacing(1),
+      backgroundColor: theme.palette.background.paper,
     },
-
   },
   gridSection: {
-    padding: theme.spacing(4),
+    padding: theme.spacing(1),
     height: "100%",
     width: "100%",
   },
@@ -86,14 +93,30 @@ const Comments = ({ post_id, user_id }) => {
   const displayComments = comments.map((comment) => {
     return (
       <div>
-        <li>
-          <div className={classes.name}>
-            <strong>{comment.name}</strong>
-            {"          "}
-            {comment.content}
-          </div>
-        </li>
+        <List className={classes.root}>
+      <ListItem alignItems="left">
+        <ListItemText
+          secondary={
+            <React.Fragment>
+              <Typography
+                component="span"
+                variant="body2"
+                color="textPrimary"
+                >
+                  <strong>
+
+                {comment.name}
+                  </strong>
+                 {"          "}
+              {comment.content}
+              </Typography>
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+    </List>
       </div>
+      
     );
   });
 
