@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 600,
     position: "center",
-    marginLeft: 400
+    marginLeft: 400,
   },
   media: {
     height: 0,
@@ -96,7 +96,6 @@ const Explorer = () => {
     //  debugger
     return (
       <div>
-       
         <Card className={classes.root}>
           <CardHeader
             avatar={<Avatar src={post.user_pic}></Avatar>}
@@ -108,16 +107,19 @@ const Explorer = () => {
             image={post.posts_images}
             title="userPics"
           />
-            <NewLike />
+          <NewLike />
           <CardContent>
-            <Typography justify="left" variant="body2" color="textPrimary" component="p">
+            <Typography
+              justify="left"
+              variant="body2"
+              color="textPrimary"
+              component="p"
+            >
               {post.content}
               {content}
               <Comments post_id={post.id} user_id={post.user_id} />
             </Typography>
- 
           </CardContent>
-        
         </Card>
       </div>
     );
@@ -125,14 +127,8 @@ const Explorer = () => {
 
   return (
     <div className="Explorer">
-    
-      
-
-        
-     
-          {showHomePosts}
-          <NewLike />
-   
+      {showHomePosts}
+      <NewLike />
     </div>
   );
 };

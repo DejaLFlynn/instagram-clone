@@ -19,11 +19,10 @@ import CardContent from "@material-ui/core/CardContent";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: 'white',
-    '& *': {
-            fontColor: 'black'
+    background: "white",
+    "& *": {
+      fontColor: "black",
     },
-
   },
   grow: {
     flexGrow: 1,
@@ -37,8 +36,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       display: "block",
       padding: 20,
-      fontColor: 'black'
-      
+      fontColor: "black",
     },
   },
   search: {
@@ -67,7 +65,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-
   },
   inputRoot: {
     color: "inherit",
@@ -93,53 +90,44 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       display: "none",
     },
-    instagram:{
-      cursor: 'pointer',
-      color: '#F89B29',
-    }
+    instagram: {
+      cursor: "pointer",
+      color: "#F89B29",
+    },
   },
 }));
 const NavBar = () => {
   const classes = useStyles();
   return (
-  
-      <AppBar position={'fixed'} className={classes.root}>
-        <Toolbar className="title">
-          <NavLink exact to={"/"}>
-          <Typography className={classes.instagram} >
-          ℑ𝔫𝔰𝔱𝔞𝔤𝔯𝔞𝔪
-          </Typography>
-          
-          </NavLink>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
+    <AppBar position={"fixed"} className={classes.root}>
+      <Toolbar className="title">
+        <NavLink exact to={"/"}>
+          <Typography className={classes.instagram}>ℑ𝔫𝔰𝔱𝔞𝔤𝔯𝔞𝔪</Typography>
+        </NavLink>
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
           </div>
-          <NavLink to={"/posts"}>
-            <HomeOutlinedIcon></HomeOutlinedIcon>
-          </NavLink>
-          <NavLink to={"/users/:id"}>
-            <AccountCircleRoundedIcon></AccountCircleRoundedIcon>
-          </NavLink>
-            <NavLink  to={"/"}>
-          <ExitToAppRoundedIcon>
-            
-          </ExitToAppRoundedIcon>
-            </NavLink>
-        </Toolbar>
-      </AppBar>
-
-    
-
+          <InputBase
+            placeholder="Search…"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+            inputProps={{ "aria-label": "search" }}
+          />
+        </div>
+        <NavLink to={"/posts"}>
+          <HomeOutlinedIcon></HomeOutlinedIcon>
+        </NavLink>
+        <NavLink to={"/users/:id"}>
+          <AccountCircleRoundedIcon></AccountCircleRoundedIcon>
+        </NavLink>
+        <NavLink to={"/"}>
+          <ExitToAppRoundedIcon></ExitToAppRoundedIcon>
+        </NavLink>
+      </Toolbar>
+    </AppBar>
   );
 };
 export default NavBar;
