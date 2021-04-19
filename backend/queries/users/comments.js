@@ -18,7 +18,6 @@ const createNewComment = async (req, res, next) => {
     next(error);
   }
 };
-
 const deleteComment = async (req, res, next) => {
   try {
     await db.none(
@@ -65,7 +64,7 @@ const getAllCommentsByPostId = async (req, res, next) => {
 };
 const fetchCommentsForOne = async (req, res, next) => {
   try {
-    const comments = await db.any("SELECT * FROM comments", req.params.id);
+    const comments = await db.any("SELECT * FROM comments LIMIT 5", req.params.id);
     res.json({ comments });
   } catch (error) {
     next(error);
