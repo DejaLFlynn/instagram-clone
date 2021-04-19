@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     alignItems: "stretch",
-    
   },
 
   media: {
@@ -59,21 +58,18 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(180deg)",
   },
   profile: {
-    position: 'absolute', 
-    left: '40%', 
-    top: '30%',
-    transform: 'translate(-50%, -50%)'
-    
-
+    position: "absolute",
+    left: "40%",
+    top: "30%",
+    transform: "translate(-50%, -50%)",
   },
 
   avatar: {
     width: "200px",
     height: "200px",
-    left: '20%', 
+    left: "20%",
     // backgroundColor: red[500],
     position: "center",
-    
   },
   userName: {},
   bio: {},
@@ -112,7 +108,6 @@ const User = () => {
     }
   };
 
-
   useEffect(() => {
     fetchUserById();
   }, [profile, token]);
@@ -125,14 +120,11 @@ const User = () => {
         </Paper>
       </Grid>
       <CssBaseline />
-        <Avatar className={classes.avatar} src={userPic}></Avatar>
-  
-      <div className={classes.profile}>
+      <Avatar className={classes.avatar} src={userPic}></Avatar>
 
-          <h2> {userName}</h2>
-          <p> {bio}</p>
-    
-   
+      <div className={classes.profile}>
+        <h2> {userName}</h2>
+        <p> {bio}</p>
       </div>
       <div>
         <img src="https://i.postimg.cc/nh6Y34Hp/Screen-Shot-2021-03-05-at-1-50-34-PM.png" />

@@ -41,13 +41,13 @@ function Copyright() {
 }
 function App() {
   const API = apiURL();
-  const { currentUser, token, loading } = useContext(AContext);
+  const { currentUsers, token, loading } = useContext(AContext);
   const [profile, setProfile] = useState([]);
   const fetchUserById = async () => {
     try {
       let res = await axios({
         method: "get",
-        url: `${API}/users/${currentUser.id}`,
+        url: `${API}/users/${currentUsers.id}`,
         headers: {
           AuthToken: token,
         },
@@ -65,8 +65,7 @@ function App() {
     <div className="App">
       <div className="app_header">
         <Context>
-          {/* <LoadingComponent> */}
-          {/* {currentUser ? <NavBar /> : null} */}
+         
 
           <Switch>
             <AuthRoute exact path="/">

@@ -8,46 +8,47 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-const useStyles = makeStyles(theme => ({
-    root: {
-      flexGrow: 1,
-      alignItems: "stretch"
-    },
-    column: {
-      flexDirection: "column"
-    },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: "center",
-      color: theme.palette.text.secondary
-    }
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    alignItems: "stretch",
+  },
+  column: {
+    flexDirection: "column",
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
+}));
 const MainPage = () => {
-    const classes = useStyles();
+  const classes = useStyles();
   return (
     <div>
-       <CssBaseline />
-       <Grid item xs={12}>
-            <Paper>
-        <NavBar/>
-
-            </Paper>
-          </Grid>
+      <CssBaseline />
+      <Grid item xs={12}>
+        <Paper>
+          <NavBar />
+        </Paper>
+      </Grid>
       <Grid container className={classes.root}>
-        {/* COLUMN ONE */}
         <Grid container item className={classes.column}>
-    
           <Grid container item>
             <Grid item xs={8}>
-              <Paper className={classes.paper}><Likes/><Explorer/></Paper>
+              <Paper className={classes.paper}>
+                <Likes />
+                <Explorer />
+              </Paper>
             </Grid>
             <Grid item xs={3}>
-              <Paper className={classes.paper}><SideBar/></Paper>
+              <Paper className={classes.paper}>
+                <SideBar />
+              </Paper>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-      
     </div>
   );
 };

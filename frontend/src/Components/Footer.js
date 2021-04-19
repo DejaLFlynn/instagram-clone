@@ -19,10 +19,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     margin: theme.spacing(1),
     fontSize: 8,
-    
   },
-
-  
 }));
 const Footer = () => {
   const classes = useStyles();
@@ -31,58 +28,98 @@ const Footer = () => {
     <div className="footer">
       <BottomNavigation className={classes.root}>
         <a href={`https://about.instagram.com/about-us`}>
-          <Typography className={classes.content} align="center"  color="textSecondary" >
+          <Typography
+            className={classes.content}
+            align="center"
+            color="textSecondary"
+          >
             ABOUT
           </Typography>
         </a>
         <a href="https://help.instagram.com/">
-          <Typography className={classes.content} align="center"color="textSecondary">
+          <Typography
+            className={classes.content}
+            align="center"
+            color="textSecondary"
+          >
             {" "}
             HELP
           </Typography>
         </a>
         <a href="https://about.instagram.com/blog/">
-          <Typography className={classes.content} align="center" color="textSecondary">
+          <Typography
+            className={classes.content}
+            align="center"
+            color="textSecondary"
+          >
             PRESS
           </Typography>
         </a>
         <a href="https://www.instagram.com/developer/">
-          <Typography className={classes.content} align="center"color="textSecondary">
+          <Typography
+            className={classes.content}
+            align="center"
+            color="textSecondary"
+          >
             API
           </Typography>
         </a>
         <a href="https://www.instagram.com/about/jobs/">
-          <Typography className={classes.content} align="center"color="textSecondary">
+          <Typography
+            className={classes.content}
+            align="center"
+            color="textSecondary"
+          >
             {" "}
             JOBS
           </Typography>
         </a>
         <a href="https://help.instagram.com/519522125107875">
-          <Typography className={classes.content} align="center"color="textSecondary">
+          <Typography
+            className={classes.content}
+            align="center"
+            color="textSecondary"
+          >
             PRIVACY
           </Typography>
         </a>
         <a href="https://help.instagram.com/581066165581870">
-          <Typography className={classes.content} align="center"color="textSecondary">
+          <Typography
+            className={classes.content}
+            align="center"
+            color="textSecondary"
+          >
             TERMS
           </Typography>
         </a>
         <a href="https://www.instagram.com/explore/locations/">
-          <Typography className={classes.content} align="center"color="textSecondary">
+          <Typography
+            className={classes.content}
+            align="center"
+            color="textSecondary"
+          >
             LOCATIONS
           </Typography>
         </a>
         <a href="https://www.instagram.com/directory/profiles/">
-          <Typography className={classes.content} align="center"color="textSecondary">
+          <Typography
+            className={classes.content}
+            align="center"
+            color="textSecondary"
+          >
             TOP ACCOUNTS
           </Typography>
         </a>
         <a href={`https://www.instagram.com/directory/hashtags/`}>
-          <Typography className={classes.content} align="center"color="textSecondary">
-            HASHTAGS 
+          <Typography
+            className={classes.content}
+            align="center"
+            color="textSecondary"
+          >
+            HASHTAGS
           </Typography>
         </a>
-       
+
         <a
           href={`https://www.linkedin.com/in/deja-flynn`}
           className={classes.content}

@@ -96,10 +96,10 @@ const Explorer = () => {
   }, []);
 
   const showHomePosts = posts.map((post) => {
-    //  debugger
+     debugger
     return (
-      <div>
-        <Card className={classes.root}>
+     
+        <Card key={post.id} className={classes.root}>
           <CardHeader
             avatar={<Avatar src={post.user_pic}></Avatar>}
             action={<IconButton aria-label="settings"></IconButton>}
@@ -112,7 +112,7 @@ const Explorer = () => {
           />
           <NewLike />
           <CardContent className={classes.text}>
-            <Typography variant="body2" color="textPrimary" component="p">
+            <Typography color="textPrimary" >
               {post.content}
               {content}
             </Typography>
@@ -122,7 +122,7 @@ const Explorer = () => {
             <Comments post_id={post.id} user_id={post.user_id} />
           </CardContent>
         </Card>
-      </div>
+     
     );
   });
 

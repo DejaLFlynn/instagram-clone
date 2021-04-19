@@ -81,13 +81,15 @@ const Comments = ({ post_id, user_id }) => {
 
   useEffect(() => {
     getComments();
+
   }, []);
+  // console.log("comments", comments)
   const displayComments = comments.map((comment) => {
     return (
-      <>
-        <div>
-          <List className={classes.root}>
-            <ListItem alignItems="left">
+    
+        
+          <List key={comment.comment_id} className={classes.root}>
+            <ListItem >
               <ListItemText
                 secondary={
                   <React.Fragment>
@@ -105,8 +107,7 @@ const Comments = ({ post_id, user_id }) => {
               />
             </ListItem>
           </List>
-        </div>
-      </>
+     
     );
   });
 

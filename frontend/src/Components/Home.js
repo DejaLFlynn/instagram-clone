@@ -29,8 +29,8 @@ const Home = () => {
   const history = useHistory();
 
   return (
-    <>
-      <div className="div">
+    
+     
         <div className={classes.root}>
           <Grid container spacing={3} >
             <Grid item xs={6}>
@@ -47,8 +47,8 @@ const Home = () => {
             </Grid>
           </Grid>
         </div>
-      </div>
-    </>
+      
+  
   );
 };
 
