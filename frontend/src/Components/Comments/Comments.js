@@ -27,16 +27,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     "& > *": {
       backgroundColor: theme.palette.background.paper,
+      position: "left",
+      
     },
   },
-  gridSection: {
-    padding: theme.spacing(1),
-    height: "100%",
-    width: "100%",
-  },
-  margin: {
-    margin: theme.spacing(1),
-  },
+
   name: {
     textAlign: "left",
     useStyles: "none",
@@ -116,8 +111,8 @@ const Comments = ({ post_id, user_id }) => {
   });
 
   return (
-    <>
-      <div>
+ 
+      <div className="body">
         <Grid
           container
           className={classes.root}
@@ -150,7 +145,7 @@ const Comments = ({ post_id, user_id }) => {
           </form>
         </Grid>
       </div>
-    </>
+   
   );
 };
 export default Comments;

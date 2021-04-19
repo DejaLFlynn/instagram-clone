@@ -18,6 +18,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
+import { ImageListItem } from '@material-ui/core';
+import { ImageList } from '@material-ui/core';
 // import Upload from "../Upload"
 
 // import { makeStyles } from "@material-ui/core/styles";
@@ -88,7 +90,6 @@ const UsersGallery = () => {
       <div key={post.id} className="contentDisplay">
         {/* <img src={post.posts_images} /> */}
 
-     
         <Grid item key={post} xs={12} sm={6} md={4}>
                   <Card className={classes.card.posts_images}>
                     <CardMedia
@@ -98,19 +99,31 @@ const UsersGallery = () => {
                     />
                   </Card>
                 </Grid>
+        {/* <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+  {itemData.map((item) => (
+    <ImageListItem key={item.img}>
+      <img
+        srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format 1x,
+            ${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+        alt={item.title}
+        loading="lazy"
+      />
+    </ImageListItem>
+  ))}
+</ImageList> */}
       </div>
     );
   });
 
   return (
     <>
-    <div className="UsersGallery">
-      {/* <React.Fragment>
+      <div className="UsersGallery">
+        {/* <React.Fragment>
         <CssBaseline />
 
         <main>
           {/* Hero unit */}
-          {/* <div className={classes.heroContent}>
+        {/* <div className={classes.heroContent}>
             <Container maxWidth="sm">
               <div className={classes.heroButtons}>
                 <Grid container spacing={1} justify="center"></Grid>
@@ -119,7 +132,7 @@ const UsersGallery = () => {
           </div>
           <Container className={classes.cardGrid} maxWidth="md"> 
             {/* End hero unit */}
-            {/* <Grid container spacing={1}>
+        {/* <Grid container spacing={1}>
               {posts.map((post) => (
                 <Grid item key={post} xs={12} sm={6} md={4}>
                   <Card className={classes.card.posts_images}>
@@ -132,12 +145,12 @@ const UsersGallery = () => {
                 </Grid>
               ))}
             </Grid> */}
-            {display}
-          {/* </Container>
+        {display}
+        {/* </Container>
         </main>
      
       {/* <Upload/> */}
-    </div> 
+      </div>
     </>
   );
 };

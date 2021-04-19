@@ -71,8 +71,9 @@ const useStyles = makeStyles((theme) => ({
     width: "200px",
     height: "200px",
     left: '20%', 
-    backgroundColor: red[500],
+    // backgroundColor: red[500],
     position: "center",
+    
   },
   userName: {},
   bio: {},

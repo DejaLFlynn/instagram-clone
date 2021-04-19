@@ -46,7 +46,7 @@ class NewLike extends React.Component {
               }
               onClick={this.dislikeHandler}
             >
-              <FavoriteIcon></FavoriteIcon>
+    <FavoriteIcon></FavoriteIcon>
             </button>{" "}
             | {this.state.dislikeCount}
           </span>
