@@ -96,7 +96,7 @@ const Explorer = () => {
   }, []);
 
   const showHomePosts = posts.map((post) => {
-     debugger
+    //  debugger
     return (
      
         <Card key={post.id} className={classes.root}>

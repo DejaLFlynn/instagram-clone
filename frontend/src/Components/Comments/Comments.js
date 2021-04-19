@@ -119,8 +119,8 @@ const Comments = ({ post_id, user_id }) => {
           className={classes.root}
           display="flex"
           direction="row"
-          justify="left"
-          alignItems="left"
+          // justify="left"
+          // alignItems="left"
         >
           <ul>
             {"        "}

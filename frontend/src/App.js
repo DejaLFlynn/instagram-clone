@@ -19,7 +19,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
+
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
@@ -29,16 +29,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { getFirebaseIdToken } from "./Utils/Firebase";
 import LoadingComponent from "./Components/LoadingComponent";
 import MainPage from "./Components/MainPage";
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © Deja-Flynn"}
-      <Link color="inherit" href="https://material-ui.com/"></Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+
 function App() {
   const API = apiURL();
   const { currentUsers, token, loading } = useContext(AContext);
@@ -97,7 +88,7 @@ function App() {
 
           <footer>
             <Footer />
-            <Copyright />
+           
           </footer>
         </Context>
       </div>
