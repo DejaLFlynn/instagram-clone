@@ -119,12 +119,12 @@ const SignUpPage = () => {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="name"
+                autoComplete="username"
                 value={name}
                 onChange={(e) => setName(e.currentTarget.value)}
                 required
                 fullWidth
-                id="name" label="Filled" variant="filled" 
+                id="username" label="username" variant="username" 
               />
             </Grid>
             <Grid item xs={12} sm={6}>
