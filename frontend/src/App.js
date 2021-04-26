@@ -34,23 +34,23 @@ function App() {
   const API = apiURL();
   const { currentUsers, token, loading } = useContext(AContext);
   const [profile, setProfile] = useState([]);
-  const fetchUserById = async () => {
-    try {
-      let res = await axios({
-        method: "get",
-        url: `${API}/users/${currentUsers.id}`,
-        headers: {
-          AuthToken: token,
-        },
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const fetchUserById = async () => {
+  //   try {
+  //     let res = await axios({
+  //       method: "get",
+  //       url: `${API}/users/${currentUsers.id}`,
+  //       headers: {
+  //         AuthToken: token,
+  //       },
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchUserById();
-  }, [profile, token]);
+  // useEffect(() => {
+  //   fetchUserById();
+  // }, [profile, token]);
 
   return (
     <div className="App">

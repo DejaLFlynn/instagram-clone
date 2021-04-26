@@ -106,10 +106,10 @@ const SignIn = () => {
           Don't have an account?
           <span className="span"> Sign up </span>
         </Link>
-        <button className="guest" onClick={handleGuestSignIn}>
+        <Button className="guest" onClick={handleGuestSignIn}>
               Guest
              
-            </button>
+            </Button>
          
 
     </CardActionArea>
