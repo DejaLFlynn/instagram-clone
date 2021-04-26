@@ -132,8 +132,6 @@ VALUES
     ( '7TmHqX88TbhL6CQ1XtgRyks50Xl2', '1', 'Over the rainbow is the best place on earth'),
     ( 'IEFspTPeWoM03IxTTgAn6OLrhO92', '3', 'More cowbell please!');
 
-
-
 -- INSERT INTO hashtags (hashtags_name)
 --    VALUES 
 --    ( 'whatchaulooking@'),
