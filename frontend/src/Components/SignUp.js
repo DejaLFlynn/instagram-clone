@@ -216,6 +216,7 @@ const SignUpPage = () => {
               >
                 Upload Image
               </Button>
+              By signing up, you agree to our Terms , Data Policy and Cookies Policy .
             </CardContent>
           </div>
           <Box mt={5}></Box>
