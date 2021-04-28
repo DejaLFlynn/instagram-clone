@@ -76,7 +76,7 @@ const SignUpPage = () => {
       let res2 = await axios({
         method: "post",
         url: `${API}/users`,
-        data: { id: res.user.uid, email: email, name: name, image: url },
+        data: { id: res.user.uid, email: email, name: name, image: url , bio:bio},
 
         headers: {
           AuthToken: token,
