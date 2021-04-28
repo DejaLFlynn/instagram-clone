@@ -98,7 +98,7 @@ const getPost = async (req, res, next) => {
 const fetchAllForOne = async (req, res, next) => {
   try {
     let usersPosts = await db.any(
-      "SELECT posts.id, posts.user_id, posts.posts_images, posts.content, users.name FROM posts LEFT JOIN users ON posts.user_id=users.id WHERE users.id = $1",
+      "SELECT posts.id, posts.user_id, posts.posts_images, posts.content, users.name FROM posts LEFT JOIN users ON posts.user_id=users.id WHERE users.id = $1 LIMIT 20",
       [req.params.user_id]
     );
 
@@ -113,7 +113,7 @@ const fetchAllForOne = async (req, res, next) => {
 const getCommentsByPost = async (req, res) => {
   try {
   let comments = await db.any(
-    `SELECT posts.id, comments.id AS comment_id, comments.post_id, comments.user_id, posts.user_id, comments.content, users.user_pic, users.name FROM posts INNER JOIN comments ON posts.id=comments.post_id JOIN users ON users.id= posts.user_id WHERE posts.id = $1 LIMIT 3`,
+    `SELECT posts.id, comments.id AS comment_id, comments.post_id, comments.user_id, posts.user_id, comments.content, users.user_pic, users.name FROM posts INNER JOIN comments ON posts.id=comments.post_id JOIN users ON users.id= posts.user_id WHERE posts.id = $1 LIMIT 5 `,
     [req.params.id]
   );
   res.json({

@@ -6,21 +6,18 @@ import { apiURL } from "../Utils/apiURL";
 import { signUp } from "../Utils/Firebase";
 import { AContext } from "../Providers/Context";
 import { storage } from "../Firebase";
-import Avatar from "@material-ui/core/Avatar";
+
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
+
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Input from "@material-ui/core/Input";
 
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
@@ -216,7 +213,8 @@ const SignUpPage = () => {
               >
                 Upload Image
               </Button>
-              By signing up, you agree to our Terms , Data Policy and Cookies Policy .
+              By signing up, you agree to our Terms , Data Policy and Cookies
+              Policy .
             </CardContent>
           </div>
           <Box mt={5}></Box>

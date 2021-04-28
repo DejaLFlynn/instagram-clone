@@ -4,23 +4,15 @@ import { apiURL } from "../Utils/apiURL";
 import { AContext } from "../Providers/Context";
 import "../CSS/Explorer.css";
 import Avatar from "@material-ui/core/Avatar";
-
 import IconButton from "@material-ui/core/IconButton";
-
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-
 import NewLike from "./NewLike";
-
 import { red } from "@material-ui/core/colors";
 import { CardHeader } from "@material-ui/core";
-
-import NewComments from "./Comments/NewComments";
 import Comments from "./Comments/Comments";
 //component displays posts, image, caption and date created from database
 //grab contexts from all post
@@ -49,8 +41,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: red[500],
   },
   text: {
-    marginLeft: theme.spacing(2),
-    display: "flex",
+    // marginLeft: theme.spacing(2),
+    // textAlign: "left"
+    // display: "flex",
   },
 }));
 
@@ -72,7 +65,6 @@ const Explorer = () => {
   const fetchPosts = async () => {
     try {
       let res = await axios.get(`${API}/posts`);
-
       setPosts(res.data.posts);
       setPic(res.data.pic);
       setPostContent(res.data.content);
@@ -96,33 +88,34 @@ const Explorer = () => {
   }, []);
 
   const showHomePosts = posts.map((post) => {
-    //  debugger
+    // debugger
     return (
-     
-        <Card key={post.id} className={classes.root}>
-          <CardHeader
-            avatar={<Avatar src={post.user_pic}></Avatar>}
-            action={<IconButton aria-label="settings"></IconButton>}
-            title={userName}
-          />
-          <CardMedia
-            className={classes.media}
-            image={post.posts_images}
-            title="userPics"
-          />
-          <NewLike />
-          <CardContent className={classes.text}>
-            <Typography color="textPrimary" >
-              {post.content}
-              {content}
-            </Typography>
-          </CardContent>
+      <Card key={post.id} className={classes.root}>
+        <CardHeader
+          avatar={<Avatar src={post.user_pic}></Avatar>}
+          action={<IconButton aria-label="settings"></IconButton>}
+          title={userName}
+        />
+        <CardMedia
+          className={classes.media}
+          image={post.posts_images}
+          title="userPics"
+        />
+        <NewLike />
+        <CardContent className={classes.text}>
 
-          <CardContent className={classes.text}>
-            <Comments post_id={post.id} user_id={post.user_id} />
-          </CardContent>
-        </Card>
-     
+         <strong>
+
+            {post.name}
+         </strong>
+
+            {"        "}
+            {post.content}
+            <Comments  className={classes.text} post_id={post.id}  user_id={post.user_id} />
+            {content}
+         
+        </CardContent>
+      </Card>
     );
   });
 

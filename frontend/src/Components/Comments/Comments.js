@@ -28,12 +28,13 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       backgroundColor: theme.palette.background.paper,
       position: "left",
-      
     },
   },
 
   name: {
-    textAlign: "left",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "left",
     useStyles: "none",
   },
   avatar: {
@@ -51,6 +52,7 @@ const Comments = ({ post_id, user_id }) => {
   const [content, setContent] = useState("");
   const history = useHistory();
   const classes = useStyles();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let dataObj = {
@@ -64,6 +66,7 @@ const Comments = ({ post_id, user_id }) => {
   const postNewComment = async (body) => {
     try {
       const res = await axios.post(API + `/posts/${post_id}/comments`, body);
+
       setContent(res.data.payload.content);
     } catch (error) {
       console.log(error);
@@ -81,72 +84,48 @@ const Comments = ({ post_id, user_id }) => {
 
   useEffect(() => {
     getComments();
-
   }, []);
   // console.log("comments", comments)
   const displayComments = comments.map((comment) => {
     return (
-    
-        
-          <List key={comment.comment_id} className={classes.root}>
-            <ListItem >
-              <ListItemText
-                secondary={
-                  <React.Fragment>
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      color="textPrimary"
-                    >
-                      <strong>{comment.name}</strong>
-                      {"          "}
-                      {comment.content}
-                    </Typography>
-                  </React.Fragment>
-                }
-              />
-            </ListItem>
-          </List>
-     
+      <List key={comment.comment_id} className={classes.name}>
+        <ListItem className={classes.name}>
+          <strong>{comment.name}</strong>
+
+          {"          "}
+          {comment.content}
+        </ListItem>
+      </List>
     );
   });
 
   return (
- 
-      <div className="body">
-        <Grid
-          container
-          className={classes.root}
-          display="flex"
-          direction="row"
-          // justify="left"
-          // alignItems="left"
-        >
-          <ul>
-            {"        "}
-            {content} {displayComments}
-          </ul>
-          <form onSubmit={handleSubmit}>
-            <FormControl className={classes.margin}>
-              <Input
-                value={commentText}
-                onChange={(e) => setCommentText(e.currentTarget.value)}
-                type="text"
-                placeholder="Add Comment"
-                startAdornment={
-                  <InputAdornment position="start">
-                    <SentimentSatisfiedOutlinedIcon />
-                  </InputAdornment>
-                }
-              />
-            </FormControl>
-              <Button type="submit" color="primary">
-                𝗣𝗼𝘀𝘁
-              </Button>
-          </form>
-        </Grid>
-      </div>
-   
+    <div className="body">
+      <List className={classes.name}>
+        <ListItem className={classes.name}>
+          {content} {displayComments}
+        </ListItem>
+      </List>
+
+      <form onSubmit={handleSubmit}>
+        <FormControl className={classes.margin}>
+          <Input
+            value={commentText}
+            onChange={(e) => setCommentText(e.currentTarget.value)}
+            type="text"
+            placeholder="Add Comment"
+            startAdornment={
+              <InputAdornment position="start">
+                <SentimentSatisfiedOutlinedIcon />
+              </InputAdornment>
+            }
+          />
+        </FormControl>
+        <Button type="submit" color="primary">
+          𝗣𝗼𝘀𝘁
+        </Button>
+      </form>
+    </div>
   );
 };
 export default Comments;

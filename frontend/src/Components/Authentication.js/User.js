@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     alignItems: "stretch",
+    
   },
 
   media: {
@@ -65,13 +66,17 @@ const useStyles = makeStyles((theme) => ({
   },
 
   avatar: {
-    width: "200px",
-    height: "200px",
+    width: "100px",
+    height: "100px",
+    display: "flex",
     left: "20%",
     // backgroundColor: red[500],
     position: "center",
   },
-  userName: {},
+  userName: {
+    // display: 'row',
+    right: "20%",
+  },
   bio: {},
 }));
 
@@ -119,13 +124,15 @@ const User = () => {
           <NavBar />
         </Paper>
       </Grid>
-      <CssBaseline />
-      <Avatar className={classes.avatar} src={userPic}></Avatar>
-
-      <div className={classes.profile}>
-        <h2> {userName}</h2>
-        <p> {bio}</p>
-      </div>
+    
+      <Card className={classes.root}>
+        <Avatar className={classes.root} src={userPic}></Avatar>
+          <Typography className={classes.userName}>
+          <h4>{userName}</h4>
+            {bio}
+          </Typography>
+      </Card>
+   
       <div>
         <img src="https://i.postimg.cc/nh6Y34Hp/Screen-Shot-2021-03-05-at-1-50-34-PM.png" />
       </div>
