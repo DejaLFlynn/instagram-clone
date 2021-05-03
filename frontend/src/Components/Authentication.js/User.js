@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     alignItems: "stretch",
+    marginLeft: theme.spacing(18),
     
   },
 
@@ -60,22 +61,23 @@ const useStyles = makeStyles((theme) => ({
   },
   profile: {
     position: "absolute",
-    left: "40%",
+    left: "140%",
     top: "30%",
     transform: "translate(-50%, -50%)",
   },
 
   avatar: {
-    width: "100px",
-    height: "100px",
+    width: "150px",
+    height: "150px",
     display: "flex",
     left: "20%",
     // backgroundColor: red[500],
-    position: "center",
+    position: "left",
   },
   userName: {
-    // display: 'row',
+    display: 'row',
     right: "20%",
+   
   },
   bio: {},
 }));
@@ -126,12 +128,12 @@ const User = () => {
       </Grid>
     
       <Card className={classes.root}>
-        <Avatar className={classes.root} src={userPic}></Avatar>
+        <Avatar className={classes.avatar} src={userPic}></Avatar>
           <Typography className={classes.userName}>
-          <h4>{userName}
+          <h3>{userName}
           
+          </h3>
             {bio}
-          </h4>
           </Typography>
       </Card>
    

@@ -32,20 +32,18 @@ const useStyles = makeStyles((theme) => ({
   },
 
   name: {
-    display: "flex",
-    // useStyles: "none",
-    flexDirection: "column",
-    padding: "8px 4px",
-		// 	display: "flex",
-	alignItems: "left",
-	display: "flex",
-  textAlign: 'left',
-	flexWrap: "no-wrap",
-  
-  
+    //   display: "flex",
+    //   // useStyles: "none",
+    //   flexDirection: "column",
+    //   padding: "8px 4px",
+    // 	// 	display: "flex",
+    // alignItems: "left",
+    // display: "flex",
+    // textAlign: 'left',
+    // flexWrap: "no-wrap",
   },
-  text:{
-   
+  inline: {
+    display: 'inline',
   },
 
   avatar: {
@@ -80,8 +78,7 @@ const Comments = ({ post_id, user_id }) => {
       const res = await axios.post(API + `/posts/${post_id}/comments`, body);
 
       setContent(res.data.payload.content);
-      setUserName(res.data.payload.name)
-
+      setUserName(res.data.payload.name);
     } catch (error) {
       console.log(error);
     }
@@ -102,26 +99,57 @@ const Comments = ({ post_id, user_id }) => {
   // console.log("comments", comments)
   const displayComments = comments.map((comment) => {
     return (
-      <List key={comment.comment_id} className={classes.name}>
-        <ListItem className={classes.name}>
-          <strong>{comment.name}</strong>
+      <>
+      <ListItem alignItems="left">
+       
+      <ListItemText primary={comment.name }
+         secondary={
+          <Typography
+            component="span"
+            variant="body2"
+            className={classes.inline}
+            color="textSecondary"
+            // alignItems="left"
+         
+          >
+            {comment.content}
+          </Typography>
+     
+      } >
+        
 
-          {"          "}
-          {comment.content}
-        </ListItem>
-      </List>
+      </ListItemText>
+      
+     
+      {/* <ListItemText
+ 
+        secondary={
+            <Typography
+              component="span"
+              variant="body2"
+              className={classes.inline}
+              color="textSecondary"
+              alignItems="left"
+            >
+              {comment.content}
+            </Typography>
+       
+        }
+          /> */}
+    </ListItem>
+      {/* <ListItem className={classes.name}> */}
+        {/* <ListItemText primary={comment.name } secondary={  comment.content} /> */}
+        {/* <span>{comment.name + " "}</span>
+        {comment.content} */}
+      {/* </ListItem> */}
+        </>
     );
   });
 
   return (
     <div className="body">
-      <List className={classes.name}>
-        <ListItem className={classes.name}>
-          {content} 
-          {"          "}
-        
-          {displayComments}
-        </ListItem>
+      <List>
+        {displayComments}
       </List>
 
       <form onSubmit={handleSubmit}>
@@ -146,4 +174,3 @@ const Comments = ({ post_id, user_id }) => {
   );
 };
 export default Comments;
-
