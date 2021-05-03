@@ -192,7 +192,15 @@ const SignUpPage = () => {
 
                 <input type="file" onChange={handleChange} />
                 <br />
-
+                <Button
+                onClick={handleUpload}
+                fullWidth
+                variant="contained"
+                color="primary"
+                label="Log In"
+              >
+                Upload Image
+              </Button>
                 <Button
                   type="submit"
                   fullWidth
@@ -204,15 +212,7 @@ const SignUpPage = () => {
                   Sign Up
                 </Button>
               </form>
-              <Button
-                onClick={handleUpload}
-                fullWidth
-                variant="contained"
-                color="primary"
-                label="Log In"
-              >
-                Upload Image
-              </Button>
+              
               By signing up, you agree to our Terms , Data Policy and Cookies
               Policy .
             </CardContent>
