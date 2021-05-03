@@ -14,7 +14,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { GridList } from "@material-ui/core";
 // import { ImageListItem } from "@material-ui/core";
 // import { ImageList } from "@material-ui/core";
-// import Upload from "../Upload"
+import Upload from "../Upload"
 
 // import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
@@ -74,16 +74,6 @@ const UsersGallery = () => {
     fetchUserById();
   }, [userPosts, token]);
 
-  const display = userPosts.map((post) => {
-    return (
-      <div key={post.id} className="contentDisplay">
-        <img src={post.posts_images} />
-
-
-        
-      </div>
-    );
-  });
   
   return (
 		<div id="PostsGalleryDiv" className={classes.root}>
@@ -104,7 +94,7 @@ const UsersGallery = () => {
 								className="displayPicturesPost"
 							
 							/>
-            {display}
+          <Upload />
 						</GridListTile>
 					);
 				})}
