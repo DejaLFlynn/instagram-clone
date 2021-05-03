@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     boxShadow: "none",
     backgroundColor: "white",
+    marginLeft: theme.spacing(10),
+    paddingRight: '40%'
   },
   grow: {
     flexGrow: 1,
@@ -115,7 +117,7 @@ const NavBar = () => {
   return (
     <div className={classes.grow}>
       <AppBar className={classes.root} position="static">
-        <Toolbar>
+        <Toolbar >
           {/* <IconButton
             edge="start"
             className={classes.menuButton}
@@ -124,9 +126,12 @@ const NavBar = () => {
           >
             <MenuIcon />
           </IconButton> */}
-          <Typography className={classes.title} variant="h5" noWrap>
+          {/* <Typography className={classes.title} variant="h5" noWrap>
             ℑ𝓂𝓈𝓉𝒶𝑔𝓇𝒶𝓂
-          </Typography>
+          </Typography> */}
+          <img src="https://i.postimg.cc/Y0bnPM8P/Screen-Shot-2021-05-03-at-10-29-30-AM.png" width="300px">
+          
+          </img>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

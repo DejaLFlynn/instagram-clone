@@ -24,19 +24,30 @@ import Grid from "@material-ui/core/Grid";
 // display a form for leaving new comments on post
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
-    "& > *": {
-      backgroundColor: theme.palette.background.paper,
-      position: "left",
-    },
+    // flexGrow: 1,
+    // "& > *": {
+    //   backgroundColor: theme.palette.background.paper,
+    //   position: "left",
+    // },
   },
 
   name: {
     display: "flex",
+    // useStyles: "none",
     flexDirection: "column",
-    justifyContent: "left",
-    useStyles: "none",
+    padding: "8px 4px",
+		// 	display: "flex",
+	alignItems: "left",
+	display: "flex",
+  textAlign: 'left',
+	flexWrap: "no-wrap",
+  
+  
   },
+  text:{
+   
+  },
+
   avatar: {
     backgroundColor: red[500],
   },
@@ -48,6 +59,7 @@ const Comments = ({ post_id, user_id }) => {
   const { currentUsers, token, loading } = useContext(AContext);
   const [comments, setComments] = useState([]);
   const [userPic, setUserPic] = useState([]);
+  const [userName, setUserName] = useState([]);
   const API = apiURL();
   const [content, setContent] = useState("");
   const history = useHistory();
@@ -68,6 +80,8 @@ const Comments = ({ post_id, user_id }) => {
       const res = await axios.post(API + `/posts/${post_id}/comments`, body);
 
       setContent(res.data.payload.content);
+      setUserName(res.data.payload.name)
+
     } catch (error) {
       console.log(error);
     }
@@ -103,7 +117,10 @@ const Comments = ({ post_id, user_id }) => {
     <div className="body">
       <List className={classes.name}>
         <ListItem className={classes.name}>
-          {content} {displayComments}
+          {content} 
+          {"          "}
+        
+          {displayComments}
         </ListItem>
       </List>
 
@@ -129,3 +146,4 @@ const Comments = ({ post_id, user_id }) => {
   );
 };
 export default Comments;
+
