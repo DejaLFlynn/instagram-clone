@@ -128,8 +128,10 @@ const User = () => {
       <Card className={classes.root}>
         <Avatar className={classes.root} src={userPic}></Avatar>
           <Typography className={classes.userName}>
-          <h4>{userName}</h4>
+          <h4>{userName}
+          
             {bio}
+          </h4>
           </Typography>
       </Card>
    

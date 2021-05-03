@@ -9,7 +9,7 @@ import Home from "./Components/Home";
 import Context from "./Providers/Context";
 import { AuthRoute, ProtectedRoute } from "./Utils/Route";
 import MainPage from "./Components/MainPage";
-
+import Error from './Components/Error'
 function App() {
   return (
     <div className="App">
@@ -41,6 +41,7 @@ function App() {
               <NavBar />
             </ProtectedRoute>
             {/* </LoadingComponent> */}
+            <Route path="*" component={Error} />
           </Switch>
 
           <footer>

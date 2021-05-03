@@ -49,7 +49,7 @@ const UsersGallery = () => {
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const API = apiURL();
   const { currentUsers, token } = useContext(AContext);
-  const [posts, setPosts] = useState([]);
+  const [userPosts, setPosts] = useState([]);
   const classes = useStyles();
 
   const fetchUserById = async () => {
@@ -72,8 +72,18 @@ const UsersGallery = () => {
 
   useEffect(() => {
     fetchUserById();
-  }, [posts, token]);
+  }, [userPosts, token]);
 
+  const display = userPosts.map((post) => {
+    return (
+      <div key={post.id} className="contentDisplay">
+        <img src={post.posts_images} />
+
+
+        
+      </div>
+    );
+  });
   
   return (
 		<div id="PostsGalleryDiv" className={classes.root}>
@@ -84,20 +94,17 @@ const UsersGallery = () => {
 				spacing={30}
 				className={classes.GridList}
 			>
-				{posts.map((post) => {
+				{userPosts.map((postImg) => {
 					return (
-						<GridListTile
-						
-							id="GridListTile"
-						
-						>
+						<GridListTile id="GridListTile">
 							<img
-								key={post.id}
-								src={post.posts_images}
+								key={postImg.id}
+								src={postImg.posts_images}
 								alt="user_Post"
 								className="displayPicturesPost"
 							
 							/>
+            {display}
 						</GridListTile>
 					);
 				})}
