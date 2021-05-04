@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from '@material-ui/core/TextField';
 
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -41,9 +42,11 @@ const SignIn = () => {
     }
   };
   const handleGuestSignIn = async () => {
-    await login("guest", "account");
-    history.push("/posts");
-  };
+    
+  
+    await login("guest109@gmail.com","1234abcd");
+    history.push("/posts")
+}
   return (
     <div className="SignIn">
       <Card className={classes.root}>

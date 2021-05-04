@@ -79,6 +79,7 @@ VALUES
     ('0MiN674Er2ajv7czWwudVK2BmH83', 'lyndonSeb', 'https://i.pinimg.com/originals/dc/df/b1/dcdfb182a25ad1617a47422024e16a64.jpg', 'uncle pig', 'sebastianf@pursuit.org'),
     ('8Z8jBn31fIfHveQYVUb8BziZ9iE2', 'alicial', 'https://i.pinimg.com/236x/65/e6/26/65e626d11b9a4b1688ff73f7bf58f835.jpg', 'grandma pig', 'aliciafr@pursuit.org'),
     ('IEFspTPeWoM03IxTTgAn6OLrhO92', 'user2', 'https://i.pinimg.com/originals/04/7d/fc/047dfc2552d91ae45f5c5362e71f4e43.gif', 'user account', 'guest3@gmail.com'),
+    ('0bZCreyco8Odq8eZXkPDuLr5MGj1', 'bestGuest', 'https://i.pinimg.com/originals/04/7d/fc/047dfc2552d91ae45f5c5362e71f4e43.gif', 'guest account', 'guest109@gmail.com'),
     ('ogP2B8DhiCgsBsTvlBVwGm5Mm6p2', 'Shawnq', 'https://cdn.shopify.com/s/files/1/0899/1470/t/14/assets/george-pig-related.png?v=10021200618096522117', 'george pig', 'Shawnc@pursuit.org');
 
 

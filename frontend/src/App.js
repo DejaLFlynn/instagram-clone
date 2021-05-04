@@ -11,6 +11,8 @@ import { AuthRoute, ProtectedRoute } from "./Utils/Route";
 import MainPage from "./Components/MainPage";
 import Error from './Components/Error'
 function App() {
+
+  
   return (
     <div className="App">
       <div className="app_header">
