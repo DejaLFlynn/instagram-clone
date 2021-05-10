@@ -51,8 +51,8 @@ const useStyles = makeStyles((theme) => ({
   // },
   text: {
     marginLeft: theme.spacing(2),
-    display: "flex",
-    flexDirection: "column"
+    display: 'flex',
+    flexDirection: 'row',
   },
 }));
 

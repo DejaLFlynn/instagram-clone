@@ -40,15 +40,12 @@ import Paper from "@material-ui/core/Paper";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    alignItems: "stretch",
+    // alignItems: "stretch",
     marginLeft: theme.spacing(18),
     
   },
 
-  media: {
-    height: 0,
-    paddingTop: "56.25%", // 16:9
-  },
+ 
   expand: {
     transform: "rotate(0deg)",
     marginLeft: "auto",
@@ -60,10 +57,9 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(180deg)",
   },
   profile: {
-    position: "absolute",
-    left: "140%",
-    top: "30%",
-    transform: "translate(-50%, -50%)",
+    display: 'flex',
+    flexDirection: 'row',
+    paddingLeft: '60%',
   },
 
   avatar: {
@@ -73,8 +69,10 @@ const useStyles = makeStyles((theme) => ({
     left: "20%",
     // backgroundColor: red[500],
     position: "left",
+
   },
   userName: {
+    
     display: 'row',
     right: "20%",
    
@@ -127,14 +125,17 @@ const User = () => {
         </Paper>
       </Grid>
     
-      <Card className={classes.root}>
+      <Card className={classes.root} >
         <Avatar className={classes.avatar} src={userPic}></Avatar>
+        <div className={classes.profile}>
+
           <Typography className={classes.userName}>
           <h3>{userName}
           
           </h3>
             {bio}
           </Typography>
+        </div>
       </Card>
    
       <div>
