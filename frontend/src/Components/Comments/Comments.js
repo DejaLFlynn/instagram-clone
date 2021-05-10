@@ -100,7 +100,7 @@ const Comments = ({ post_id, user_id }) => {
   const displayComments = comments.map((comment) => {
     return (
       <>
-      <ListItem alignItems="left">
+      <ListItem >
        
       <ListItemText primary={comment.name }
          secondary={
