@@ -11,10 +11,10 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 app.use(fileUpload())
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-  });
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     next();
+//   });
 const users = require("./routes/users/users");
 const posts = require('./routes/posts/posts');
 const followers = require('./routes/followers/followers')
