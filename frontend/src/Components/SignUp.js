@@ -3,7 +3,7 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { apiURL } from "../Utils/apiURL";
-import { signUp } from "../Utils/Firebase";
+import { signUp,login } from "../Utils/Firebase";
 import { AContext } from "../Providers/Context";
 import { storage } from "../Firebase";
 
@@ -27,7 +27,7 @@ import CardContent from "@material-ui/core/CardContent";
 //password
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 445,
+    maxWidth: 645,
     padding: 50,
     backgroundColor: "white",
     color: theme.palette.text.secondary,
@@ -116,6 +116,21 @@ const SignUpPage = () => {
       }
     );
   };
+  // const handleSubmit2 = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await login(email, password);
+  //     history.push(`/posts`);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  const handleGuestSignIn = async () => {
+    
+  
+    await login("guest109@gmail.com","1234abcd");
+    history.push("/posts")
+}
 
   return (
     <>
@@ -218,9 +233,32 @@ const SignUpPage = () => {
             </CardContent>
           </div>
           <Box mt={5}></Box>
+          <NavLink to={"/"}>
+              Have an account?
+              <span className="span"> Login </span>
+            </NavLink>
+            <Button
+              className="guest"
+              onClick={handleGuestSignIn}
+            >
+              Guest
+            </Button>
+            <p>Get the App</p>
+            <img
+              className="appleStore"
+              src="https://losserranosgolfclub.com/wp-content/uploads/Download-on-the-App-Store-button.png"
+              alt="appleStore"
+              width="100px"
+            ></img>
+            <img
+              className="android"
+              src="https://www.fcsok.org/wp-content/uploads/2020/04/get-it-on-google-play-badge.png"
+              alt="googlePlay"
+              width="120px"
+            ></img>
         </Card>
-        <Card className={classes.root}>
-          <CardActionArea className={classes.root} padding="10px">
+        {/* <Card className={classes.root}>
+          <CardActionArea className={classes.root} >
             <NavLink to={"/"}>
               Have an account?
               <span className="span"> Login </span>
@@ -245,7 +283,7 @@ const SignUpPage = () => {
               width="120px"
             ></img>
           </CardActionArea>
-        </Card>
+        </Card> */}
       </Grid>
     </>
   );

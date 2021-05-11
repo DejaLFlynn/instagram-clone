@@ -11,10 +11,13 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    display: 'flex',
+    
     alignItems: "stretch",
   },
   column: {
     flexDirection: "column",
+    alignContent: "center"
   },
   paper: {
     padding: theme.spacing(2),
@@ -41,11 +44,7 @@ const MainPage = () => {
                 <Explorer />
               </Paper>
             </Grid>
-            <Grid item xs={3}>
-              <Paper className={classes.paper}>
-                <SideBar />
-              </Paper>
-            </Grid>
+         
           </Grid>
         </Grid>
       </Grid>

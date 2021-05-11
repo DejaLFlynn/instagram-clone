@@ -13,8 +13,8 @@ const SideBar = () => {
   return (
     <div className={classes.root}>
       <div style={{ width: "100%" }}></div>
-
-      <img src="https://i.postimg.cc/Sxrx5RNv/Screen-Shot-2021-03-01-at-11-58-03-AM.png"></img>
+{/* 
+      <img src="https://i.postimg.cc/Sxrx5RNv/Screen-Shot-2021-03-01-at-11-58-03-AM.png"></img> */}
     </div>
   );
 };
