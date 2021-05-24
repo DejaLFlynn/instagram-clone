@@ -16,6 +16,7 @@ req.body.id = req.hashtags.id;
   }
 };
 
+
 const searchHashtag = async (req, res, next) => {
   try {
     let search = await db.any("SELECT hashtags_name FROM hashtags LIKE '#%'" )

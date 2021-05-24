@@ -4,7 +4,7 @@ const fileUpload = require('express-fileupload')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
-
+const host = '0.0.0.0';
 const PORT = process.env.PORT;
 const app = express();
 app.use(cors());
@@ -64,6 +64,6 @@ app.get('/posts', (req, res) => {
 //         res.json({fileName: file.name, filePath: `/uploads/${file.name}`})
 //     })
 // })
-app.listen(PORT, () => {
+app.listen(PORT, host, () => {
     console.log("Listening to port ", PORT);
 })
