@@ -22,14 +22,14 @@ const createPost = async (req, res) => {
       "INSERT INTO posts(user_id, posts_images, content) VALUES($1, $2, $3) RETURNING *",
     [req.body.user_id, req.body.posts_images, req.body.content]
     );
-    res.status(200).json({
+    res.status(201).json({
       status: "success",
       message: "a new post was created",
       payload: newPost
     });
   } catch (err) {
     console.log(err)
-    res.status(404).json({
+    res.status(500).json({
       status: err,
       message: "Post was not created",
       payload: null,
