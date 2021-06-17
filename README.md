@@ -1,5 +1,5 @@
 # DejaF_CTA2020
-Visit at https://cta-imstagram.netlify.app/signup
+Visit at https://cta-imstagram.netlify.app/
 Instagram
 users email, id, username
 posts id, image, text, comments from followers, hashtags, likes /and timestamps
