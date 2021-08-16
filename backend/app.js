@@ -7,6 +7,8 @@ require('dotenv').config();
 const host = '0.0.0.0';
 const PORT = process.env.PORT;
 const app = express();
+var StatsD = require('hot-shots');
+var dogstatsd = new StatsD();
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
@@ -64,6 +66,11 @@ app.get('/posts', (req, res) => {
 //         res.json({fileName: file.name, filePath: `/uploads/${file.name}`})
 //     })
 // })
+
+
+// Increment a counter.
+dogstatsd.increment('page.views')
+
 app.listen(PORT, host, () => {
     console.log("Listening to port ", PORT);
 })

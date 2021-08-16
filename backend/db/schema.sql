@@ -50,7 +50,7 @@ CREATE TABLE likes
 (
     id SERIAL PRIMARY KEY,
     user_id VARCHAR REFERENCES users(id),
-    -- follower_id VARCHAR REFERENCES followers(id),
+
     post_id INTEGER REFERENCES posts(id),
     likes INTEGER
 );
@@ -59,15 +59,11 @@ CREATE TABLE follows
 (
     id SERIAL PRIMARY KEY,
     users_id VARCHAR REFERENCES users(id) ON DELETE CASCADE
-    -- following_timestap TIMESTAMPTZ DEFAULT Now() 
+    
 );
 
 
--- CREATE TABLE hashtags (
---     id SERIAL PRIMARY KEY,
---     posts_id INT REFERENCES pictures(id),
---     hashtags_name TEXT,
--- );
+
 
 INSERT INTO users
     (id, name, user_pic, bio, email)
