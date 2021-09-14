@@ -1,4 +1,4 @@
-# DejaF_CTA2020
+# Instagram Clone
 Visit at https://cta-imstagram.netlify.app/
 Instagram
 users email, id, username
