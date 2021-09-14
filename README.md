@@ -29,6 +29,8 @@ As my time at the bootcamp I attended winded down, I wanted to recreate a clone 
 # Visit
 https://cta-imstagram.netlify.app/
 
+#Trello Board
+https://trello.com/b/104oE93B/social-media-project
 
 1. Fork and clone this repo to your local machine. To clone, enter:
 
