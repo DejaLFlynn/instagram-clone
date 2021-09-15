@@ -1,6 +1,6 @@
 # Instagram Clone
 
-![Instagram Clone]()
+![Instagram Clone](https://github.com/DejaLFlynn/instagram-clone/blob/master/frontend/src/assets/instagram_clone.png)
 
 
 
